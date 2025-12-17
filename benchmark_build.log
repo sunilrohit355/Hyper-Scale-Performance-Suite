@@ -1,0 +1,1177 @@
+Requirement already satisfied: pip in ./.venv/lib/python3.12/site-packages (24.0)
+Collecting pip
+  Using cached pip-25.3-py3-none-any.whl.metadata (4.7 kB)
+Collecting setuptools
+  Using cached setuptools-80.9.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting wheel
+  Using cached wheel-0.45.1-py3-none-any.whl.metadata (2.3 kB)
+Using cached pip-25.3-py3-none-any.whl (1.8 MB)
+Using cached setuptools-80.9.0-py3-none-any.whl (1.2 MB)
+Using cached wheel-0.45.1-py3-none-any.whl (72 kB)
+Installing collected packages: wheel, setuptools, pip
+  Attempting uninstall: pip
+    Found existing installation: pip 24.0
+    Uninstalling pip-24.0:
+      Successfully uninstalled pip-24.0
+Successfully installed pip-25.3 setuptools-80.9.0 wheel-0.45.1
+==============================================
+   HPC Environment Bootstrap (Smart Mode)
+==============================================
+
+=== Step 1: Updating System ===
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 https://apt.grafana.com stable InRelease
+Hit:2 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64  InRelease
+Hit:3 https://packages.microsoft.com/repos/code stable InRelease
+Hit:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:5 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:6 http://in.archive.ubuntu.com/ubuntu noble InRelease
+Hit:7 http://in.archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:8 http://in.archive.ubuntu.com/ubuntu noble-backports InRelease
+Reading package lists...
+Building dependency tree...
+Reading state information...
+77 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+=== Step 2: Checking Core Build Tools ===
+[OK] build-essential already installed
+[OK] gcc already installed
+[OK] g++ already installed
+[OK] gfortran already installed
+[OK] make already installed
+[OK] cmake already installed
+[OK] autoconf already installed
+[OK] automake already installed
+[OK] libtool already installed
+[OK] pkg-config already installed
+
+=== Step 3: Checking Essential System Libraries ===
+[OK] libaio-dev already installed
+[OK] libnuma-dev already installed
+[OK] libopenmpi-dev already installed
+[OK] libssl-dev already installed
+[OK] zlib1g-dev already installed
+[OK] libhwloc-dev already installed
+
+=== Step 4: Checking MPI Stack ===
+[OK] mpich already installed
+[OK] mpich-doc already installed
+[OK] libmpich-dev already installed
+
+=== Step 5: Checking Python Build Dependencies ===
+[OK] python3-dev already installed
+[OK] python3-venv already installed
+[OK] python3-pip already installed
+[OK] python3-wheel already installed
+[OK] python3-setuptools already installed
+
+=== Step 6: Checking GPU / CUDA Environment ===
+[OK] NVIDIA GPU hardware detected (4 GPU(s))
+[OK] NVIDIA driver installed
+NVIDIA GeForce RTX 2060 SUPER, 580.95.05
+[OK] CUDA toolkit installed
+Cuda compilation tools, release 13.1, V13.1.80
+
+=== Step 7: Checking Network Utilities ===
+[OK] net-tools already installed
+[OK] iputils-ping already installed
+[OK] ethtool already installed
+[OK] dnsutils already installed
+[OK] openssh-client already installed
+[OK] openssh-server already installed
+[OK] iperf3 already installed
+
+=== Step 8: Checking Storage/I/O Utilities ===
+[OK] smartmontools already installed
+[OK] nvme-cli already installed
+[OK] hdparm already installed
+[OK] fio already installed
+[OK] iozone3 already installed
+
+=== Step 9: Installing HPL / HPCG Prerequisites (BLAS/LAPACK) ===
+[OK] libblas-dev already installed
+[OK] liblapack-dev already installed
+[OK] libscalapack-mpi-dev already installed
+[OK] libopenblas-dev already installed
+
+=== Step 10: Installing OSU Microbenchmark Prerequisites (IB/PAPI) ===
+[OK] rdma-core already installed
+[OK] libibverbs-dev already installed
+[OK] ibutils already installed
+[OK] perftest already installed
+[OK] libpapi-dev already installed
+[OK] libpfm4-dev already installed
+
+=== Step 11: Final Verification Tools ===
+[OK] sysbench already installed
+[OK] stress-ng already installed
+[OK] wget already installed
+[OK] curl already installed
+
+==============================================
+   Environment prerequisites setup complete
+==============================================
+====================================================
+           HPC BENCHMARK UTILITY (Installer + Runner)
+====================================================
+[2025-12-17 21:16:33] [SETUP] Running initial environment check for build tools...
+[2025-12-17 21:16:33] [INFO] Ensuring common build dependencies...
+[2025-12-17 21:16:33] [INFO] Core dependencies (MPI, compilers) appear installed. Skipping build dependency install.
+[2025-12-17 21:16:33] [SETUP] Starting interactive multi-select menu.
+[2025-12-17 21:16:42] Run All option selected.
+[2025-12-17 21:16:42] >>> Starting forced execution of sysbench_cpu <<<
+[2025-12-17 21:16:42] --- Running Sysbench CPU Test ---
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 16
+Initializing random number generator from current time
+
+
+Prime numbers limit: 20000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:  5711.82
+
+General statistics:
+    total time:                          10.0022s
+    total number of events:              57140
+
+Latency (ms):
+         min:                                    1.95
+         avg:                                    2.80
+         max:                                   19.35
+         95th percentile:                        3.62
+         sum:                               159998.51
+
+Threads fairness:
+    events (avg/stddev):           3571.2500/80.11
+    execution time (avg/stddev):   9.9999/0.00
+
+[2025-12-17 21:16:52] --- Sysbench Summary ---
+    events per second:  5711.82
+[2025-12-17 21:16:52] ------------------------
+
+[2025-12-17 21:16:52] >>> Starting forced execution of stream_memory <<<
+[2025-12-17 21:16:52] --- Running STREAM Memory Bandwidth Test ---
+-------------------------------------------------------------
+STREAM version $Revision: 5.10 $
+-------------------------------------------------------------
+This system uses 8 bytes per array element.
+-------------------------------------------------------------
+Array size = 10000000 (elements), Offset = 0 (elements)
+Memory per array = 76.3 MiB (= 0.1 GiB).
+Total memory required = 228.9 MiB (= 0.2 GiB).
+Each kernel will be executed 10 times.
+ The *best* time for each kernel (excluding the first iteration)
+ will be used to compute the reported bandwidth.
+-------------------------------------------------------------
+Number of Threads requested = 16
+Number of Threads counted = 16
+-------------------------------------------------------------
+Your clock granularity/precision appears to be 1 microseconds.
+Each test below will take on the order of 9654 microseconds.
+   (= 9654 clock ticks)
+Increase the size of the arrays if this shows that
+you are not getting at least 20 clock ticks per test.
+-------------------------------------------------------------
+WARNING -- The above is only a rough guideline.
+For best results, please be sure you know the
+precision of your system timer.
+-------------------------------------------------------------
+Function    Best Rate MB/s  Avg time     Min time     Max time
+Copy:           32909.4     0.006383     0.004862     0.011945
+Scale:          18654.8     0.011328     0.008577     0.017504
+Add:            25496.6     0.012894     0.009413     0.017690
+Triad:          25477.9     0.012089     0.009420     0.016831
+-------------------------------------------------------------
+Solution Validates: avg error less than 1.000000e-13 on all three arrays
+-------------------------------------------------------------
+[2025-12-17 21:16:52] --- STREAM Summary (Triad Bandwidth) ---
+Triad:          25477.9     0.012089     0.009420     0.016831
+[2025-12-17 21:16:52] ----------------------------------------
+
+[2025-12-17 21:16:52] >>> Starting forced execution of fio_disk_rw <<<
+[2025-12-17 21:16:52] --- Running Fio Random Read/Write Test ---
+rand_rw_test: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=16
+fio-3.36
+Starting 1 process
+
+rand_rw_test: (groupid=0, jobs=1): err= 0: pid=1982853: Wed Dec 17 21:16:54 2025
+  read: IOPS=75.0k, BW=293MiB/s (307MB/s)(512MiB/1747msec)
+    slat (nsec): min=705, max=40892, avg=2326.90, stdev=1906.61
+    clat (nsec): min=275, max=8259.6k, avg=173126.87, stdev=287596.77
+     lat (nsec): min=1025, max=8261.9k, avg=175453.77, stdev=287778.52
+    clat percentiles (nsec):
+     |  1.00th=[    294],  5.00th=[    318], 10.00th=[   2008],
+     | 20.00th=[   5792], 30.00th=[  12352], 40.00th=[  72192],
+     | 50.00th=[ 110080], 60.00th=[ 146432], 70.00th=[ 203776],
+     | 80.00th=[ 268288], 90.00th=[ 362496], 95.00th=[ 489472],
+     | 99.00th=[1662976], 99.50th=[1908736], 99.90th=[2375680],
+     | 99.95th=[2801664], 99.99th=[6651904]
+   bw (  KiB/s): min=151416, max=372912, per=97.55%, avg=292674.67, stdev=122710.32, samples=3
+   iops        : min=37854, max=93228, avg=73168.67, stdev=30677.58, samples=3
+  write: IOPS=75.0k, BW=293MiB/s (307MB/s)(512MiB/1747msec); 0 zone resets
+    slat (nsec): min=1430, max=74274, avg=3074.17, stdev=2182.21
+    clat (usec): min=11, max=6412, avg=33.77, stdev=32.69
+     lat (usec): min=17, max=6413, avg=36.85, stdev=32.89
+    clat percentiles (usec):
+     |  1.00th=[   19],  5.00th=[   22], 10.00th=[   23], 20.00th=[   26],
+     | 30.00th=[   28], 40.00th=[   30], 50.00th=[   32], 60.00th=[   34],
+     | 70.00th=[   37], 80.00th=[   40], 90.00th=[   45], 95.00th=[   52],
+     | 99.00th=[   87], 99.50th=[   98], 99.90th=[  115], 99.95th=[  121],
+     | 99.99th=[  139]
+   bw (  KiB/s): min=151464, max=370064, per=97.23%, avg=291858.67, stdev=121848.78, samples=3
+   iops        : min=37866, max=92516, avg=72964.67, stdev=30462.19, samples=3
+  lat (nsec)   : 500=4.47%, 750=0.11%, 1000=0.01%
+  lat (usec)   : 2=0.40%, 4=2.89%, 10=5.65%, 20=5.61%, 50=47.56%
+  lat (usec)   : 100=6.97%, 250=14.89%, 500=9.02%, 750=0.99%, 1000=0.35%
+  lat (msec)   : 2=0.92%, 4=0.15%, 10=0.01%
+  cpu          : usr=11.00%, sys=43.36%, ctx=91177, majf=0, minf=16
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=131040,131104,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+
+Run status group 0 (all jobs):
+   READ: bw=293MiB/s (307MB/s), 293MiB/s-293MiB/s (307MB/s-307MB/s), io=512MiB (537MB), run=1747-1747msec
+  WRITE: bw=293MiB/s (307MB/s), 293MiB/s-293MiB/s (307MB/s-307MB/s), io=512MiB (537MB), run=1747-1747msec
+
+Disk stats (read/write):
+  nvme0n1: ios=74242/122760, sectors=593936/982080, merge=0/0, ticks=20436/2420, in_queue=22855, util=67.28%
+[2025-12-17 21:16:54] --- FIO Summary (IOPS) ---
+[2025-12-17 21:16:54] --------------------------
+
+[2025-12-17 21:16:54] >>> Starting forced execution of ior_parallel_io <<<
+[2025-12-17 21:16:54] --- Running IOR Parallel I/O Test (Read/Write) ---
+[2025-12-17 21:16:54] [EXEC] Running mpirun -np 4 /home/acts/Desktop/Project_final/tools/ior/install/bin/ior -a POSIX -w -r -F -t 1m -b 100m -i 1 -o /home/acts/Desktop/Project_final/tools/ior_test_file.dat
+IOR-4.1.0+dev: MPI Coordinated Test of Parallel I/O
+Began               : Wed Dec 17 21:16:55 2025
+Command line        : /home/acts/Desktop/Project_final/tools/ior/install/bin/ior -a POSIX -w -r -F -t 1m -b 100m -i 1 -o /home/acts/Desktop/Project_final/tools/ior_test_file.dat
+Machine             : Linux rahul
+TestID              : 0
+StartTime           : Wed Dec 17 21:16:55 2025
+Path                : /home/acts/Desktop/Project_final/tools/ior_test_file.dat.00000000
+FS                  : 95.5 GiB   Used FS: 68.9%   Inodes: 6.1 Mi   Used Inodes: 7.8%
+
+Options: 
+api                 : POSIX
+apiVersion          : 
+test filename       : /home/acts/Desktop/Project_final/tools/ior_test_file.dat
+access              : file-per-process
+type                : independent
+segments            : 1
+ordering in a file  : sequential
+ordering inter file : no tasks offsets
+nodes               : 1
+tasks               : 4
+clients per node    : 4
+memoryBuffer        : CPU
+dataAccess          : CPU
+GPUDirect           : 0
+repetitions         : 1
+xfersize            : 1 MiB
+blocksize           : 100 MiB
+aggregate filesize  : 400 MiB
+
+Results: 
+
+access    bw(MiB/s)  IOPS       Latency(s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ----       ----------  ---------- ---------  --------   --------   --------   --------   ----
+write     12022      12033      0.000332    102400     1024.00    0.000086   0.033241   0.000771   0.033272   0   
+read      26112      26127      0.000153    102400     1024.00    0.000006   0.015310   0.000119   0.015319   0   
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev   Max(OPs)   Min(OPs)  Mean(OPs)     StdDev    Mean(s) Stonewall(s) Stonewall(MiB) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt   blksiz    xsize aggs(MiB)   API RefNum
+write       12022.11   12022.11   12022.11       0.00   12022.11   12022.11   12022.11       0.00    0.03327         NA            NA     0      4   4    1   1     0        1         0    0      1 104857600  1048576     400.0 POSIX      0
+read        26111.59   26111.59   26111.59       0.00   26111.59   26111.59   26111.59       0.00    0.01532         NA            NA     0      4   4    1   1     0        1         0    0      1 104857600  1048576     400.0 POSIX      0
+Finished            : Wed Dec 17 21:16:55 2025
+[2025-12-17 21:16:55] --- IOR Summary ---
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev   Max(OPs)   Min(OPs)  Mean(OPs)     StdDev    Mean(s) Stonewall(s) Stonewall(MiB) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt   blksiz    xsize aggs(MiB)   API RefNum
+[2025-12-17 21:16:55] Max Write Bandwidth: 0 MiB/s
+[2025-12-17 21:16:55] Max Read Bandwidth: 0 MiB/s
+[2025-12-17 21:16:55] -------------------
+
+[2025-12-17 21:16:55] >>> Starting forced execution of hpl_linpack <<<
+[2025-12-17 21:16:55] [EXEC] Running HPL with mpirun -np 16. Results may take time.
+[2025-12-17 21:16:56] [OK] HPL test succeeded.
+[2025-12-17 21:16:56] [RESULT] HPL Final Result: Gflops Gflops
+
+[2025-12-17 21:16:56] >>> Starting forced execution of osu_latency <<<
+[2025-12-17 21:16:56] --- Running OSU Microbenchmarks (Latency) ---
+[2025-12-17 21:16:56] [INFO] Preparing OSU installation directory: /home/acts/Desktop/Project_final/tools/osu-micro-benchmarks
+WARNING: timestamping does nothing in combination with -O. See the manual
+for details.
+
+--2025-12-17 21:16:56--  http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-7.3.tar.gz
+Resolving mvapich.cse.ohio-state.edu (mvapich.cse.ohio-state.edu)... 164.107.127.104
+Connecting to mvapich.cse.ohio-state.edu (mvapich.cse.ohio-state.edu)|164.107.127.104|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-7.3.tar.gz [following]
+--2025-12-17 21:16:57--  https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-7.3.tar.gz
+Connecting to mvapich.cse.ohio-state.edu (mvapich.cse.ohio-state.edu)|164.107.127.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 947189 (925K) [application/octet-stream]
+Saving to: ‘osu-micro-benchmarks-7.3.tar.gz’
+
+     0K .......... .......... .......... .......... ..........  5%  211K 4s
+    50K .......... .......... .......... .......... .......... 10%  212K 4s
+   100K .......... .......... .......... .......... .......... 16% 1.58M 3s
+   150K .......... .......... .......... .......... .......... 21%  242K 3s
+   200K .......... .......... .......... .......... .......... 27%  212K 3s
+   250K .......... .......... .......... .......... .......... 32% 1.60M 2s
+   300K .......... .......... .......... .......... .......... 37%  242K 2s
+   350K .......... .......... .......... .......... .......... 43%  212K 2s
+   400K .......... .......... .......... .......... .......... 48%  212K 2s
+   450K .......... .......... .......... .......... .......... 54% 1.61M 1s
+   500K .......... .......... .......... .......... .......... 59%  242K 1s
+   550K .......... .......... .......... .......... .......... 64% 1.60M 1s
+   600K .......... .......... .......... .......... .......... 70%  242K 1s
+   650K .......... .......... .......... .......... .......... 75% 1.63M 1s
+   700K .......... .......... .......... .......... .......... 81%  242K 1s
+   750K .......... .......... .......... .......... .......... 86%  212K 0s
+   800K .......... .......... .......... .......... .......... 91% 27.1M 0s
+   850K .......... .......... .......... .......... .......... 97%  213K 0s
+   900K .......... .......... ....                            100% 55.9M=2.8s
+
+2025-12-17 21:17:01 (326 KB/s) - ‘osu-micro-benchmarks-7.3.tar.gz’ saved [947189/947189]
+
+[2025-12-17 21:17:01] [INFO] Configuring OSU...
+configure: WARNING: unrecognized options: --disable-shmem, --disable-upc, --disable-gdr, --enable-pt2pt, --enable-collective, --enable-one-sided
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking whether mpicc understands -c and -o together... yes
+checking dependency style of mpicc... gcc3
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by mpicc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from mpicc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... mpicc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if mpicc supports -fno-rtti -fno-exceptions... no
+checking for mpicc option to produce PIC... -fPIC -DPIC
+checking if mpicc PIC flag -fPIC -DPIC works... yes
+checking if mpicc static flag -static works... no
+checking if mpicc supports -c -o file.o... yes
+checking if mpicc supports -c -o file.o... (cached) yes
+checking whether the mpicc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for MPI_Session_init... no
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether mpicc accepts -g... (cached) yes
+checking for mpicc option to accept ISO C89... (cached) none needed
+checking whether mpicc understands -c and -o together... (cached) yes
+checking dependency style of mpicc... (cached) gcc3
+checking whether we are using the GNU C++ compiler... yes
+checking whether mpicxx accepts -g... yes
+checking dependency style of mpicxx... gcc3
+checking how to run the C++ preprocessor... mpicxx -E
+checking for ld used by mpicxx... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the mpicxx linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for mpicxx option to produce PIC... -fPIC -DPIC
+checking if mpicxx PIC flag -fPIC -DPIC works... yes
+checking if mpicxx static flag -static works... no
+checking if mpicxx supports -c -o file.o... yes
+checking if mpicxx supports -c -o file.o... (cached) yes
+checking whether the mpicxx linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for library containing sqrt... -lm
+checking for library containing pthread_join... none required
+checking for library containing clock_gettime... none required
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking math.h usability... yes
+checking math.h presence... yes
+checking for math.h... yes
+checking for inline... inline
+checking for getpagesize... yes
+checking for gettimeofday... yes
+checking for memset... yes
+checking for sqrt... yes
+checking for MPI_Init... yes
+checking for MPI_Accumulate... yes
+checking for MPI_Get_accumulate... yes
+checking for shmem_barrier_all... no
+checking for upc_memput... no
+checking whether upcxx_alltoall is declared... no
+checking for shmem_finalize... no
+checking for library containing PAPI_library_init... -lpapi
+checking papi.h usability... yes
+checking papi.h presence... yes
+checking for papi.h... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating c/Makefile
+config.status: creating c/mpi/Makefile
+config.status: creating c/mpi/pt2pt/Makefile
+config.status: creating c/mpi/startup/Makefile
+config.status: creating c/mpi/one-sided/Makefile
+config.status: creating c/mpi/collective/Makefile
+config.status: creating c/openshmem/Makefile
+config.status: creating c/xccl/collective/Makefile
+config.status: creating c/xccl/pt2pt/Makefile
+config.status: creating c/xccl/Makefile
+config.status: creating c/upc/Makefile
+config.status: creating c/upcxx/Makefile
+config.status: creating c/mpi/pt2pt/standard/Makefile
+config.status: creating c/mpi/pt2pt/persistent/Makefile
+config.status: creating c/mpi/collective/blocking/Makefile
+config.status: creating c/mpi/collective/non_blocking/Makefile
+config.status: creating c/mpi/collective/neighborhood/Makefile
+config.status: creating c/mpi/collective/persistent/Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-shmem, --disable-upc, --disable-gdr, --enable-pt2pt, --enable-collective, --enable-one-sided
+[2025-12-17 21:17:04] [INFO] Building OSU...
+Making all in c
+make[1]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c'
+Making all in mpi
+make[2]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi'
+Making all in pt2pt
+make[3]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt'
+Making all in standard
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt/standard'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt/standard'
+Making all in persistent
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt/persistent'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt/persistent'
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt'
+make[3]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt'
+Making all in collective
+make[3]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective'
+Making all in neighborhood
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/neighborhood'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/neighborhood'
+Making all in blocking
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/blocking'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/blocking'
+Making all in non_blocking
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/non_blocking'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/non_blocking'
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective'
+make[3]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective'
+Making all in startup
+make[3]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/startup'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/startup'
+Making all in one-sided
+make[3]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/one-sided'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/one-sided'
+make[3]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi'
+make[2]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi'
+make[2]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c'
+make[1]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c'
+make[1]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3'
+[2025-12-17 21:17:04] [OK] OSU installed successfully
+# OSU MPI Latency Test v7.3
+# Size          Latency (us)
+# Datatype: MPI_CHAR.
+1                       0.17
+2                       0.17
+4                       0.18
+8                       0.17
+16                      0.19
+32                      0.19
+64                      0.19
+128                     0.22
+256                     0.24
+512                     0.34
+1024                    0.38
+2048                    0.46
+4096                    1.01
+8192                    1.34
+16384                   1.96
+32768                   2.69
+65536                   4.31
+131072                  7.65
+262144                 15.02
+524288                 29.60
+1048576                58.24
+Requirement already satisfied: pip in ./.venv/lib/python3.12/site-packages (24.0)
+Collecting pip
+  Using cached pip-25.3-py3-none-any.whl.metadata (4.7 kB)
+Collecting setuptools
+  Using cached setuptools-80.9.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting wheel
+  Using cached wheel-0.45.1-py3-none-any.whl.metadata (2.3 kB)
+Using cached pip-25.3-py3-none-any.whl (1.8 MB)
+Using cached setuptools-80.9.0-py3-none-any.whl (1.2 MB)
+Using cached wheel-0.45.1-py3-none-any.whl (72 kB)
+Installing collected packages: wheel, setuptools, pip
+  Attempting uninstall: pip
+    Found existing installation: pip 24.0
+    Uninstalling pip-24.0:
+      Successfully uninstalled pip-24.0
+Successfully installed pip-25.3 setuptools-80.9.0 wheel-0.45.1
+==============================================
+   HPC Environment Bootstrap (Smart Mode)
+==============================================
+
+=== Step 1: Updating System ===
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 https://apt.grafana.com stable InRelease
+Hit:2 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64  InRelease
+Hit:3 https://packages.microsoft.com/repos/code stable InRelease
+Hit:4 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:5 http://in.archive.ubuntu.com/ubuntu noble InRelease
+Hit:6 http://in.archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:7 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:8 http://in.archive.ubuntu.com/ubuntu noble-backports InRelease
+Reading package lists...
+Building dependency tree...
+Reading state information...
+77 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+=== Step 2: Checking Core Build Tools ===
+[OK] build-essential already installed
+[OK] gcc already installed
+[OK] g++ already installed
+[OK] gfortran already installed
+[OK] make already installed
+[OK] cmake already installed
+[OK] autoconf already installed
+[OK] automake already installed
+[OK] libtool already installed
+[OK] pkg-config already installed
+
+=== Step 3: Checking Essential System Libraries ===
+[OK] libaio-dev already installed
+[OK] libnuma-dev already installed
+[OK] libopenmpi-dev already installed
+[OK] libssl-dev already installed
+[OK] zlib1g-dev already installed
+[OK] libhwloc-dev already installed
+
+=== Step 4: Checking MPI Stack ===
+[OK] mpich already installed
+[OK] mpich-doc already installed
+[OK] libmpich-dev already installed
+
+=== Step 5: Checking Python Build Dependencies ===
+[OK] python3-dev already installed
+[OK] python3-venv already installed
+[OK] python3-pip already installed
+[OK] python3-wheel already installed
+[OK] python3-setuptools already installed
+
+=== Step 6: Checking GPU / CUDA Environment ===
+[OK] NVIDIA GPU hardware detected (4 GPU(s))
+[OK] NVIDIA driver installed
+NVIDIA GeForce RTX 2060 SUPER, 580.95.05
+[OK] CUDA toolkit installed
+Cuda compilation tools, release 13.1, V13.1.80
+
+=== Step 7: Checking Network Utilities ===
+[OK] net-tools already installed
+[OK] iputils-ping already installed
+[OK] ethtool already installed
+[OK] dnsutils already installed
+[OK] openssh-client already installed
+[OK] openssh-server already installed
+[OK] iperf3 already installed
+
+=== Step 8: Checking Storage/I/O Utilities ===
+[OK] smartmontools already installed
+[OK] nvme-cli already installed
+[OK] hdparm already installed
+[OK] fio already installed
+[OK] iozone3 already installed
+
+=== Step 9: Installing HPL / HPCG Prerequisites (BLAS/LAPACK) ===
+[OK] libblas-dev already installed
+[OK] liblapack-dev already installed
+[OK] libscalapack-mpi-dev already installed
+[OK] libopenblas-dev already installed
+
+=== Step 10: Installing OSU Microbenchmark Prerequisites (IB/PAPI) ===
+[OK] rdma-core already installed
+[OK] libibverbs-dev already installed
+[OK] ibutils already installed
+[OK] perftest already installed
+[OK] libpapi-dev already installed
+[OK] libpfm4-dev already installed
+
+=== Step 11: Final Verification Tools ===
+[OK] sysbench already installed
+[OK] stress-ng already installed
+[OK] wget already installed
+[OK] curl already installed
+
+==============================================
+   Environment prerequisites setup complete
+==============================================
+====================================================
+           HPC BENCHMARK UTILITY (Installer + Runner)
+====================================================
+[2025-12-17 21:17:24] [SETUP] Running initial environment check for build tools...
+[2025-12-17 21:17:24] [INFO] Ensuring common build dependencies...
+[2025-12-17 21:17:24] [INFO] Core dependencies (MPI, compilers) appear installed. Skipping build dependency install.
+[2025-12-17 21:17:24] [SETUP] Starting interactive multi-select menu.
+[2025-12-17 21:17:28] Run All option selected.
+[2025-12-17 21:17:28] >>> Starting forced execution of sysbench_cpu <<<
+[2025-12-17 21:17:28] --- Running Sysbench CPU Test ---
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 16
+Initializing random number generator from current time
+
+
+Prime numbers limit: 20000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:  5792.68
+
+General statistics:
+    total time:                          10.0025s
+    total number of events:              57949
+
+Latency (ms):
+         min:                                    1.63
+         avg:                                    2.76
+         max:                                   17.37
+         95th percentile:                        3.55
+         sum:                               159997.97
+
+Threads fairness:
+    events (avg/stddev):           3621.8125/74.36
+    execution time (avg/stddev):   9.9999/0.00
+
+[2025-12-17 21:17:38] --- Sysbench Summary ---
+    events per second:  5792.68
+[2025-12-17 21:17:38] ------------------------
+
+[2025-12-17 21:17:38] >>> Starting forced execution of stream_memory <<<
+[2025-12-17 21:17:38] --- Running STREAM Memory Bandwidth Test ---
+-------------------------------------------------------------
+STREAM version $Revision: 5.10 $
+-------------------------------------------------------------
+This system uses 8 bytes per array element.
+-------------------------------------------------------------
+Array size = 10000000 (elements), Offset = 0 (elements)
+Memory per array = 76.3 MiB (= 0.1 GiB).
+Total memory required = 228.9 MiB (= 0.2 GiB).
+Each kernel will be executed 10 times.
+ The *best* time for each kernel (excluding the first iteration)
+ will be used to compute the reported bandwidth.
+-------------------------------------------------------------
+Number of Threads requested = 16
+Number of Threads counted = 16
+-------------------------------------------------------------
+Your clock granularity/precision appears to be 1 microseconds.
+Each test below will take on the order of 6088 microseconds.
+   (= 6088 clock ticks)
+Increase the size of the arrays if this shows that
+you are not getting at least 20 clock ticks per test.
+-------------------------------------------------------------
+WARNING -- The above is only a rough guideline.
+For best results, please be sure you know the
+precision of your system timer.
+-------------------------------------------------------------
+Function    Best Rate MB/s  Avg time     Min time     Max time
+Copy:           32975.7     0.007811     0.004852     0.011914
+Scale:          21186.0     0.011145     0.007552     0.013018
+Add:            23942.9     0.012035     0.010024     0.012437
+Triad:          25231.4     0.012054     0.009512     0.017927
+-------------------------------------------------------------
+Solution Validates: avg error less than 1.000000e-13 on all three arrays
+-------------------------------------------------------------
+[2025-12-17 21:17:39] --- STREAM Summary (Triad Bandwidth) ---
+Triad:          25231.4     0.012054     0.009512     0.017927
+[2025-12-17 21:17:39] ----------------------------------------
+
+[2025-12-17 21:17:39] >>> Starting forced execution of fio_disk_rw <<<
+[2025-12-17 21:17:39] --- Running Fio Random Read/Write Test ---
+rand_rw_test: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=16
+fio-3.36
+Starting 1 process
+
+rand_rw_test: (groupid=0, jobs=1): err= 0: pid=1987562: Wed Dec 17 21:17:40 2025
+  read: IOPS=92.2k, BW=360MiB/s (378MB/s)(512MiB/1421msec)
+    slat (nsec): min=681, max=32698, avg=2245.76, stdev=1822.66
+    clat (nsec): min=280, max=3327.9k, avg=133135.15, stdev=136609.57
+     lat (nsec): min=1020, max=3329.4k, avg=135380.92, stdev=136896.76
+    clat percentiles (nsec):
+     |  1.00th=[    302],  5.00th=[    342], 10.00th=[   2608],
+     | 20.00th=[   6688], 30.00th=[  12864], 40.00th=[  71168],
+     | 50.00th=[ 107008], 60.00th=[ 142336], 70.00th=[ 193536],
+     | 80.00th=[ 252928], 90.00th=[ 321536], 95.00th=[ 378880],
+     | 99.00th=[ 501760], 99.50th=[ 561152], 99.90th=[ 700416],
+     | 99.95th=[ 782336], 99.99th=[2670592]
+   bw (  KiB/s): min=371968, max=377224, per=100.00%, avg=374596.00, stdev=3716.55, samples=2
+   iops        : min=92992, max=94306, avg=93649.00, stdev=929.14, samples=2
+  write: IOPS=92.3k, BW=360MiB/s (378MB/s)(512MiB/1421msec); 0 zone resets
+    slat (nsec): min=1394, max=69412, avg=3005.34, stdev=2104.34
+    clat (usec): min=11, max=2964, avg=34.16, stdev=34.82
+     lat (usec): min=17, max=2966, avg=37.16, stdev=34.94
+    clat percentiles (usec):
+     |  1.00th=[   20],  5.00th=[   23], 10.00th=[   25], 20.00th=[   27],
+     | 30.00th=[   29], 40.00th=[   31], 50.00th=[   33], 60.00th=[   35],
+     | 70.00th=[   37], 80.00th=[   40], 90.00th=[   44], 95.00th=[   49],
+     | 99.00th=[   70], 99.50th=[   85], 99.90th=[  116], 99.95th=[  125],
+     | 99.99th=[ 2311]
+   bw (  KiB/s): min=369744, max=376880, per=100.00%, avg=373312.00, stdev=5045.91, samples=2
+   iops        : min=92436, max=94220, avg=93328.00, stdev=1261.48, samples=2
+  lat (nsec)   : 500=3.58%, 750=0.04%, 1000=0.01%
+  lat (usec)   : 2=0.44%, 4=2.82%, 10=6.24%, 20=5.53%, 50=48.82%
+  lat (usec)   : 100=6.43%, 250=15.90%, 500=9.66%, 750=0.48%, 1000=0.02%
+  lat (msec)   : 2=0.01%, 4=0.02%
+  cpu          : usr=13.73%, sys=49.58%, ctx=84811, majf=0, minf=15
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=131040,131104,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+
+Run status group 0 (all jobs):
+   READ: bw=360MiB/s (378MB/s), 360MiB/s-360MiB/s (378MB/s-378MB/s), io=512MiB (537MB), run=1421-1421msec
+  WRITE: bw=360MiB/s (378MB/s), 360MiB/s-360MiB/s (378MB/s-378MB/s), io=512MiB (537MB), run=1421-1421msec
+
+Disk stats (read/write):
+  nvme0n1: ios=78056/129165, sectors=624448/1033344, merge=0/1, ticks=15994/2604, in_queue=18597, util=64.42%
+[2025-12-17 21:17:40] --- FIO Summary (IOPS) ---
+[2025-12-17 21:17:40] --------------------------
+
+[2025-12-17 21:17:40] >>> Starting forced execution of ior_parallel_io <<<
+[2025-12-17 21:17:40] --- Running IOR Parallel I/O Test (Read/Write) ---
+[2025-12-17 21:17:41] [EXEC] Running mpirun -np 4 /home/acts/Desktop/Project_final/tools/ior/install/bin/ior -a POSIX -w -r -F -t 1m -b 100m -i 1 -o /home/acts/Desktop/Project_final/tools/ior_test_file.dat
+IOR-4.1.0+dev: MPI Coordinated Test of Parallel I/O
+Began               : Wed Dec 17 21:17:41 2025
+Command line        : /home/acts/Desktop/Project_final/tools/ior/install/bin/ior -a POSIX -w -r -F -t 1m -b 100m -i 1 -o /home/acts/Desktop/Project_final/tools/ior_test_file.dat
+Machine             : Linux rahul
+TestID              : 0
+StartTime           : Wed Dec 17 21:17:41 2025
+Path                : /home/acts/Desktop/Project_final/tools/ior_test_file.dat.00000000
+FS                  : 95.5 GiB   Used FS: 68.9%   Inodes: 6.1 Mi   Used Inodes: 7.8%
+
+Options: 
+api                 : POSIX
+apiVersion          : 
+test filename       : /home/acts/Desktop/Project_final/tools/ior_test_file.dat
+access              : file-per-process
+type                : independent
+segments            : 1
+ordering in a file  : sequential
+ordering inter file : no tasks offsets
+nodes               : 1
+tasks               : 4
+clients per node    : 4
+memoryBuffer        : CPU
+dataAccess          : CPU
+GPUDirect           : 0
+repetitions         : 1
+xfersize            : 1 MiB
+blocksize           : 100 MiB
+aggregate filesize  : 400 MiB
+
+Results: 
+
+access    bw(MiB/s)  IOPS       Latency(s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+------    ---------  ----       ----------  ---------- ---------  --------   --------   --------   --------   ----
+write     9954       9962       0.000322    102400     1024.00    0.000129   0.040154   0.008101   0.040185   0   
+read      25838      25852      0.000151    102400     1024.00    0.000005   0.015473   0.000385   0.015481   0   
+
+Summary of all tests:
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev   Max(OPs)   Min(OPs)  Mean(OPs)     StdDev    Mean(s) Stonewall(s) Stonewall(MiB) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt   blksiz    xsize aggs(MiB)   API RefNum
+write        9953.97    9953.97    9953.97       0.00    9953.97    9953.97    9953.97       0.00    0.04018         NA            NA     0      4   4    1   1     0        1         0    0      1 104857600  1048576     400.0 POSIX      0
+read        25838.13   25838.13   25838.13       0.00   25838.13   25838.13   25838.13       0.00    0.01548         NA            NA     0      4   4    1   1     0        1         0    0      1 104857600  1048576     400.0 POSIX      0
+Finished            : Wed Dec 17 21:17:41 2025
+[2025-12-17 21:17:41] --- IOR Summary ---
+Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev   Max(OPs)   Min(OPs)  Mean(OPs)     StdDev    Mean(s) Stonewall(s) Stonewall(MiB) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt   blksiz    xsize aggs(MiB)   API RefNum
+[2025-12-17 21:17:41] Max Write Bandwidth: 0 MiB/s
+[2025-12-17 21:17:41] Max Read Bandwidth: 0 MiB/s
+[2025-12-17 21:17:41] -------------------
+
+[2025-12-17 21:17:41] >>> Starting forced execution of hpl_linpack <<<
+[2025-12-17 21:17:41] [EXEC] Running HPL with mpirun -np 16. Results may take time.
+[2025-12-17 21:17:42] [OK] HPL test succeeded.
+[2025-12-17 21:17:42] [RESULT] HPL Final Result: Gflops Gflops
+
+[2025-12-17 21:17:42] >>> Starting forced execution of osu_latency <<<
+[2025-12-17 21:17:42] --- Running OSU Microbenchmarks (Latency) ---
+[2025-12-17 21:17:42] [INFO] Preparing OSU installation directory: /home/acts/Desktop/Project_final/tools/osu-micro-benchmarks
+WARNING: timestamping does nothing in combination with -O. See the manual
+for details.
+
+--2025-12-17 21:17:42--  http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-7.3.tar.gz
+Resolving mvapich.cse.ohio-state.edu (mvapich.cse.ohio-state.edu)... 164.107.127.104
+Connecting to mvapich.cse.ohio-state.edu (mvapich.cse.ohio-state.edu)|164.107.127.104|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-7.3.tar.gz [following]
+--2025-12-17 21:17:43--  https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-7.3.tar.gz
+Connecting to mvapich.cse.ohio-state.edu (mvapich.cse.ohio-state.edu)|164.107.127.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 947189 (925K) [application/octet-stream]
+Saving to: ‘osu-micro-benchmarks-7.3.tar.gz’
+
+     0K .......... .......... .......... .......... ..........  5%  211K 4s
+    50K .......... .......... .......... .......... .......... 10%  197K 4s
+   100K .......... .......... .......... .......... .......... 16% 1.36M 3s
+   150K .......... .......... .......... .......... .......... 21%  211K 3s
+   200K .......... .......... .......... .......... .......... 27%  248K 3s
+   250K .......... .......... .......... .......... .......... 32%  212K 3s
+   300K .......... .......... .......... .......... .......... 37% 1.36M 2s
+   350K .......... .......... .......... .......... .......... 43%  211K 2s
+   400K .......... .......... .......... .......... .......... 48%  249K 2s
+   450K .......... .......... .......... .......... .......... 54% 1.36M 1s
+   500K .......... .......... .......... .......... .......... 59%  248K 1s
+   550K .......... .......... .......... .......... .......... 64%  654K 1s
+   600K .......... .......... .......... .......... .......... 70%  304K 1s
+   650K .......... .......... .......... .......... .......... 75%  213K 1s
+   700K .......... .......... .......... .......... .......... 81% 1.43M 1s
+   750K .......... .......... .......... .......... .......... 86%  245K 0s
+   800K .......... .......... .......... .......... .......... 91% 1.46M 0s
+   850K .......... .......... .......... .......... .......... 97%  243K 0s
+   900K .......... .......... ....                            100% 9.60M=2.9s
+
+2025-12-17 21:17:47 (323 KB/s) - ‘osu-micro-benchmarks-7.3.tar.gz’ saved [947189/947189]
+
+[2025-12-17 21:17:47] [INFO] Configuring OSU...
+configure: WARNING: unrecognized options: --disable-shmem, --disable-upc, --disable-gdr, --enable-pt2pt, --enable-collective, --enable-one-sided
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking whether mpicc understands -c and -o together... yes
+checking dependency style of mpicc... gcc3
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by mpicc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from mpicc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... mpicc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if mpicc supports -fno-rtti -fno-exceptions... no
+checking for mpicc option to produce PIC... -fPIC -DPIC
+checking if mpicc PIC flag -fPIC -DPIC works... yes
+checking if mpicc static flag -static works... no
+checking if mpicc supports -c -o file.o... yes
+checking if mpicc supports -c -o file.o... (cached) yes
+checking whether the mpicc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for MPI_Session_init... no
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether mpicc accepts -g... (cached) yes
+checking for mpicc option to accept ISO C89... (cached) none needed
+checking whether mpicc understands -c and -o together... (cached) yes
+checking dependency style of mpicc... (cached) gcc3
+checking whether we are using the GNU C++ compiler... yes
+checking whether mpicxx accepts -g... yes
+checking dependency style of mpicxx... gcc3
+checking how to run the C++ preprocessor... mpicxx -E
+checking for ld used by mpicxx... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the mpicxx linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for mpicxx option to produce PIC... -fPIC -DPIC
+checking if mpicxx PIC flag -fPIC -DPIC works... yes
+checking if mpicxx static flag -static works... no
+checking if mpicxx supports -c -o file.o... yes
+checking if mpicxx supports -c -o file.o... (cached) yes
+checking whether the mpicxx linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for library containing sqrt... -lm
+checking for library containing pthread_join... none required
+checking for library containing clock_gettime... none required
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking math.h usability... yes
+checking math.h presence... yes
+checking for math.h... yes
+checking for inline... inline
+checking for getpagesize... yes
+checking for gettimeofday... yes
+checking for memset... yes
+checking for sqrt... yes
+checking for MPI_Init... yes
+checking for MPI_Accumulate... yes
+checking for MPI_Get_accumulate... yes
+checking for shmem_barrier_all... no
+checking for upc_memput... no
+checking whether upcxx_alltoall is declared... no
+checking for shmem_finalize... no
+checking for library containing PAPI_library_init... -lpapi
+checking papi.h usability... yes
+checking papi.h presence... yes
+checking for papi.h... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating c/Makefile
+config.status: creating c/mpi/Makefile
+config.status: creating c/mpi/pt2pt/Makefile
+config.status: creating c/mpi/startup/Makefile
+config.status: creating c/mpi/one-sided/Makefile
+config.status: creating c/mpi/collective/Makefile
+config.status: creating c/openshmem/Makefile
+config.status: creating c/xccl/collective/Makefile
+config.status: creating c/xccl/pt2pt/Makefile
+config.status: creating c/xccl/Makefile
+config.status: creating c/upc/Makefile
+config.status: creating c/upcxx/Makefile
+config.status: creating c/mpi/pt2pt/standard/Makefile
+config.status: creating c/mpi/pt2pt/persistent/Makefile
+config.status: creating c/mpi/collective/blocking/Makefile
+config.status: creating c/mpi/collective/non_blocking/Makefile
+config.status: creating c/mpi/collective/neighborhood/Makefile
+config.status: creating c/mpi/collective/persistent/Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-shmem, --disable-upc, --disable-gdr, --enable-pt2pt, --enable-collective, --enable-one-sided
+[2025-12-17 21:17:50] [INFO] Building OSU...
+Making all in c
+make[1]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c'
+Making all in mpi
+make[2]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi'
+Making all in pt2pt
+make[3]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt'
+Making all in standard
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt/standard'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt/standard'
+Making all in persistent
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt/persistent'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt/persistent'
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt'
+make[3]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/pt2pt'
+Making all in collective
+make[3]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective'
+Making all in neighborhood
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/neighborhood'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/neighborhood'
+Making all in blocking
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/blocking'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/blocking'
+Making all in non_blocking
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/non_blocking'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective/non_blocking'
+make[4]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective'
+make[3]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/collective'
+Making all in startup
+make[3]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/startup'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/startup'
+Making all in one-sided
+make[3]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/one-sided'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi/one-sided'
+make[3]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi'
+make[2]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c/mpi'
+make[2]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c'
+make[1]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3/c'
+make[1]: Entering directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/home/acts/Desktop/Project_final/tools/osu-micro-benchmarks/osu-micro-benchmarks-7.3'
+[2025-12-17 21:17:50] [OK] OSU installed successfully
+# OSU MPI Latency Test v7.3
+# Size          Latency (us)
+# Datatype: MPI_CHAR.
+1                       0.17
+2                       0.17
+4                       0.19
+8                       0.17
+16                      0.20
+32                      0.20
+64                      0.19
+128                     0.21
+256                     0.23
+512                     0.33
+1024                    0.39
+2048                    0.46
+4096                    1.07
+8192                    1.28
+16384                   1.73
+32768                   2.55
+65536                   4.12
+131072                  7.86
+262144                 15.69
+524288                 30.99
+1048576                58.48
+2097152               119.34
+4194304               378.02
+[2025-12-17 21:17:52] --- OSU Latency Summary (Smallest message size) ---
+8192                    1.28
+[2025-12-17 21:17:52] ----------------------------------------------------
+
+[2025-12-17 21:17:52] Metrics collection finished. Pushing results to dashboard...
+[2025-12-17 21:17:52] [INFO] Cleaning old Pushgateway metrics...
+[2025-12-17 21:17:52] [INFO] Generating Prometheus metric payload...
+[2025-12-17 21:17:52] [INFO] Payload being sent:
+# TYPE hpc_benchmark_sysbench_events gauge
+hpc_benchmark_sysbench_events{instance="local_hpc_system"} 5792.68
+# TYPE hpc_benchmark_stream_triad_bw_mbps gauge
+hpc_benchmark_stream_triad_bw_mbps{instance="local_hpc_system"} 25231.4
+# TYPE hpc_benchmark_fio_read_iops gauge
+hpc_benchmark_fio_read_iops{instance="local_hpc_system"} 0
+# TYPE hpc_benchmark_hpl_gflops gauge
+hpc_benchmark_hpl_gflops{instance="local_hpc_system"} 0
+[2025-12-17 21:17:52] [INFO] Pushing metrics to Pushgateway...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 34  1233    0     0  100   424      0   335k --:--:-- --:--:-- --:--:--  414k
+curl: (22) The requested URL returned error: 400

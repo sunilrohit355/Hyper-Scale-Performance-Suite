@@ -1,0 +1,4456 @@
+.
+├── configs
+│   └── default.yaml
+├── env_pre_1.sh
+├── env_pre.sh
+├── fs.txt
+├── hosts.txt
+├── host.txt
+├── __init__.py
+├── key
+├── key.pub
+├── logs
+├── main.py
+├── Makefile
+├── orchestrator
+│   ├── __init__.py
+│   ├── orchestrator.py
+│   └── registry.py
+├── osu-micro-benchmarks-7.3
+│   ├── aclocal.m4
+│   ├── autom4te.cache
+│   │   ├── output.0
+│   │   ├── output.1
+│   │   ├── requests
+│   │   ├── traces.0
+│   │   └── traces.1
+│   ├── c
+│   │   ├── get_local_rank
+│   │   ├── Makefile
+│   │   ├── Makefile.am
+│   │   ├── Makefile.in
+│   │   ├── mpi
+│   │   │   ├── collective
+│   │   │   │   ├── blocking
+│   │   │   │   │   ├── Makefile
+│   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   ├── osu_allgather
+│   │   │   │   │   ├── osu_allgather.c
+│   │   │   │   │   ├── osu_allgather.o
+│   │   │   │   │   ├── osu_allgatherv
+│   │   │   │   │   ├── osu_allgatherv.c
+│   │   │   │   │   ├── osu_allgatherv.o
+│   │   │   │   │   ├── osu_allreduce
+│   │   │   │   │   ├── osu_allreduce.c
+│   │   │   │   │   ├── osu_allreduce.o
+│   │   │   │   │   ├── osu_alltoall
+│   │   │   │   │   ├── osu_alltoall.c
+│   │   │   │   │   ├── osu_alltoall.o
+│   │   │   │   │   ├── osu_alltoallv
+│   │   │   │   │   ├── osu_alltoallv.c
+│   │   │   │   │   ├── osu_alltoallv.o
+│   │   │   │   │   ├── osu_alltoallw
+│   │   │   │   │   ├── osu_alltoallw.c
+│   │   │   │   │   ├── osu_alltoallw.o
+│   │   │   │   │   ├── osu_barrier
+│   │   │   │   │   ├── osu_barrier.c
+│   │   │   │   │   ├── osu_barrier.o
+│   │   │   │   │   ├── osu_bcast
+│   │   │   │   │   ├── osu_bcast.c
+│   │   │   │   │   ├── osu_bcast.o
+│   │   │   │   │   ├── osu_gather
+│   │   │   │   │   ├── osu_gather.c
+│   │   │   │   │   ├── osu_gather.o
+│   │   │   │   │   ├── osu_gatherv
+│   │   │   │   │   ├── osu_gatherv.c
+│   │   │   │   │   ├── osu_gatherv.o
+│   │   │   │   │   ├── osu_reduce
+│   │   │   │   │   ├── osu_reduce.c
+│   │   │   │   │   ├── osu_reduce.o
+│   │   │   │   │   ├── osu_reduce_scatter
+│   │   │   │   │   ├── osu_reduce_scatter.c
+│   │   │   │   │   ├── osu_reduce_scatter.o
+│   │   │   │   │   ├── osu_scatter
+│   │   │   │   │   ├── osu_scatter.c
+│   │   │   │   │   ├── osu_scatter.o
+│   │   │   │   │   ├── osu_scatterv
+│   │   │   │   │   ├── osu_scatterv.c
+│   │   │   │   │   └── osu_scatterv.o
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── Makefile.am
+│   │   │   │   ├── Makefile.in
+│   │   │   │   ├── neighborhood
+│   │   │   │   │   ├── Makefile
+│   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   ├── osu_ineighbor_allgather
+│   │   │   │   │   ├── osu_ineighbor_allgather.c
+│   │   │   │   │   ├── osu_ineighbor_allgather.o
+│   │   │   │   │   ├── osu_ineighbor_allgatherv
+│   │   │   │   │   ├── osu_ineighbor_allgatherv.c
+│   │   │   │   │   ├── osu_ineighbor_allgatherv.o
+│   │   │   │   │   ├── osu_ineighbor_alltoall
+│   │   │   │   │   ├── osu_ineighbor_alltoall.c
+│   │   │   │   │   ├── osu_ineighbor_alltoall.o
+│   │   │   │   │   ├── osu_ineighbor_alltoallv
+│   │   │   │   │   ├── osu_ineighbor_alltoallv.c
+│   │   │   │   │   ├── osu_ineighbor_alltoallv.o
+│   │   │   │   │   ├── osu_ineighbor_alltoallw
+│   │   │   │   │   ├── osu_ineighbor_alltoallw.c
+│   │   │   │   │   ├── osu_ineighbor_alltoallw.o
+│   │   │   │   │   ├── osu_neighbor_allgather
+│   │   │   │   │   ├── osu_neighbor_allgather.c
+│   │   │   │   │   ├── osu_neighbor_allgather.o
+│   │   │   │   │   ├── osu_neighbor_allgatherv
+│   │   │   │   │   ├── osu_neighbor_allgatherv.c
+│   │   │   │   │   ├── osu_neighbor_allgatherv.o
+│   │   │   │   │   ├── osu_neighbor_alltoall
+│   │   │   │   │   ├── osu_neighbor_alltoall.c
+│   │   │   │   │   ├── osu_neighbor_alltoall.o
+│   │   │   │   │   ├── osu_neighbor_alltoallv
+│   │   │   │   │   ├── osu_neighbor_alltoallv.c
+│   │   │   │   │   ├── osu_neighbor_alltoallv.o
+│   │   │   │   │   ├── osu_neighbor_alltoallw
+│   │   │   │   │   ├── osu_neighbor_alltoallw.c
+│   │   │   │   │   └── osu_neighbor_alltoallw.o
+│   │   │   │   ├── non_blocking
+│   │   │   │   │   ├── Makefile
+│   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   ├── osu_iallgather
+│   │   │   │   │   ├── osu_iallgather.c
+│   │   │   │   │   ├── osu_iallgather.o
+│   │   │   │   │   ├── osu_iallgatherv
+│   │   │   │   │   ├── osu_iallgatherv.c
+│   │   │   │   │   ├── osu_iallgatherv.o
+│   │   │   │   │   ├── osu_iallreduce
+│   │   │   │   │   ├── osu_iallreduce.c
+│   │   │   │   │   ├── osu_iallreduce.o
+│   │   │   │   │   ├── osu_ialltoall
+│   │   │   │   │   ├── osu_ialltoall.c
+│   │   │   │   │   ├── osu_ialltoall.o
+│   │   │   │   │   ├── osu_ialltoallv
+│   │   │   │   │   ├── osu_ialltoallv.c
+│   │   │   │   │   ├── osu_ialltoallv.o
+│   │   │   │   │   ├── osu_ialltoallw
+│   │   │   │   │   ├── osu_ialltoallw.c
+│   │   │   │   │   ├── osu_ialltoallw.o
+│   │   │   │   │   ├── osu_ibarrier
+│   │   │   │   │   ├── osu_ibarrier.c
+│   │   │   │   │   ├── osu_ibarrier.o
+│   │   │   │   │   ├── osu_ibcast
+│   │   │   │   │   ├── osu_ibcast.c
+│   │   │   │   │   ├── osu_ibcast.o
+│   │   │   │   │   ├── osu_igather
+│   │   │   │   │   ├── osu_igather.c
+│   │   │   │   │   ├── osu_igather.o
+│   │   │   │   │   ├── osu_igatherv
+│   │   │   │   │   ├── osu_igatherv.c
+│   │   │   │   │   ├── osu_igatherv.o
+│   │   │   │   │   ├── osu_ireduce
+│   │   │   │   │   ├── osu_ireduce.c
+│   │   │   │   │   ├── osu_ireduce.o
+│   │   │   │   │   ├── osu_ireduce_scatter
+│   │   │   │   │   ├── osu_ireduce_scatter.c
+│   │   │   │   │   ├── osu_ireduce_scatter.o
+│   │   │   │   │   ├── osu_iscatter
+│   │   │   │   │   ├── osu_iscatter.c
+│   │   │   │   │   ├── osu_iscatter.o
+│   │   │   │   │   ├── osu_iscatterv
+│   │   │   │   │   ├── osu_iscatterv.c
+│   │   │   │   │   └── osu_iscatterv.o
+│   │   │   │   └── persistent
+│   │   │   │       ├── Makefile
+│   │   │   │       ├── Makefile.am
+│   │   │   │       ├── Makefile.in
+│   │   │   │       ├── osu_allgather_persistent.c
+│   │   │   │       ├── osu_allgatherv_persistent.c
+│   │   │   │       ├── osu_allreduce_persistent.c
+│   │   │   │       ├── osu_alltoall_persistent.c
+│   │   │   │       ├── osu_alltoallv_persistent.c
+│   │   │   │       ├── osu_alltoallw_persistent.c
+│   │   │   │       ├── osu_barrier_persistent.c
+│   │   │   │       ├── osu_bcast_persistent.c
+│   │   │   │       ├── osu_gather_persistent.c
+│   │   │   │       ├── osu_gatherv_persistent.c
+│   │   │   │       ├── osu_reduce_persistent.c
+│   │   │   │       ├── osu_reduce_scatter_persistent.c
+│   │   │   │       ├── osu_scatter_persistent.c
+│   │   │   │       └── osu_scatterv_persistent.c
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile.am
+│   │   │   ├── Makefile.in
+│   │   │   ├── one-sided
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── Makefile.am
+│   │   │   │   ├── Makefile.in
+│   │   │   │   ├── osu_acc_latency
+│   │   │   │   ├── osu_acc_latency.c
+│   │   │   │   ├── osu_acc_latency.o
+│   │   │   │   ├── osu_cas_latency
+│   │   │   │   ├── osu_cas_latency.c
+│   │   │   │   ├── osu_cas_latency.o
+│   │   │   │   ├── osu_fop_latency
+│   │   │   │   ├── osu_fop_latency.c
+│   │   │   │   ├── osu_fop_latency.o
+│   │   │   │   ├── osu_get_acc_latency
+│   │   │   │   ├── osu_get_acc_latency.c
+│   │   │   │   ├── osu_get_acc_latency.o
+│   │   │   │   ├── osu_get_bw
+│   │   │   │   ├── osu_get_bw.c
+│   │   │   │   ├── osu_get_bw.o
+│   │   │   │   ├── osu_get_latency
+│   │   │   │   ├── osu_get_latency.c
+│   │   │   │   ├── osu_get_latency.o
+│   │   │   │   ├── osu_put_bibw
+│   │   │   │   ├── osu_put_bibw.c
+│   │   │   │   ├── osu_put_bibw.o
+│   │   │   │   ├── osu_put_bw
+│   │   │   │   ├── osu_put_bw.c
+│   │   │   │   ├── osu_put_bw.o
+│   │   │   │   ├── osu_put_latency
+│   │   │   │   ├── osu_put_latency.c
+│   │   │   │   └── osu_put_latency.o
+│   │   │   ├── pt2pt
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── Makefile.am
+│   │   │   │   ├── Makefile.in
+│   │   │   │   ├── persistent
+│   │   │   │   │   ├── Makefile
+│   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   ├── osu_bibw_persistent
+│   │   │   │   │   ├── osu_bibw_persistent.c
+│   │   │   │   │   ├── osu_bibw_persistent.o
+│   │   │   │   │   ├── osu_bw_persistent
+│   │   │   │   │   ├── osu_bw_persistent.c
+│   │   │   │   │   ├── osu_bw_persistent.o
+│   │   │   │   │   ├── osu_latency_persistent
+│   │   │   │   │   ├── osu_latency_persistent.c
+│   │   │   │   │   └── osu_latency_persistent.o
+│   │   │   │   └── standard
+│   │   │   │       ├── Makefile
+│   │   │   │       ├── Makefile.am
+│   │   │   │       ├── Makefile.in
+│   │   │   │       ├── osu_bibw
+│   │   │   │       ├── osu_bibw.c
+│   │   │   │       ├── osu_bibw.o
+│   │   │   │       ├── osu_bw
+│   │   │   │       ├── osu_bw.c
+│   │   │   │       ├── osu_bw.o
+│   │   │   │       ├── osu_latency
+│   │   │   │       ├── osu_latency.c
+│   │   │   │       ├── osu_latency_mp
+│   │   │   │       ├── osu_latency_mp.c
+│   │   │   │       ├── osu_latency_mp.o
+│   │   │   │       ├── osu_latency_mt
+│   │   │   │       ├── osu_latency_mt.c
+│   │   │   │       ├── osu_latency_mt.o
+│   │   │   │       ├── osu_latency.o
+│   │   │   │       ├── osu_mbw_mr
+│   │   │   │       ├── osu_mbw_mr.c
+│   │   │   │       ├── osu_mbw_mr.o
+│   │   │   │       ├── osu_multi_lat
+│   │   │   │       ├── osu_multi_lat.c
+│   │   │   │       └── osu_multi_lat.o
+│   │   │   └── startup
+│   │   │       ├── Makefile
+│   │   │       ├── Makefile.am
+│   │   │       ├── Makefile.in
+│   │   │       ├── osu_hello
+│   │   │       ├── osu_hello.c
+│   │   │       ├── osu_hello.o
+│   │   │       ├── osu_init
+│   │   │       ├── osu_init.c
+│   │   │       └── osu_init.o
+│   │   ├── openshmem
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile.am
+│   │   │   ├── Makefile.in
+│   │   │   ├── osu_oshm_atomics.c
+│   │   │   ├── osu_oshm_barrier.c
+│   │   │   ├── osu_oshm_broadcast.c
+│   │   │   ├── osu_oshm_collect.c
+│   │   │   ├── osu_oshm_fcollect.c
+│   │   │   ├── osu_oshm_get.c
+│   │   │   ├── osu_oshm_get_mr_nb.c
+│   │   │   ├── osu_oshm_get_nb.c
+│   │   │   ├── osu_oshm_put.c
+│   │   │   ├── osu_oshm_put_mr.c
+│   │   │   ├── osu_oshm_put_mr_nb.c
+│   │   │   ├── osu_oshm_put_nb.c
+│   │   │   ├── osu_oshm_put_overlap.c
+│   │   │   └── osu_oshm_reduce.c
+│   │   ├── upc
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile.am
+│   │   │   ├── Makefile.in
+│   │   │   ├── osu_upc_all_barrier.c
+│   │   │   ├── osu_upc_all_broadcast.c
+│   │   │   ├── osu_upc_all_exchange.c
+│   │   │   ├── osu_upc_all_gather_all.c
+│   │   │   ├── osu_upc_all_gather.c
+│   │   │   ├── osu_upc_all_reduce.c
+│   │   │   ├── osu_upc_all_scatter.c
+│   │   │   ├── osu_upc_memget.c
+│   │   │   └── osu_upc_memput.c
+│   │   ├── upcxx
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile.am
+│   │   │   ├── Makefile.in
+│   │   │   ├── osu_upcxx_allgather.cpp
+│   │   │   ├── osu_upcxx_alltoall.cpp
+│   │   │   ├── osu_upcxx_async_copy_get.cpp
+│   │   │   ├── osu_upcxx_async_copy_put.cpp
+│   │   │   ├── osu_upcxx_bcast.cpp
+│   │   │   ├── osu_upcxx_gather.cpp
+│   │   │   ├── osu_upcxx_reduce.cpp
+│   │   │   └── osu_upcxx_scatter.cpp
+│   │   ├── util
+│   │   │   ├── ddt_sample.txt
+│   │   │   ├── kernel.cu
+│   │   │   ├── nhbrhd_graph.adj
+│   │   │   ├── osu_util.c
+│   │   │   ├── osu_util_graph.c
+│   │   │   ├── osu_util_graph.h
+│   │   │   ├── osu_util_graph.o
+│   │   │   ├── osu_util.h
+│   │   │   ├── osu_util_mpi.c
+│   │   │   ├── osu_util_mpi.h
+│   │   │   ├── osu_util_mpi.o
+│   │   │   ├── osu_util.o
+│   │   │   ├── osu_util_options.h
+│   │   │   ├── osu_util_papi.c
+│   │   │   ├── osu_util_papi.h
+│   │   │   ├── osu_util_papi.o
+│   │   │   ├── osu_util_pgas.c
+│   │   │   ├── osu_util_pgas.h
+│   │   │   ├── osu_util_validation.c
+│   │   │   └── osu_util_validation.o
+│   │   └── xccl
+│   │       ├── collective
+│   │       │   ├── Makefile
+│   │       │   ├── Makefile.am
+│   │       │   ├── Makefile.in
+│   │       │   ├── osu_xccl_allgather.c
+│   │       │   ├── osu_xccl_allreduce.c
+│   │       │   ├── osu_xccl_alltoall.c
+│   │       │   ├── osu_xccl_bcast.c
+│   │       │   ├── osu_xccl_reduce.c
+│   │       │   └── osu_xccl_reduce_scatter.c
+│   │       ├── Makefile
+│   │       ├── Makefile.am
+│   │       ├── Makefile.in
+│   │       ├── pt2pt
+│   │       │   ├── Makefile
+│   │       │   ├── Makefile.am
+│   │       │   ├── Makefile.in
+│   │       │   ├── osu_xccl_bibw.c
+│   │       │   ├── osu_xccl_bw.c
+│   │       │   └── osu_xccl_latency.c
+│   │       └── util
+│   │           ├── nccl
+│   │           │   ├── osu_util_nccl_impl.c
+│   │           │   └── osu_util_nccl_impl.h
+│   │           ├── osu_util_xccl_interface.c
+│   │           ├── osu_util_xccl_interface.h
+│   │           └── rccl
+│   │               ├── osu_util_rccl_impl.c
+│   │               └── osu_util_rccl_impl.h
+│   ├── CHANGES
+│   ├── compile
+│   ├── config.guess
+│   ├── config.log
+│   ├── config.status
+│   ├── config.sub
+│   ├── configure
+│   ├── configure.ac
+│   ├── COPYRIGHT
+│   ├── depcomp
+│   ├── install-sh
+│   ├── java
+│   │   ├── mpi
+│   │   │   ├── collective
+│   │   │   │   ├── OSUAllgather.java
+│   │   │   │   ├── OSUAllgatherv.java
+│   │   │   │   ├── OSUAllReduce.java
+│   │   │   │   ├── OSUAlltoall.java
+│   │   │   │   ├── OSUAlltoallv.java
+│   │   │   │   ├── OSUBarrier.java
+│   │   │   │   ├── OSUBcast.java
+│   │   │   │   ├── OSUGather.java
+│   │   │   │   ├── OSUGatherv.java
+│   │   │   │   ├── OSUReduce.java
+│   │   │   │   ├── OSUReduceScatter.java
+│   │   │   │   ├── OSUScatter.java
+│   │   │   │   └── OSUScatterv.java
+│   │   │   ├── common
+│   │   │   │   └── BenchmarkUtils.java
+│   │   │   ├── pt2pt
+│   │   │   │   ├── OSUBandwidth.java
+│   │   │   │   ├── OSUBandwidthOMPI.java
+│   │   │   │   ├── OSUBiBandwidth.java
+│   │   │   │   ├── OSUBiBandwidthOMPI.java
+│   │   │   │   └── OSULatency.java
+│   │   │   └── startup
+│   │   │       ├── HelloWorld.java
+│   │   │       └── OMPIHelloWorld.java
+│   │   └── README
+│   ├── libtool
+│   ├── ltmain.sh
+│   ├── maint
+│   │   └── omb-format.pl
+│   ├── Makefile
+│   ├── Makefile.am
+│   ├── Makefile.in
+│   ├── map_rank_to_gpu
+│   ├── missing
+│   ├── python
+│   │   ├── __init__.py
+│   │   ├── Makefile.am
+│   │   ├── mpi
+│   │   │   ├── collective
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── Makefile.am
+│   │   │   │   ├── osu_allgather.py
+│   │   │   │   ├── osu_allgatherv.py
+│   │   │   │   ├── osu_allreduce.py
+│   │   │   │   ├── osu_alltoall.py
+│   │   │   │   ├── osu_alltoallv.py
+│   │   │   │   ├── osu_barrier.py
+│   │   │   │   ├── osu_bcast.py
+│   │   │   │   ├── osu_gather.py
+│   │   │   │   ├── osu_gatherv.py
+│   │   │   │   ├── osu_reduce.py
+│   │   │   │   ├── osu_reduce_scatter.py
+│   │   │   │   ├── osu_scatter.py
+│   │   │   │   └── osu_scatterv.py
+│   │   │   ├── __init__.py
+│   │   │   └── pt2pt
+│   │   │       ├── __init__.py
+│   │   │       ├── Makefile.am
+│   │   │       ├── osu_bibw.py
+│   │   │       ├── osu_bw.py
+│   │   │       ├── osu_latency.py
+│   │   │       └── osu_multi_lat.py
+│   │   ├── README
+│   │   ├── run.py
+│   │   └── util
+│   │       ├── __init__.py
+│   │       ├── Makefile.am
+│   │       ├── options.py
+│   │       ├── osu_util_mpi.py
+│   │       └── parser.py
+│   └── README
+├── osu-micro-benchmarks-7.3.tar.gz
+├── requirement.txt
+├── results
+│   ├── processed
+│   └── raw
+├── run_benchmark.sh
+├── runners
+│   ├── fio_runner.py
+│   ├── graph500_runner.py
+│   ├── hpcg_runner.py
+│   ├── hpl_runner.py
+│   ├── imb_runner.py
+│   ├── __init__.py
+│   ├── ior_runner.py
+│   ├── iperf3_runner.py
+│   ├── mdtest_runner.py
+│   ├── netpipe_runner.py
+│   ├── osu_runner.py
+│   └── stream_runner.py
+├── setup
+│   ├── env_setup.sh
+│   ├── env_vars.sh
+│   ├── install_tools.sh
+│   ├── system_full_info.sh
+│   └── validate_env.sh
+├── sys_info.sh
+├── tools
+│   ├── cuda-samples
+│   │   ├── bin
+│   │   │   └── win64
+│   │   │       ├── Debug
+│   │   │       │   ├── freeglut.dll
+│   │   │       │   └── glew64.dll
+│   │   │       ├── minsizeRel
+│   │   │       │   ├── freeglut.dll
+│   │   │       │   └── glew64.dll
+│   │   │       ├── Release
+│   │   │       │   ├── freeglut.dll
+│   │   │       │   └── glew64.dll
+│   │   │       └── RelWithDebInfo
+│   │   │           ├── freeglut.dll
+│   │   │           └── glew64.dll
+│   │   ├── CHANGELOG.md
+│   │   ├── cmake
+│   │   │   ├── Modules
+│   │   │   │   ├── FindEGL.cmake
+│   │   │   │   ├── FindFreeImage.cmake
+│   │   │   │   └── FindNVSCI.cmake
+│   │   │   └── toolchains
+│   │   │       ├── toolchain-aarch64-linux.cmake
+│   │   │       └── toolchain-aarch64-qnx.cmake
+│   │   ├── CMakeLists.txt
+│   │   ├── Common
+│   │   │   ├── data
+│   │   │   │   ├── CT_skull_512x512_8u_Gray.raw
+│   │   │   │   ├── CT_skull_512x512_8u.raw
+│   │   │   │   ├── PCB_1280x720_8u.raw
+│   │   │   │   ├── PCB2_1024x683_8u.raw
+│   │   │   │   ├── PCB_METAL_509x335_8u.raw
+│   │   │   │   ├── Rocks_512x512_8u_Gray.raw
+│   │   │   │   ├── teapot512.pgm
+│   │   │   │   ├── teapot_512x512_8u_Gray.raw
+│   │   │   │   └── teapot_512x512_8u.raw
+│   │   │   ├── drvapi_error_string.h
+│   │   │   ├── dynlink_d3d11.h
+│   │   │   ├── exception.h
+│   │   │   ├── GL
+│   │   │   │   ├── freeglut_ext.h
+│   │   │   │   ├── freeglut.h
+│   │   │   │   ├── freeglut_std.h
+│   │   │   │   ├── glew.h
+│   │   │   │   ├── glext.h
+│   │   │   │   ├── glut.h
+│   │   │   │   ├── glxew.h
+│   │   │   │   ├── glxext.h
+│   │   │   │   ├── wglew.h
+│   │   │   │   └── wglext.h
+│   │   │   ├── helper_cuda_drvapi.h
+│   │   │   ├── helper_cuda.h
+│   │   │   ├── helper_cusolver.h
+│   │   │   ├── helper_functions.h
+│   │   │   ├── helper_gl.h
+│   │   │   ├── helper_image.h
+│   │   │   ├── helper_math.h
+│   │   │   ├── helper_multiprocess.cpp
+│   │   │   ├── helper_multiprocess.h
+│   │   │   ├── helper_nvJPEG.hxx
+│   │   │   ├── helper_string.h
+│   │   │   ├── helper_timer.h
+│   │   │   ├── lib
+│   │   │   │   └── x64
+│   │   │   │       ├── freeglut.lib
+│   │   │   │       └── glew64.lib
+│   │   │   ├── multithreading.cpp
+│   │   │   ├── multithreading.h
+│   │   │   ├── nvMath.h
+│   │   │   ├── nvMatrix.h
+│   │   │   ├── nvQuaternion.h
+│   │   │   ├── nvrtc_helper.h
+│   │   │   ├── nvShaderUtils.h
+│   │   │   ├── nvVector.h
+│   │   │   ├── paramgl.h
+│   │   │   ├── param.h
+│   │   │   ├── rendercheck_d3d11.cpp
+│   │   │   ├── rendercheck_d3d11.h
+│   │   │   ├── rendercheck_gles.h
+│   │   │   ├── rendercheck_gl.h
+│   │   │   └── UtilNPP
+│   │   │       ├── Exceptions.h
+│   │   │       ├── ImageAllocatorsCPU.h
+│   │   │       ├── ImageAllocatorsNPP.h
+│   │   │       ├── Image.h
+│   │   │       ├── ImageIO.h
+│   │   │       ├── ImagePacked.h
+│   │   │       ├── ImagesCPU.h
+│   │   │       ├── ImagesNPP.h
+│   │   │       ├── Pixel.h
+│   │   │       ├── SignalAllocatorsCPU.h
+│   │   │       ├── SignalAllocatorsNPP.h
+│   │   │       ├── Signal.h
+│   │   │       ├── SignalsCPU.h
+│   │   │       └── SignalsNPP.h
+│   │   ├── CONTRIBUTING.md
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── run_tests.py
+│   │   ├── Samples
+│   │   │   ├── 0_Introduction
+│   │   │   │   ├── asyncAPI
+│   │   │   │   │   ├── asyncAPI.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── clock
+│   │   │   │   │   ├── clock.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── clock_nvrtc
+│   │   │   │   │   ├── clock.cpp
+│   │   │   │   │   ├── clock_kernel.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── CMakeLists.txt
+│   │   │   │   ├── cudaOpenMP
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cudaOpenMP.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── fp16ScalarProduct
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── fp16ScalarProduct.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── matrixMul
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── matrixMul.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── matrixMulDrv
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── matrixMulDrv.cpp
+│   │   │   │   │   ├── matrixMul.h
+│   │   │   │   │   ├── matrixMul_kernel.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── matrixMulDynlinkJIT
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cuda_drvapi_dynlink.c
+│   │   │   │   │   ├── cuda_drvapi_dynlink_cuda.h
+│   │   │   │   │   ├── cuda_drvapi_dynlink.h
+│   │   │   │   │   ├── extras
+│   │   │   │   │   │   ├── matrixMul_kernel_32.ptx
+│   │   │   │   │   │   ├── matrixMul_kernel_64.ptx
+│   │   │   │   │   │   ├── ptx2c.py
+│   │   │   │   │   │   └── README.TXT
+│   │   │   │   │   ├── helper_cuda_drvapi.h
+│   │   │   │   │   ├── matrixMulDynlinkJIT.cpp
+│   │   │   │   │   ├── matrixMul_gold.cpp
+│   │   │   │   │   ├── matrixMul.h
+│   │   │   │   │   ├── matrixMul_kernel_32_ptxdump.c
+│   │   │   │   │   ├── matrixMul_kernel_32_ptxdump.h
+│   │   │   │   │   ├── matrixMul_kernel_64_ptxdump.c
+│   │   │   │   │   ├── matrixMul_kernel_64_ptxdump.h
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── matrixMul_nvrtc
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── matrixMul.cpp
+│   │   │   │   │   ├── matrixMul_kernel.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── mergeSort
+│   │   │   │   │   ├── bitonic.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   ├── mergeSort_common.h
+│   │   │   │   │   ├── mergeSort.cu
+│   │   │   │   │   ├── mergeSort_host.cpp
+│   │   │   │   │   ├── mergeSort_validate.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── README.md
+│   │   │   │   ├── simpleAssert
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleAssert.cu
+│   │   │   │   ├── simpleAssert_nvrtc
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simpleAssert.cpp
+│   │   │   │   │   └── simpleAssert_kernel.cu
+│   │   │   │   ├── simpleAtomicIntrinsics
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simpleAtomicIntrinsics_cpu.cpp
+│   │   │   │   │   ├── simpleAtomicIntrinsics.cu
+│   │   │   │   │   └── simpleAtomicIntrinsics_kernel.cuh
+│   │   │   │   ├── simpleAtomicIntrinsics_nvrtc
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simpleAtomicIntrinsics.cpp
+│   │   │   │   │   ├── simpleAtomicIntrinsics_cpu.cpp
+│   │   │   │   │   └── simpleAtomicIntrinsics_kernel.cuh
+│   │   │   │   ├── simpleAttributes
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleAttributes.cu
+│   │   │   │   ├── simpleAWBarrier
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleAWBarrier.cu
+│   │   │   │   ├── simpleCallback
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── multithreading.cpp
+│   │   │   │   │   ├── multithreading.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCallback.cu
+│   │   │   │   ├── simpleCooperativeGroups
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCooperativeGroups.cu
+│   │   │   │   ├── simpleCubemapTexture
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCubemapTexture.cu
+│   │   │   │   ├── simpleCUDA2GL
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   └── ref_simpleCUDA2GL.ppm
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCUDA2GL.cu
+│   │   │   │   ├── simpleDrvRuntime
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simpleDrvRuntime.cpp
+│   │   │   │   │   └── vectorAdd_kernel.cu
+│   │   │   │   ├── simpleHyperQ
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── HyperQ.docx
+│   │   │   │   │   │   └── HyperQ.pdf
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleHyperQ.cu
+│   │   │   │   ├── simpleIPC
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleIPC.cu
+│   │   │   │   ├── simpleLayeredTexture
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleLayeredTexture.cu
+│   │   │   │   ├── simpleMPI
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simpleMPI.cpp
+│   │   │   │   │   ├── simpleMPI.cu
+│   │   │   │   │   └── simpleMPI.h
+│   │   │   │   ├── simpleMultiCopy
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleMultiCopy.cu
+│   │   │   │   ├── simpleMultiGPU
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simpleMultiGPU.cu
+│   │   │   │   │   └── simpleMultiGPU.h
+│   │   │   │   ├── simpleOccupancy
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleOccupancy.cu
+│   │   │   │   ├── simpleP2P
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleP2P.cu
+│   │   │   │   ├── simplePitchLinearTexture
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simplePitchLinearTexture.cu
+│   │   │   │   ├── simplePrintf
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simplePrintf.cu
+│   │   │   │   ├── simpleStreams
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleStreams.cu
+│   │   │   │   ├── simpleSurfaceWrite
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── ref_rotated.pgm
+│   │   │   │   │   │   └── teapot512.pgm
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleSurfaceWrite.cu
+│   │   │   │   ├── simpleTemplates
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── sharedmem.cuh
+│   │   │   │   │   └── simpleTemplates.cu
+│   │   │   │   ├── simpleTexture
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── ref_rotated.pgm
+│   │   │   │   │   │   ├── teapot512_out.pgm
+│   │   │   │   │   │   └── teapot512.pgm
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleTexture.cu
+│   │   │   │   ├── simpleTexture3D
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── Bucky.raw
+│   │   │   │   │   │   └── ref_texture3D.bin
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── sshot_lg.JPG
+│   │   │   │   │   │   ├── sshot_md.JPG
+│   │   │   │   │   │   └── sshot_sm.JPG
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simpleTexture3D.cpp
+│   │   │   │   │   └── simpleTexture3D_kernel.cu
+│   │   │   │   ├── simpleTextureDrv
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── ref_rotated.pgm
+│   │   │   │   │   │   ├── teapot512_out.pgm
+│   │   │   │   │   │   └── teapot512.pgm
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simpleTextureDrv.cpp
+│   │   │   │   │   └── simpleTexture_kernel.cu
+│   │   │   │   ├── simpleVoteIntrinsics
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simpleVoteIntrinsics.cu
+│   │   │   │   │   └── simpleVote_kernel.cuh
+│   │   │   │   ├── simpleZeroCopy
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleZeroCopy.cu
+│   │   │   │   ├── systemWideAtomics
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── systemWideAtomics.cu
+│   │   │   │   ├── template
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── template_cpu.cpp
+│   │   │   │   │   └── template.cu
+│   │   │   │   ├── UnifiedMemoryStreams
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── UnifiedMemoryStreams.cu
+│   │   │   │   ├── vectorAdd
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── vectorAdd.cu
+│   │   │   │   ├── vectorAddDrv
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── vectorAddDrv.cpp
+│   │   │   │   │   └── vectorAdd_kernel.cu
+│   │   │   │   ├── vectorAddMMAP
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── multidevicealloc_memmap.cpp
+│   │   │   │   │   ├── multidevicealloc_memmap.hpp
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── vectorAdd_kernel.cu
+│   │   │   │   │   └── vectorAddMMAP.cpp
+│   │   │   │   └── vectorAdd_nvrtc
+│   │   │   │       ├── CMakeLists.txt
+│   │   │   │       ├── README.md
+│   │   │   │       ├── vectorAdd.cpp
+│   │   │   │       └── vectorAdd_kernel.cu
+│   │   │   ├── 1_Utilities
+│   │   │   │   ├── CMakeLists.txt
+│   │   │   │   ├── deviceQuery
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── deviceQuery.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── deviceQueryDrv
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── deviceQueryDrv.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── README.md
+│   │   │   │   └── topologyQuery
+│   │   │   │       ├── CMakeLists.txt
+│   │   │   │       ├── README.md
+│   │   │   │       └── topologyQuery.cu
+│   │   │   ├── 2_Concepts_and_Techniques
+│   │   │   │   ├── boxFilter
+│   │   │   │   │   ├── boxFilter.cpp
+│   │   │   │   │   ├── boxFilter_cpu.cpp
+│   │   │   │   │   ├── boxFilter_kernel.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── ref_14.ppm
+│   │   │   │   │   │   ├── ref_22.ppm
+│   │   │   │   │   │   └── teapot1024.ppm
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── CMakeLists.txt
+│   │   │   │   ├── convolutionSeparable
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── convolutionSeparable_common.h
+│   │   │   │   │   ├── convolutionSeparable.cu
+│   │   │   │   │   ├── convolutionSeparable_gold.cpp
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── convolutionSeparable.doc
+│   │   │   │   │   │   ├── convolutionSeparable.pdf
+│   │   │   │   │   │   └── convolutionSeparable.vsd
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── convolutionTexture
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── convolutionTexture_common.h
+│   │   │   │   │   ├── convolutionTexture.cu
+│   │   │   │   │   ├── convolutionTexture_gold.cpp
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   └── Performance.xls
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── dct8x8
+│   │   │   │   │   ├── BmpUtil.cpp
+│   │   │   │   │   ├── BmpUtil.h
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── Common.h
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── teapot512.bmp
+│   │   │   │   │   │   └── teapot512.ppm
+│   │   │   │   │   ├── dct8x8.cu
+│   │   │   │   │   ├── DCT8x8_Gold.cpp
+│   │   │   │   │   ├── DCT8x8_Gold.h
+│   │   │   │   │   ├── dct8x8_kernel1.cuh
+│   │   │   │   │   ├── dct8x8_kernel2.cuh
+│   │   │   │   │   ├── dct8x8_kernel_quantization.cuh
+│   │   │   │   │   ├── dct8x8_kernel_short.cuh
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── BarbaraBlocks1.bmp
+│   │   │   │   │   │   ├── BarbaraBlocks2.bmp
+│   │   │   │   │   │   ├── BarbaraBlocks3.bmp
+│   │   │   │   │   │   ├── barbara.bmp
+│   │   │   │   │   │   ├── barbara_lg.png
+│   │   │   │   │   │   ├── barbara_md.png
+│   │   │   │   │   │   ├── barbara_sm.png
+│   │   │   │   │   │   ├── CosineBasis.png
+│   │   │   │   │   │   ├── Cosines.xls
+│   │   │   │   │   │   ├── dct8x8.doc
+│   │   │   │   │   │   ├── dct8x8.pdf
+│   │   │   │   │   │   └── DctJpeg.png
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── teapot512_cuda1.bmp
+│   │   │   │   │   ├── teapot512_cuda2.bmp
+│   │   │   │   │   ├── teapot512_cuda_short.bmp
+│   │   │   │   │   ├── teapot512_gold1.bmp
+│   │   │   │   │   └── teapot512_gold2.bmp
+│   │   │   │   ├── EGLStream_CUDA_CrossGPU
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cuda_consumer.cpp
+│   │   │   │   │   ├── cuda_consumer.h
+│   │   │   │   │   ├── cuda_producer.cpp
+│   │   │   │   │   ├── cuda_producer.h
+│   │   │   │   │   ├── eglstrm_common.cpp
+│   │   │   │   │   ├── eglstrm_common.h
+│   │   │   │   │   ├── helper.h
+│   │   │   │   │   ├── kernel.cu
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── EGLStream_CUDA_Interop
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cuda_consumer.cpp
+│   │   │   │   │   ├── cuda_consumer.h
+│   │   │   │   │   ├── cuda_f_1.yuv
+│   │   │   │   │   ├── cuda_f_2.yuv
+│   │   │   │   │   ├── cuda_producer.cpp
+│   │   │   │   │   ├── cuda_producer.h
+│   │   │   │   │   ├── cuda_yuv_f_1.yuv
+│   │   │   │   │   ├── cuda_yuv_f_2.yuv
+│   │   │   │   │   ├── eglstrm_common.cpp
+│   │   │   │   │   ├── eglstrm_common.h
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── eigenvalues
+│   │   │   │   │   ├── bisect_kernel_large.cuh
+│   │   │   │   │   ├── bisect_kernel_large_multi.cuh
+│   │   │   │   │   ├── bisect_kernel_large_onei.cuh
+│   │   │   │   │   ├── bisect_kernel_small.cuh
+│   │   │   │   │   ├── bisect_large.cu
+│   │   │   │   │   ├── bisect_large.cuh
+│   │   │   │   │   ├── bisect_small.cu
+│   │   │   │   │   ├── bisect_small.cuh
+│   │   │   │   │   ├── bisect_util.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── config.h
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── diagonal.dat
+│   │   │   │   │   │   ├── reference.dat
+│   │   │   │   │   │   └── superdiagonal.dat
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── eigenvalues.doc
+│   │   │   │   │   │   └── eigenvalues.pdf
+│   │   │   │   │   ├── gerschgorin.cpp
+│   │   │   │   │   ├── gerschgorin.h
+│   │   │   │   │   ├── main.cu
+│   │   │   │   │   ├── matlab.cpp
+│   │   │   │   │   ├── matlab.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── structs.h
+│   │   │   │   │   └── util.h
+│   │   │   │   ├── FunctionPointers
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── ref_orig.pgm
+│   │   │   │   │   │   ├── ref_shared.pgm
+│   │   │   │   │   │   ├── ref_tex.pgm
+│   │   │   │   │   │   └── teapot512.pgm
+│   │   │   │   │   ├── FunctionPointers.cpp
+│   │   │   │   │   ├── FunctionPointers_kernels.cu
+│   │   │   │   │   ├── FunctionPointers_kernels.h
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── histogram
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── histogram.doc
+│   │   │   │   │   │   ├── histogram.pdf
+│   │   │   │   │   │   └── histogram.vsd
+│   │   │   │   │   ├── histogram256.cu
+│   │   │   │   │   ├── histogram64.cu
+│   │   │   │   │   ├── histogram_common.h
+│   │   │   │   │   ├── histogram_gold.cpp
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── imageDenoising
+│   │   │   │   │   ├── bmploader.cpp
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── portrait_noise.bmp
+│   │   │   │   │   │   ├── ref_knn.ppm
+│   │   │   │   │   │   ├── ref_nlm2.ppm
+│   │   │   │   │   │   ├── ref_nlm.ppm
+│   │   │   │   │   │   └── ref_passthru.ppm
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── imageDenoising.doc
+│   │   │   │   │   │   ├── imageDenoising.pdf
+│   │   │   │   │   │   ├── NLM_lg.png
+│   │   │   │   │   │   ├── NLM_md.png
+│   │   │   │   │   │   └── NLM_sm.png
+│   │   │   │   │   ├── imageDenoising_copy_kernel.cuh
+│   │   │   │   │   ├── imageDenoising.cu
+│   │   │   │   │   ├── imageDenoisingGL.cpp
+│   │   │   │   │   ├── imageDenoising.h
+│   │   │   │   │   ├── imageDenoising_knn_kernel.cuh
+│   │   │   │   │   ├── imageDenoising_nlm2_kernel.cuh
+│   │   │   │   │   ├── imageDenoising_nlm_kernel.cuh
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── inlinePTX
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── inlinePTX.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── inlinePTX_nvrtc
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── inlinePTX.cpp
+│   │   │   │   │   ├── inlinePTX_kernel.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── interval
+│   │   │   │   │   ├── boost
+│   │   │   │   │   │   ├── config
+│   │   │   │   │   │   │   ├── abi
+│   │   │   │   │   │   │   │   ├── borland_prefix.hpp
+│   │   │   │   │   │   │   │   ├── borland_suffix.hpp
+│   │   │   │   │   │   │   │   ├── msvc_prefix.hpp
+│   │   │   │   │   │   │   │   └── msvc_suffix.hpp
+│   │   │   │   │   │   │   ├── abi_prefix.hpp
+│   │   │   │   │   │   │   ├── abi_suffix.hpp
+│   │   │   │   │   │   │   ├── auto_link.hpp
+│   │   │   │   │   │   │   ├── compiler
+│   │   │   │   │   │   │   │   ├── borland.hpp
+│   │   │   │   │   │   │   │   ├── codegear.hpp
+│   │   │   │   │   │   │   │   ├── comeau.hpp
+│   │   │   │   │   │   │   │   ├── common_edg.hpp
+│   │   │   │   │   │   │   │   ├── compaq_cxx.hpp
+│   │   │   │   │   │   │   │   ├── digitalmars.hpp
+│   │   │   │   │   │   │   │   ├── gcc.hpp
+│   │   │   │   │   │   │   │   ├── gcc_xml.hpp
+│   │   │   │   │   │   │   │   ├── greenhills.hpp
+│   │   │   │   │   │   │   │   ├── hp_acc.hpp
+│   │   │   │   │   │   │   │   ├── intel.hpp
+│   │   │   │   │   │   │   │   ├── kai.hpp
+│   │   │   │   │   │   │   │   ├── metrowerks.hpp
+│   │   │   │   │   │   │   │   ├── mpw.hpp
+│   │   │   │   │   │   │   │   ├── pgi.hpp
+│   │   │   │   │   │   │   │   ├── sgi_mipspro.hpp
+│   │   │   │   │   │   │   │   ├── sunpro_cc.hpp
+│   │   │   │   │   │   │   │   ├── vacpp.hpp
+│   │   │   │   │   │   │   │   └── visualc.hpp
+│   │   │   │   │   │   │   ├── no_tr1
+│   │   │   │   │   │   │   │   ├── cmath.hpp
+│   │   │   │   │   │   │   │   ├── complex.hpp
+│   │   │   │   │   │   │   │   ├── functional.hpp
+│   │   │   │   │   │   │   │   ├── memory.hpp
+│   │   │   │   │   │   │   │   └── utility.hpp
+│   │   │   │   │   │   │   ├── platform
+│   │   │   │   │   │   │   │   ├── aix.hpp
+│   │   │   │   │   │   │   │   ├── amigaos.hpp
+│   │   │   │   │   │   │   │   ├── beos.hpp
+│   │   │   │   │   │   │   │   ├── bsd.hpp
+│   │   │   │   │   │   │   │   ├── cygwin.hpp
+│   │   │   │   │   │   │   │   ├── hpux.hpp
+│   │   │   │   │   │   │   │   ├── irix.hpp
+│   │   │   │   │   │   │   │   ├── linux.hpp
+│   │   │   │   │   │   │   │   ├── macos.hpp
+│   │   │   │   │   │   │   │   ├── qnxnto.hpp
+│   │   │   │   │   │   │   │   ├── solaris.hpp
+│   │   │   │   │   │   │   │   ├── vxworks.hpp
+│   │   │   │   │   │   │   │   └── win32.hpp
+│   │   │   │   │   │   │   ├── posix_features.hpp
+│   │   │   │   │   │   │   ├── requires_threads.hpp
+│   │   │   │   │   │   │   ├── select_compiler_config.hpp
+│   │   │   │   │   │   │   ├── select_platform_config.hpp
+│   │   │   │   │   │   │   ├── select_stdlib_config.hpp
+│   │   │   │   │   │   │   ├── stdlib
+│   │   │   │   │   │   │   │   ├── dinkumware.hpp
+│   │   │   │   │   │   │   │   ├── libcomo.hpp
+│   │   │   │   │   │   │   │   ├── libstdcpp3.hpp
+│   │   │   │   │   │   │   │   ├── modena.hpp
+│   │   │   │   │   │   │   │   ├── msl.hpp
+│   │   │   │   │   │   │   │   ├── roguewave.hpp
+│   │   │   │   │   │   │   │   ├── sgi.hpp
+│   │   │   │   │   │   │   │   ├── stlport.hpp
+│   │   │   │   │   │   │   │   └── vacpp.hpp
+│   │   │   │   │   │   │   ├── suffix.hpp
+│   │   │   │   │   │   │   ├── user.hpp
+│   │   │   │   │   │   │   └── warning_disable.hpp
+│   │   │   │   │   │   ├── config.hpp
+│   │   │   │   │   │   ├── limits.hpp
+│   │   │   │   │   │   └── numeric
+│   │   │   │   │   │       ├── interval
+│   │   │   │   │   │       │   ├── arith2.hpp
+│   │   │   │   │   │       │   ├── arith3.hpp
+│   │   │   │   │   │       │   ├── arith.hpp
+│   │   │   │   │   │       │   ├── checking.hpp
+│   │   │   │   │   │       │   ├── compare
+│   │   │   │   │   │       │   │   ├── certain.hpp
+│   │   │   │   │   │       │   │   ├── explicit.hpp
+│   │   │   │   │   │       │   │   ├── lexicographic.hpp
+│   │   │   │   │   │       │   │   ├── possible.hpp
+│   │   │   │   │   │       │   │   ├── set.hpp
+│   │   │   │   │   │       │   │   └── tribool.hpp
+│   │   │   │   │   │       │   ├── compare.hpp
+│   │   │   │   │   │       │   ├── constants.hpp
+│   │   │   │   │   │       │   ├── detail
+│   │   │   │   │   │       │   │   ├── alpha_rounding_control.hpp
+│   │   │   │   │   │       │   │   ├── bcc_rounding_control.hpp
+│   │   │   │   │   │       │   │   ├── bugs.hpp
+│   │   │   │   │   │       │   │   ├── c99_rounding_control.hpp
+│   │   │   │   │   │       │   │   ├── c99sub_rounding_control.hpp
+│   │   │   │   │   │       │   │   ├── division.hpp
+│   │   │   │   │   │       │   │   ├── ia64_rounding_control.hpp
+│   │   │   │   │   │       │   │   ├── interval_prototype.hpp
+│   │   │   │   │   │       │   │   ├── msvc_rounding_control.hpp
+│   │   │   │   │   │       │   │   ├── ppc_rounding_control.hpp
+│   │   │   │   │   │       │   │   ├── sparc_rounding_control.hpp
+│   │   │   │   │   │       │   │   ├── test_input.hpp
+│   │   │   │   │   │       │   │   ├── x86gcc_rounding_control.hpp
+│   │   │   │   │   │       │   │   └── x86_rounding_control.hpp
+│   │   │   │   │   │       │   ├── ext
+│   │   │   │   │   │       │   │   ├── integer.hpp
+│   │   │   │   │   │       │   │   └── x86_fast_rounding_control.hpp
+│   │   │   │   │   │       │   ├── hw_rounding.hpp
+│   │   │   │   │   │       │   ├── interval.hpp
+│   │   │   │   │   │       │   ├── io.hpp
+│   │   │   │   │   │       │   ├── limits.hpp
+│   │   │   │   │   │       │   ├── policies.hpp
+│   │   │   │   │   │       │   ├── rounded_arith.hpp
+│   │   │   │   │   │       │   ├── rounded_transc.hpp
+│   │   │   │   │   │       │   ├── rounding.hpp
+│   │   │   │   │   │       │   ├── transc.hpp
+│   │   │   │   │   │       │   └── utility.hpp
+│   │   │   │   │   │       └── interval.hpp
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cpu_interval.h
+│   │   │   │   │   ├── cuda_interval.h
+│   │   │   │   │   ├── cuda_interval_lib.h
+│   │   │   │   │   ├── cuda_interval_rounded_arith.h
+│   │   │   │   │   ├── interval.cu
+│   │   │   │   │   ├── interval.h
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── MC_EstimatePiInlineP
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── inc
+│   │   │   │   │   │   ├── cudasharedmem.h
+│   │   │   │   │   │   ├── piestimator.h
+│   │   │   │   │   │   └── test.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── src
+│   │   │   │   │       ├── main.cpp
+│   │   │   │   │       ├── piestimator.cu
+│   │   │   │   │       └── test.cpp
+│   │   │   │   ├── MC_EstimatePiInlineQ
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── inc
+│   │   │   │   │   │   ├── cudasharedmem.h
+│   │   │   │   │   │   ├── piestimator.h
+│   │   │   │   │   │   └── test.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── src
+│   │   │   │   │       ├── main.cpp
+│   │   │   │   │       ├── piestimator.cu
+│   │   │   │   │       └── test.cpp
+│   │   │   │   ├── MC_EstimatePiP
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── inc
+│   │   │   │   │   │   ├── cudasharedmem.h
+│   │   │   │   │   │   ├── piestimator.h
+│   │   │   │   │   │   └── test.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── src
+│   │   │   │   │       ├── main.cpp
+│   │   │   │   │       ├── piestimator.cu
+│   │   │   │   │       └── test.cpp
+│   │   │   │   ├── MC_EstimatePiQ
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── inc
+│   │   │   │   │   │   ├── cudasharedmem.h
+│   │   │   │   │   │   ├── piestimator.h
+│   │   │   │   │   │   └── test.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── src
+│   │   │   │   │       ├── main.cpp
+│   │   │   │   │       ├── piestimator.cu
+│   │   │   │   │       └── test.cpp
+│   │   │   │   ├── MC_SingleAsianOptionP
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── inc
+│   │   │   │   │   │   ├── asianoption.h
+│   │   │   │   │   │   ├── cudasharedmem.h
+│   │   │   │   │   │   ├── pricingengine.h
+│   │   │   │   │   │   └── test.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── src
+│   │   │   │   │       ├── main.cpp
+│   │   │   │   │       ├── pricingengine.cu
+│   │   │   │   │       └── test.cpp
+│   │   │   │   ├── particles
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   └── ref_particles.bin
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── particles.doc
+│   │   │   │   │   │   ├── particles.pdf
+│   │   │   │   │   │   ├── screenshot_lg.png
+│   │   │   │   │   │   ├── screenshot_md.png
+│   │   │   │   │   │   └── screenshot_sm.png
+│   │   │   │   │   ├── particles.cpp
+│   │   │   │   │   ├── particles_kernel.cuh
+│   │   │   │   │   ├── particles_kernel_impl.cuh
+│   │   │   │   │   ├── particleSystem.cpp
+│   │   │   │   │   ├── particleSystem_cuda.cu
+│   │   │   │   │   ├── particleSystem.cuh
+│   │   │   │   │   ├── particleSystem.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── render_particles.cpp
+│   │   │   │   │   ├── render_particles.h
+│   │   │   │   │   ├── shaders.cpp
+│   │   │   │   │   └── shaders.h
+│   │   │   │   ├── radixSortThrust
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   └── readme.txt
+│   │   │   │   │   ├── radixSortThrust.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── README.md
+│   │   │   │   ├── reduction
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── reduction.cpp
+│   │   │   │   │   ├── reduction.h
+│   │   │   │   │   └── reduction_kernel.cu
+│   │   │   │   ├── reductionMultiBlockCG
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── reductionMultiBlockCG.cu
+│   │   │   │   ├── scalarProd
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── scalarProd_cpu.cpp
+│   │   │   │   │   ├── scalarProd.cu
+│   │   │   │   │   └── scalarProd_kernel.cuh
+│   │   │   │   ├── scan
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── scan_common.h
+│   │   │   │   │   ├── scan.cu
+│   │   │   │   │   └── scan_gold.cpp
+│   │   │   │   ├── segmentationTreeThrust
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── common.cuh
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── ref_00.ppm
+│   │   │   │   │   │   ├── ref_09.ppm
+│   │   │   │   │   │   └── test.ppm
+│   │   │   │   │   ├── kernels.cuh
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── segmentationTree.cu
+│   │   │   │   ├── shfl_scan
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── shfl_integral_image.cuh
+│   │   │   │   │   ├── shfl_scan.cu
+│   │   │   │   │   └── util.h
+│   │   │   │   ├── sortingNetworks
+│   │   │   │   │   ├── bitonicSort.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   ├── oddEvenMergeSort.cu
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── sortingNetworks_common.cuh
+│   │   │   │   │   ├── sortingNetworks_common.h
+│   │   │   │   │   └── sortingNetworks_validate.cpp
+│   │   │   │   ├── streamOrderedAllocation
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── streamOrderedAllocation.cu
+│   │   │   │   ├── streamOrderedAllocationIPC
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── streamOrderedAllocationIPC.cu
+│   │   │   │   ├── streamOrderedAllocationP2P
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── streamOrderedAllocationP2P.cu
+│   │   │   │   ├── threadFenceReduction
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── threadFenceReduction.cu
+│   │   │   │   │   ├── threadFenceReduction.h
+│   │   │   │   │   └── threadFenceReduction_kernel.cuh
+│   │   │   │   └── threadMigration
+│   │   │   │       ├── CMakeLists.txt
+│   │   │   │       ├── README.md
+│   │   │   │       ├── threadMigration.cpp
+│   │   │   │       └── threadMigration_kernel.cu
+│   │   │   ├── 3_CUDA_Features
+│   │   │   │   ├── bf16TensorCoreGemm
+│   │   │   │   │   ├── bf16TensorCoreGemm.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── binaryPartitionCG
+│   │   │   │   │   ├── binaryPartitionCG.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── bindlessTexture
+│   │   │   │   │   ├── bindlessTexture.cpp
+│   │   │   │   │   ├── bindlessTexture.h
+│   │   │   │   │   ├── bindlessTexture_kernel.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── flower.ppm
+│   │   │   │   │   │   ├── person.ppm
+│   │   │   │   │   │   ├── ref_bindlessTexture.bin
+│   │   │   │   │   │   └── sponge.ppm
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── sshot_lg.JPG
+│   │   │   │   │   │   ├── sshot_md.JPG
+│   │   │   │   │   │   └── sshot_sm.JPG
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cdpAdvancedQuicksort
+│   │   │   │   │   ├── cdpAdvancedQuicksort.cu
+│   │   │   │   │   ├── cdpBitonicSort.cu
+│   │   │   │   │   ├── cdpQuicksort.h
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cdpBezierTessellation
+│   │   │   │   │   ├── BezierLineCDP.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cdpQuadtree
+│   │   │   │   │   ├── cdpQuadtree.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cdpSimplePrint
+│   │   │   │   │   ├── cdpSimplePrint.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cdpSimpleQuicksort
+│   │   │   │   │   ├── cdpSimpleQuicksort.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── CMakeLists.txt
+│   │   │   │   ├── cudaCompressibleMemory
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── compMalloc.cpp
+│   │   │   │   │   ├── compMalloc.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── saxpy.cu
+│   │   │   │   ├── cudaTensorCoreGemm
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cudaTensorCoreGemm.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── dmmaTensorCoreGemm
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── dmmaTensorCoreGemm.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── globalToShmemAsyncCopy
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── globalToShmemAsyncCopy.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── graphConditionalNodes
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── graphConditionalNodes.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── graphMemoryFootprint
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── graphMemoryFootprint.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── graphMemoryNodes
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── graphMemoryNodes.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── immaTensorCoreGemm
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── immaTensorCoreGemm.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── jacobiCudaGraphs
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── jacobi.cu
+│   │   │   │   │   ├── jacobi.h
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── memMapIPCDrv
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── memMapIpc.cpp
+│   │   │   │   │   ├── memMapIpc_kernel.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── newdelete
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── container.hpp
+│   │   │   │   │   ├── newdelete.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── ptxjit
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── ptxjit.cpp
+│   │   │   │   │   ├── ptxjit_kernel.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── README.md
+│   │   │   │   ├── simpleCudaGraphs
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCudaGraphs.cu
+│   │   │   │   ├── StreamPriorities
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── StreamPriorities.cu
+│   │   │   │   ├── tf32TensorCoreGemm
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── tf32TensorCoreGemm.cu
+│   │   │   │   └── warpAggregatedAtomicsCG
+│   │   │   │       ├── CMakeLists.txt
+│   │   │   │       ├── README.md
+│   │   │   │       └── warpAggregatedAtomicsCG.cu
+│   │   │   ├── 4_CUDA_Libraries
+│   │   │   │   ├── batchCUBLAS
+│   │   │   │   │   ├── batchCUBLAS.cpp
+│   │   │   │   │   ├── batchCUBLAS.h
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── boxFilterNPP
+│   │   │   │   │   ├── boxFilterNPP.cpp
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── teapot512.pgm
+│   │   │   │   ├── cannyEdgeDetectorNPP
+│   │   │   │   │   ├── cannyEdgeDetectorNPP.cpp
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── teapot512.pgm
+│   │   │   │   ├── CMakeLists.txt
+│   │   │   │   ├── conjugateGradient
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── conjugateGradientCudaGraphs
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── conjugateGradientCudaGraphs.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── conjugateGradientMultiBlockCG
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── conjugateGradientMultiBlockCG.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── conjugateGradientMultiDeviceCG
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── conjugateGradientMultiDeviceCG.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── conjugateGradientPrecond
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── conjugateGradientUM
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cudaNvSci
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cudaNvSci.cpp
+│   │   │   │   │   ├── cudaNvSci.h
+│   │   │   │   │   ├── imageKernels.cu
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── teapot1024.ppm
+│   │   │   │   ├── cuSolverDn_LinearSolver
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cuSolverDn_LinearSolver.cpp
+│   │   │   │   │   ├── gr_900_900_crg.mtx
+│   │   │   │   │   ├── lap3D_7pt_n20.mtx
+│   │   │   │   │   ├── mmio.c
+│   │   │   │   │   ├── mmio.h
+│   │   │   │   │   ├── mmio_wrapper.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cuSolverRf
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cuSolverRf.cpp
+│   │   │   │   │   ├── lap2D_5pt_n100.mtx
+│   │   │   │   │   ├── lap3D_7pt_n20.mtx
+│   │   │   │   │   ├── mmio.c
+│   │   │   │   │   ├── mmio.h
+│   │   │   │   │   ├── mmio_wrapper.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cuSolverSp_LinearSolver
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cuSolverSp_LinearSolver.cpp
+│   │   │   │   │   ├── lap2D_5pt_n100.mtx
+│   │   │   │   │   ├── lap3D_7pt_n20.mtx
+│   │   │   │   │   ├── mmio.c
+│   │   │   │   │   ├── mmio.h
+│   │   │   │   │   ├── mmio_wrapper.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cuSolverSp_LowlevelCholesky
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cuSolverSp_LowlevelCholesky.cpp
+│   │   │   │   │   ├── lap2D_5pt_n100.mtx
+│   │   │   │   │   ├── lap3D_7pt_n20.mtx
+│   │   │   │   │   ├── mmio.c
+│   │   │   │   │   ├── mmio.h
+│   │   │   │   │   ├── mmio_wrapper.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cuSolverSp_LowlevelQR
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cuSolverSp_LowlevelQR.cpp
+│   │   │   │   │   ├── lap2D_5pt_n100.mtx
+│   │   │   │   │   ├── lap2D_5pt_n32.mtx
+│   │   │   │   │   ├── lap3D_7pt_n20.mtx
+│   │   │   │   │   ├── mmio.c
+│   │   │   │   │   ├── mmio.h
+│   │   │   │   │   ├── mmio_wrapper.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── FilterBorderControlNPP
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   └── teapot512.pgm
+│   │   │   │   │   ├── FilterBorderControlNPP.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── freeImageInteropNPP
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── freeImageInteropNPP.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── histEqualizationNPP
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── histEqualizationNPP.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── jitLto
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── jitLto.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── lineOfSight
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── lineOfSight.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── matrixMulCUBLAS
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── matrixMulCUBLAS.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── MersenneTwisterGP11213
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── MersenneTwister.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── nvJPEG
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── images
+│   │   │   │   │   │   ├── img1.jpg
+│   │   │   │   │   │   ├── img2.jpg
+│   │   │   │   │   │   ├── img3.jpg
+│   │   │   │   │   │   ├── img4.jpg
+│   │   │   │   │   │   ├── img5.jpg
+│   │   │   │   │   │   ├── img6.jpg
+│   │   │   │   │   │   ├── img7.jpg
+│   │   │   │   │   │   └── img8.jpg
+│   │   │   │   │   ├── nvJPEG.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── nvJPEG_encoder
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── encode_output
+│   │   │   │   │   │   ├── img1.jpg
+│   │   │   │   │   │   ├── img2.jpg
+│   │   │   │   │   │   ├── img3.jpg
+│   │   │   │   │   │   ├── img4.jpg
+│   │   │   │   │   │   ├── img5.jpg
+│   │   │   │   │   │   ├── img6.jpg
+│   │   │   │   │   │   ├── img7.jpg
+│   │   │   │   │   │   └── img8.jpg
+│   │   │   │   │   ├── images
+│   │   │   │   │   │   ├── img1.jpg
+│   │   │   │   │   │   ├── img2.jpg
+│   │   │   │   │   │   ├── img3.jpg
+│   │   │   │   │   │   ├── img4.jpg
+│   │   │   │   │   │   ├── img5.jpg
+│   │   │   │   │   │   ├── img6.jpg
+│   │   │   │   │   │   ├── img7.jpg
+│   │   │   │   │   │   └── img8.jpg
+│   │   │   │   │   ├── nvJPEG_encoder.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── oceanFFT
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── ocean.frag
+│   │   │   │   │   │   ├── ocean.vert
+│   │   │   │   │   │   ├── reference.ppm
+│   │   │   │   │   │   ├── ref_slopeShading.bin
+│   │   │   │   │   │   └── ref_spatialDomain.bin
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── sshot_lg.png
+│   │   │   │   │   │   ├── sshot_md.png
+│   │   │   │   │   │   └── sshot_sm.png
+│   │   │   │   │   ├── oceanFFT.cpp
+│   │   │   │   │   ├── oceanFFT_kernel.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── randomFog
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   └── ref_randomFog.bin
+│   │   │   │   │   ├── randomFog.cpp
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── rng.cpp
+│   │   │   │   │   └── rng.h
+│   │   │   │   ├── README.md
+│   │   │   │   ├── simpleCUBLAS
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCUBLAS.cpp
+│   │   │   │   ├── simpleCUBLAS_LU
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCUBLAS_LU.cpp
+│   │   │   │   ├── simpleCUBLASXT
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCUBLASXT.cpp
+│   │   │   │   ├── simpleCUFFT
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCUFFT.cu
+│   │   │   │   ├── simpleCUFFT_2d_MGPU
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCUFFT_2d_MGPU.cu
+│   │   │   │   ├── simpleCUFFT_callback
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCUFFT_callback.cu
+│   │   │   │   ├── simpleCUFFT_MGPU
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleCUFFT_MGPU.cu
+│   │   │   │   └── watershedSegmentationNPP
+│   │   │   │       ├── CMakeLists.txt
+│   │   │   │       ├── README.md
+│   │   │   │       └── watershedSegmentationNPP.cpp
+│   │   │   ├── 5_Domain_Specific
+│   │   │   │   ├── bicubicTexture
+│   │   │   │   │   ├── bicubicTexture.cpp
+│   │   │   │   │   ├── bicubicTexture_cuda.cu
+│   │   │   │   │   ├── bicubicTexture_kernel.cuh
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── 0_nearest.ppm
+│   │   │   │   │   │   ├── 1_bilinear.ppm
+│   │   │   │   │   │   ├── 2_bicubic.ppm
+│   │   │   │   │   │   ├── 3_fastbicubic.ppm
+│   │   │   │   │   │   ├── 4_catmull-rom.ppm
+│   │   │   │   │   │   └── teapot512.pgm
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── bilateralFilter
+│   │   │   │   │   ├── bilateralFilter.cpp
+│   │   │   │   │   ├── bilateralFilter_cpu.cpp
+│   │   │   │   │   ├── bilateral_kernel.cu
+│   │   │   │   │   ├── bmploader.cpp
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── nature_monte.bmp
+│   │   │   │   │   │   ├── ref_05.ppm
+│   │   │   │   │   │   ├── ref_06.ppm
+│   │   │   │   │   │   ├── ref_07.ppm
+│   │   │   │   │   │   └── ref_08.ppm
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── binomialOptions
+│   │   │   │   │   ├── binomialOptions_common.h
+│   │   │   │   │   ├── binomialOptions.cpp
+│   │   │   │   │   ├── binomialOptions_gold.cpp
+│   │   │   │   │   ├── binomialOptions_kernel.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── binomialOptions.doc
+│   │   │   │   │   │   └── binomialOptions.pdf
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── realtype.h
+│   │   │   │   ├── binomialOptions_nvrtc
+│   │   │   │   │   ├── binomialOptions_common.h
+│   │   │   │   │   ├── binomialOptions.cpp
+│   │   │   │   │   ├── binomialOptions_gold.cpp
+│   │   │   │   │   ├── binomialOptions_gpu.cpp
+│   │   │   │   │   ├── binomialOptions_kernel.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── common_gpu_header.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── realtype.h
+│   │   │   │   ├── BlackScholes
+│   │   │   │   │   ├── BlackScholes.cu
+│   │   │   │   │   ├── BlackScholes_gold.cpp
+│   │   │   │   │   ├── BlackScholes_kernel.cuh
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── BlackScholes.doc
+│   │   │   │   │   │   └── BlackScholes.pdf
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── BlackScholes_nvrtc
+│   │   │   │   │   ├── BlackScholes.cpp
+│   │   │   │   │   ├── BlackScholes_gold.cpp
+│   │   │   │   │   ├── BlackScholes_kernel.cuh
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── CMakeLists.txt
+│   │   │   │   ├── convolutionFFT2D
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── convolutionFFT2D_common.h
+│   │   │   │   │   ├── convolutionFFT2D.cu
+│   │   │   │   │   ├── convolutionFFT2D.cuh
+│   │   │   │   │   ├── convolutionFFT2D_gold.cpp
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── dwtHaar1D
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── regression_2_14.gold.dat
+│   │   │   │   │   │   ├── regression_2_18.gold.dat
+│   │   │   │   │   │   ├── regression.gold.dat
+│   │   │   │   │   │   ├── signal_2_14.dat
+│   │   │   │   │   │   ├── signal_2_18.dat
+│   │   │   │   │   │   └── signal.dat
+│   │   │   │   │   ├── dwtHaar1D.cu
+│   │   │   │   │   ├── dwtHaar1D_kernel.cuh
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── dxtc
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── CudaMath.h
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── teapot512_ref.dds
+│   │   │   │   │   │   ├── teapot512_std.dds
+│   │   │   │   │   │   └── teapot512_std.ppm
+│   │   │   │   │   ├── dds.h
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── cuda_dxtc.doc
+│   │   │   │   │   │   └── cuda_dxtc.pdf
+│   │   │   │   │   ├── dxtc.cu
+│   │   │   │   │   ├── permutations.h
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── fastWalshTransform
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   └── FWT.doc
+│   │   │   │   │   ├── fastWalshTransform.cu
+│   │   │   │   │   ├── fastWalshTransform_gold.cpp
+│   │   │   │   │   ├── fastWalshTransform_kernel.cuh
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── FDTD3d
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── inc
+│   │   │   │   │   │   ├── FDTD3dGPU.h
+│   │   │   │   │   │   ├── FDTD3dGPUKernel.cuh
+│   │   │   │   │   │   ├── FDTD3d.h
+│   │   │   │   │   │   └── FDTD3dReference.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── src
+│   │   │   │   │       ├── FDTD3d.cpp
+│   │   │   │   │       ├── FDTD3dGPU.cu
+│   │   │   │   │       └── FDTD3dReference.cpp
+│   │   │   │   ├── fluidsGL
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   └── ref_fluidsGL.ppm
+│   │   │   │   │   ├── defines.h
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── fluidsGL.doc
+│   │   │   │   │   │   ├── fluidsGL_lg.gif
+│   │   │   │   │   │   ├── fluidsGL_md.gif
+│   │   │   │   │   │   ├── fluidsGL.pdf
+│   │   │   │   │   │   └── fluidsGL_sm.gif
+│   │   │   │   │   ├── fluidsGL.cpp
+│   │   │   │   │   ├── fluidsGL_kernels.cu
+│   │   │   │   │   ├── fluidsGL_kernels.cuh
+│   │   │   │   │   ├── fluidsGL_kernels.h
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── HSOpticalFlow
+│   │   │   │   │   ├── addKernel.cuh
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── common.h
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── frame10.ppm
+│   │   │   │   │   │   └── frame11.ppm
+│   │   │   │   │   ├── derivativesKernel.cuh
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── OpticalFlow.docx
+│   │   │   │   │   │   └── OpticalFlow.pdf
+│   │   │   │   │   ├── downscaleKernel.cuh
+│   │   │   │   │   ├── FlowCPU.flo
+│   │   │   │   │   ├── flowCUDA.cu
+│   │   │   │   │   ├── flowCUDA.h
+│   │   │   │   │   ├── flowGold.cpp
+│   │   │   │   │   ├── flowGold.h
+│   │   │   │   │   ├── FlowGPU.flo
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── solverKernel.cuh
+│   │   │   │   │   ├── upscaleKernel.cuh
+│   │   │   │   │   └── warpingKernel.cuh
+│   │   │   │   ├── Mandelbrot
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── Mandelbrot_fp32.ppm
+│   │   │   │   │   │   ├── Mandelbrot_fp64.ppm
+│   │   │   │   │   │   ├── params.txt
+│   │   │   │   │   │   ├── referenceJulia_fp32.ppm
+│   │   │   │   │   │   └── referenceJulia_fp64.ppm
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── sshot_lg.JPG
+│   │   │   │   │   │   ├── sshot_md.JPG
+│   │   │   │   │   │   └── sshot_sm.JPG
+│   │   │   │   │   ├── Mandelbrot.cpp
+│   │   │   │   │   ├── Mandelbrot_cuda.cu
+│   │   │   │   │   ├── Mandelbrot_gold.cpp
+│   │   │   │   │   ├── Mandelbrot_gold.h
+│   │   │   │   │   ├── Mandelbrot_kernel.cuh
+│   │   │   │   │   ├── Mandelbrot_kernel.h
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── marchingCubes
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── Bucky.raw
+│   │   │   │   │   │   ├── compVoxelArray.bin
+│   │   │   │   │   │   ├── normalArray.bin
+│   │   │   │   │   │   ├── posArray.bin
+│   │   │   │   │   │   └── ref_march_cubes.ppm
+│   │   │   │   │   ├── defines.h
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── screenshot_lg.png
+│   │   │   │   │   │   ├── screenshot_md.png
+│   │   │   │   │   │   └── screenshot_sm.png
+│   │   │   │   │   ├── marchingCubes.cpp
+│   │   │   │   │   ├── marchingCubes_kernel.cu
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── tables.h
+│   │   │   │   ├── MonteCarloMultiGPU
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── MonteCarlo.doc
+│   │   │   │   │   │   └── MonteCarlo.pdf
+│   │   │   │   │   ├── MonteCarlo_common.h
+│   │   │   │   │   ├── MonteCarlo_gold.cpp
+│   │   │   │   │   ├── MonteCarlo_kernel.cu
+│   │   │   │   │   ├── MonteCarloMultiGPU.cpp
+│   │   │   │   │   ├── MonteCarlo_reduction.cuh
+│   │   │   │   │   ├── multithreading.cpp
+│   │   │   │   │   ├── multithreading.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── realtype.h
+│   │   │   │   ├── nbody
+│   │   │   │   │   ├── bodysystemcpu.h
+│   │   │   │   │   ├── bodysystemcpu_impl.h
+│   │   │   │   │   ├── bodysystemcuda.cu
+│   │   │   │   │   ├── bodysystemcuda.h
+│   │   │   │   │   ├── bodysystemcuda_impl.h
+│   │   │   │   │   ├── bodysystem.h
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── nbody_gems3_ch31.pdf
+│   │   │   │   │   │   ├── screenshot_lg.jpg
+│   │   │   │   │   │   ├── screenshot_md.jpg
+│   │   │   │   │   │   └── screenshot_sm.jpg
+│   │   │   │   │   ├── nbody.cpp
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── render_particles.cpp
+│   │   │   │   │   ├── render_particles.h
+│   │   │   │   │   └── tipsy.h
+│   │   │   │   ├── NV12toBGRandResize
+│   │   │   │   │   ├── bgr_resize.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── test1280x720.nv12
+│   │   │   │   │   │   ├── test1920x1080.nv12
+│   │   │   │   │   │   └── test640x480.nv12
+│   │   │   │   │   ├── nv12_resize.cu
+│   │   │   │   │   ├── nv12_to_bgr_planar.cu
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── resize_convert.h
+│   │   │   │   │   ├── resize_convert_main.cpp
+│   │   │   │   │   ├── utils.cu
+│   │   │   │   │   └── utils.h
+│   │   │   │   ├── p2pBandwidthLatencyTest
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── p2pBandwidthLatencyTest.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── postProcessGL
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── teapot_2.ppm
+│   │   │   │   │   │   ├── teapot_4.ppm
+│   │   │   │   │   │   ├── teapot_8.ppm
+│   │   │   │   │   │   └── teapot_orig.ppm
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── postProcessGL_lg.gif
+│   │   │   │   │   │   ├── postProcessGL_md.gif
+│   │   │   │   │   │   └── postProcessGL_sm.gif
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   ├── postProcessGL.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── quasirandomGenerator
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── quasirandomGenerator_common.h
+│   │   │   │   │   ├── quasirandomGenerator.cpp
+│   │   │   │   │   ├── quasirandomGenerator_gold.cpp
+│   │   │   │   │   ├── quasirandomGenerator_kernel.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── quasirandomGenerator_nvrtc
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── quasirandomGenerator_common.h
+│   │   │   │   │   ├── quasirandomGenerator.cpp
+│   │   │   │   │   ├── quasirandomGenerator_gold.cpp
+│   │   │   │   │   ├── quasirandomGenerator_gpu.cuh
+│   │   │   │   │   ├── quasirandomGenerator_kernel.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── README.md
+│   │   │   │   ├── recursiveGaussian
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── ref_10.ppm
+│   │   │   │   │   │   ├── ref_14.ppm
+│   │   │   │   │   │   ├── ref_18.ppm
+│   │   │   │   │   │   ├── ref_22.ppm
+│   │   │   │   │   │   └── teapot512.ppm
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── recursiveGaussian.cpp
+│   │   │   │   │   ├── recursiveGaussian_cuda.cu
+│   │   │   │   │   └── recursiveGaussian_kernel.cuh
+│   │   │   │   ├── simpleD3D11
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   └── ref_simpleD3D11.ppm
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── ShaderStructs.h
+│   │   │   │   │   ├── simpleD3D11.cpp
+│   │   │   │   │   ├── sinewave_cuda.cu
+│   │   │   │   │   └── sinewave_cuda.h
+│   │   │   │   ├── simpleD3D11Texture
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── d3dx11effect
+│   │   │   │   │   │   └── d3dx11effect.h
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   └── ref_simpleD3D11Texture.ppm
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simpleD3D11Texture.cpp
+│   │   │   │   │   ├── texture_2d.cu
+│   │   │   │   │   ├── texture_3d.cu
+│   │   │   │   │   └── texture_cube.cu
+│   │   │   │   ├── simpleD3D12
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── d3dx12.h
+│   │   │   │   │   ├── DX12CudaSample.cpp
+│   │   │   │   │   ├── DX12CudaSample.h
+│   │   │   │   │   ├── DXSampleHelper.h
+│   │   │   │   │   ├── Main.cpp
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── shaders.hlsl
+│   │   │   │   │   ├── ShaderStructs.h
+│   │   │   │   │   ├── simpleD3D12.cpp
+│   │   │   │   │   ├── simpleD3D12.h
+│   │   │   │   │   ├── sinewave_cuda.cu
+│   │   │   │   │   ├── stdafx.cpp
+│   │   │   │   │   ├── stdafx.h
+│   │   │   │   │   ├── Win32Application.cpp
+│   │   │   │   │   └── Win32Application.h
+│   │   │   │   ├── simpleGL
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   └── ref_simpleGL.bin
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── simpleGL.cu
+│   │   │   │   ├── simpleVulkan
+│   │   │   │   │   ├── Build_instructions.txt
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── frag.spv
+│   │   │   │   │   ├── linmath.h
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── sinewave.frag
+│   │   │   │   │   ├── SineWaveSimulation.cu
+│   │   │   │   │   ├── SineWaveSimulation.h
+│   │   │   │   │   ├── sinewave.vert
+│   │   │   │   │   ├── vert.spv
+│   │   │   │   │   ├── VulkanBaseApp.cpp
+│   │   │   │   │   └── VulkanBaseApp.h
+│   │   │   │   ├── simpleVulkanMMAP
+│   │   │   │   │   ├── Build_instructions.txt
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── frag.spv
+│   │   │   │   │   ├── main.cpp
+│   │   │   │   │   ├── montecarlo.frag
+│   │   │   │   │   ├── MonteCarloPi.cu
+│   │   │   │   │   ├── MonteCarloPi.h
+│   │   │   │   │   ├── montecarlo.vert
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── vert.spv
+│   │   │   │   │   ├── VulkanBaseApp.cpp
+│   │   │   │   │   ├── VulkanBaseApp.h
+│   │   │   │   │   └── VulkanCudaInterop.h
+│   │   │   │   ├── smokeParticles
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── floortile.ppm
+│   │   │   │   │   │   ├── ref_smokePart_pos.bin
+│   │   │   │   │   │   └── ref_smokePart_vel.bin
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── screenshot_lg.png
+│   │   │   │   │   │   ├── screenshot_md.png
+│   │   │   │   │   │   ├── screenshot_sm.png
+│   │   │   │   │   │   ├── smokeParticles.doc
+│   │   │   │   │   │   └── smokeParticles.pdf
+│   │   │   │   │   ├── framebufferObject.cpp
+│   │   │   │   │   ├── framebufferObject.h
+│   │   │   │   │   ├── GLSLProgram.cpp
+│   │   │   │   │   ├── GLSLProgram.h
+│   │   │   │   │   ├── GpuArray.h
+│   │   │   │   │   ├── nvMath.h
+│   │   │   │   │   ├── nvMatrix.h
+│   │   │   │   │   ├── nvQuaternion.h
+│   │   │   │   │   ├── nvVector.h
+│   │   │   │   │   ├── particleDemo.cpp
+│   │   │   │   │   ├── particles_kernel.cuh
+│   │   │   │   │   ├── particles_kernel_device.cuh
+│   │   │   │   │   ├── ParticleSystem.cpp
+│   │   │   │   │   ├── ParticleSystem_cuda.cu
+│   │   │   │   │   ├── ParticleSystem.cuh
+│   │   │   │   │   ├── ParticleSystem.h
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── renderbuffer.cpp
+│   │   │   │   │   ├── renderbuffer.h
+│   │   │   │   │   ├── SmokeRenderer.cpp
+│   │   │   │   │   ├── SmokeRenderer.h
+│   │   │   │   │   ├── SmokeShaders.cpp
+│   │   │   │   │   └── SmokeShaders.h
+│   │   │   │   ├── SobelFilter
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── ref_orig.pgm
+│   │   │   │   │   │   ├── ref_shared.pgm
+│   │   │   │   │   │   ├── ref_tex.pgm
+│   │   │   │   │   │   └── teapot.pgm
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── sshot_lg.JPG
+│   │   │   │   │   │   ├── sshot_md.JPG
+│   │   │   │   │   │   └── sshot_sm.JPG
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── SobelFilter.cpp
+│   │   │   │   │   ├── SobelFilter_kernels.cu
+│   │   │   │   │   └── SobelFilter_kernels.h
+│   │   │   │   ├── SobolQRNG
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── sobol.cpp
+│   │   │   │   │   ├── sobol_gold.cpp
+│   │   │   │   │   ├── sobol_gold.h
+│   │   │   │   │   ├── sobol_gpu.cu
+│   │   │   │   │   ├── sobol_gpu.h
+│   │   │   │   │   ├── sobol.h
+│   │   │   │   │   ├── sobol_primitives.cpp
+│   │   │   │   │   └── sobol_primitives.h
+│   │   │   │   ├── stereoDisparity
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── stereo.im0.640x533.ppm
+│   │   │   │   │   │   └── stereo.im1.640x533.ppm
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── stereoDisparity.cu
+│   │   │   │   │   └── stereoDisparity_kernel.cuh
+│   │   │   │   ├── volumeFiltering
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── Bucky.raw
+│   │   │   │   │   │   └── ref_volumefilter.ppm
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── sshot_lg.JPG
+│   │   │   │   │   │   ├── sshot_md.JPG
+│   │   │   │   │   │   └── sshot_sm.JPG
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── volume.cpp
+│   │   │   │   │   ├── volumeFilter.h
+│   │   │   │   │   ├── volumeFiltering.cpp
+│   │   │   │   │   ├── volumeFilter_kernel.cu
+│   │   │   │   │   ├── volume.h
+│   │   │   │   │   ├── volumeRender.h
+│   │   │   │   │   └── volumeRender_kernel.cu
+│   │   │   │   ├── volumeRender
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── data
+│   │   │   │   │   │   ├── Bucky.raw
+│   │   │   │   │   │   └── ref_volume.ppm
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── sshot_lg.JPG
+│   │   │   │   │   │   ├── sshot_md.jpg
+│   │   │   │   │   │   └── sshot_sm.JPG
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── volume.ppm
+│   │   │   │   │   ├── volumeRender.cpp
+│   │   │   │   │   └── volumeRender_kernel.cu
+│   │   │   │   └── vulkanImageCUDA
+│   │   │   │       ├── Build_instructions.txt
+│   │   │   │       ├── CMakeLists.txt
+│   │   │   │       ├── frag.spv
+│   │   │   │       ├── linmath.h
+│   │   │   │       ├── README.md
+│   │   │   │       ├── shader.frag
+│   │   │   │       ├── shader.vert
+│   │   │   │       ├── teapot1024.ppm
+│   │   │   │       ├── vert.spv
+│   │   │   │       └── vulkanImageCUDA.cu
+│   │   │   ├── 6_Performance
+│   │   │   │   ├── alignedTypes
+│   │   │   │   │   ├── alignedTypes.cu
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   └── alignedTypes.txt
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── CMakeLists.txt
+│   │   │   │   ├── cudaGraphsPerfScaling
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cudaGraphPerfScaling.cu
+│   │   │   │   │   ├── dataCollection.bash
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── LargeKernelParameter
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── LargeKernelParameter.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── README.md
+│   │   │   │   ├── transpose
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── doc
+│   │   │   │   │   │   ├── MatrixTranspose.docx
+│   │   │   │   │   │   └── MatrixTranspose.pdf
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── transpose.cu
+│   │   │   │   └── UnifiedMemoryPerf
+│   │   │   │       ├── CMakeLists.txt
+│   │   │   │       ├── commonDefs.hpp
+│   │   │   │       ├── commonKernels.cu
+│   │   │   │       ├── commonKernels.hpp
+│   │   │   │       ├── helperFunctions.cpp
+│   │   │   │       ├── matrixMultiplyPerf.cu
+│   │   │   │       └── README.md
+│   │   │   ├── 7_libNVVM
+│   │   │   │   ├── CMakeLists.txt
+│   │   │   │   ├── common
+│   │   │   │   │   └── include
+│   │   │   │   │       └── DDSWriter.h
+│   │   │   │   ├── cuda-c-linking
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── cuda-c-linking.cpp
+│   │   │   │   │   ├── math-funcs.cu
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── cuda-shared-memory
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── extern_shared_memory.ll
+│   │   │   │   │   └── shared_memory.ll
+│   │   │   │   ├── device-side-launch
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── dsl.c
+│   │   │   │   │   ├── dsl-gpu64.ll
+│   │   │   │   │   └── README.md
+│   │   │   │   ├── ptxgen
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── ptxgen.c
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   └── test.ll
+│   │   │   │   ├── README.md
+│   │   │   │   ├── simple
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── simple.c
+│   │   │   │   │   └── simple-gpu64.ll
+│   │   │   │   ├── syscalls
+│   │   │   │   │   ├── CMakeLists.txt
+│   │   │   │   │   ├── malloc-free.ll
+│   │   │   │   │   └── vprintf.ll
+│   │   │   │   ├── utils
+│   │   │   │   │   ├── build.bat
+│   │   │   │   │   └── build.sh
+│   │   │   │   └── uvmlite
+│   │   │   │       ├── CMakeLists.txt
+│   │   │   │       ├── README.md
+│   │   │   │       ├── uvmlite64.ll
+│   │   │   │       └── uvmlite.c
+│   │   │   ├── 8_Platform_Specific
+│   │   │   │   └── Tegra
+│   │   │   │       ├── CMakeLists.txt
+│   │   │   │       ├── cudaNvSciBufMultiplanar
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── cudaNvSciBufMultiplanar.cpp
+│   │   │   │       │   ├── cudaNvSciBufMultiplanar.h
+│   │   │   │       │   ├── imageKernels.cu
+│   │   │   │       │   ├── main.cpp
+│   │   │   │       │   ├── README.md
+│   │   │   │       │   └── yuv_planar_img1.yuv
+│   │   │   │       ├── cudaNvSciNvMedia
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── cuda_consumer.cu
+│   │   │   │       │   ├── cuda_consumer.h
+│   │   │   │       │   ├── cudaNvSciNvMedia_Readme.pdf
+│   │   │   │       │   ├── main.cpp
+│   │   │   │       │   ├── nvmedia_producer.cpp
+│   │   │   │       │   ├── nvmedia_producer.h
+│   │   │   │       │   ├── nvmedia_utils
+│   │   │   │       │   │   ├── cmdline.cpp
+│   │   │   │       │   │   ├── cmdline.h
+│   │   │   │       │   │   ├── config_parser.cpp
+│   │   │   │       │   │   ├── config_parser.h
+│   │   │   │       │   │   ├── image_utils.cpp
+│   │   │   │       │   │   ├── image_utils.h
+│   │   │   │       │   │   ├── log_utils.cpp
+│   │   │   │       │   │   ├── log_utils.h
+│   │   │   │       │   │   ├── misc_utils.cpp
+│   │   │   │       │   │   └── misc_utils.h
+│   │   │   │       │   ├── nvsci_setup.cpp
+│   │   │   │       │   ├── nvsci_setup.h
+│   │   │   │       │   ├── README.md
+│   │   │   │       │   ├── sample.cfg
+│   │   │   │       │   └── teapot.rgba
+│   │   │   │       ├── cuDLAErrorReporting
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── main.cu
+│   │   │   │       │   └── README.md
+│   │   │   │       ├── cuDLAHybridMode
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── main.cu
+│   │   │   │       │   └── README.md
+│   │   │   │       ├── cuDLALayerwiseStatsHybrid
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── main.cu
+│   │   │   │       │   └── README.md
+│   │   │   │       ├── cuDLALayerwiseStatsStandalone
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── main.cpp
+│   │   │   │       │   └── README.md
+│   │   │   │       ├── cuDLAStandaloneMode
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── main.cpp
+│   │   │   │       │   └── README.md
+│   │   │   │       ├── EGLSync_CUDAEvent_Interop
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── egl_common.h
+│   │   │   │       │   ├── EGLSync_CUDAEvent_Interop.cu
+│   │   │   │       │   ├── graphics_interface.h
+│   │   │   │       │   └── README.md
+│   │   │   │       ├── fluidsGLES
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── data
+│   │   │   │       │   │   └── ref_fluidsGLES.ppm
+│   │   │   │       │   ├── defines.h
+│   │   │   │       │   ├── fluidsGLES.cpp
+│   │   │   │       │   ├── fluidsGLES_kernels.cu
+│   │   │   │       │   ├── fluidsGLES_kernels.cuh
+│   │   │   │       │   ├── fluidsGLES_kernels.h
+│   │   │   │       │   ├── graphics_interface.h
+│   │   │   │       │   ├── mesh.frag.glsl
+│   │   │   │       │   ├── mesh.vert.glsl
+│   │   │   │       │   └── README.md
+│   │   │   │       ├── nbody_opengles
+│   │   │   │       │   ├── bodysystemcpu.h
+│   │   │   │       │   ├── bodysystemcpu_impl.h
+│   │   │   │       │   ├── bodysystemcuda.cu
+│   │   │   │       │   ├── bodysystemcuda.h
+│   │   │   │       │   ├── bodysystemcuda_impl.h
+│   │   │   │       │   ├── bodysystem.h
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── galaxy_20K.bin
+│   │   │   │       │   ├── nbody_opengles.cpp
+│   │   │   │       │   ├── README.md
+│   │   │   │       │   ├── render_particles.cpp
+│   │   │   │       │   ├── render_particles.h
+│   │   │   │       │   └── tipsy.h
+│   │   │   │       ├── simpleGLES
+│   │   │   │       │   ├── CMakeLists.txt
+│   │   │   │       │   ├── data
+│   │   │   │       │   │   └── ref_simpleGL.bin
+│   │   │   │       │   ├── graphics_interface.c
+│   │   │   │       │   ├── mesh.frag.glsl
+│   │   │   │       │   ├── mesh.vert.glsl
+│   │   │   │       │   ├── README.md
+│   │   │   │       │   └── simpleGLES.cu
+│   │   │   │       └── simpleGLES_EGLOutput
+│   │   │   │           ├── CMakeLists.txt
+│   │   │   │           ├── data
+│   │   │   │           │   └── ref_simpleGLES_EGLOutput.bin
+│   │   │   │           ├── graphics_interface_egloutput_via_egl.c
+│   │   │   │           ├── mesh.frag.glsl
+│   │   │   │           ├── mesh.vert.glsl
+│   │   │   │           ├── README.md
+│   │   │   │           └── simpleGLES_EGLOutput.cu
+│   │   │   └── CMakeLists.txt
+│   │   └── test_args.json
+│   ├── graph500
+│   │   ├── aml
+│   │   │   ├── aml.c
+│   │   │   ├── aml.h
+│   │   │   └── README
+│   │   ├── COPYING
+│   │   ├── generator
+│   │   │   ├── graph_generator.c
+│   │   │   ├── graph_generator.h
+│   │   │   ├── LICENSE_1_0.txt
+│   │   │   ├── make_graph.c
+│   │   │   ├── make_graph.h
+│   │   │   ├── mod_arith_32bit.h
+│   │   │   ├── mod_arith_64bit.h
+│   │   │   ├── mod_arith.h
+│   │   │   ├── mrg_transitions.c
+│   │   │   ├── README
+│   │   │   ├── splittable_mrg.c
+│   │   │   ├── splittable_mrg.h
+│   │   │   ├── user_settings.h
+│   │   │   ├── utils.c
+│   │   │   └── utils.h
+│   │   ├── Graph500.org
+│   │   ├── license.txt
+│   │   ├── octave
+│   │   │   ├── driver.m
+│   │   │   ├── Graph500.m
+│   │   │   ├── kernel_1.m
+│   │   │   ├── kernel_2.m
+│   │   │   ├── kernel_3.m
+│   │   │   ├── kronecker_generator.m
+│   │   │   ├── output.m
+│   │   │   ├── validate.m
+│   │   │   └── verify.m
+│   │   ├── README
+│   │   ├── src
+│   │   │   ├── bfs_custom.c
+│   │   │   ├── bfs_reference.c
+│   │   │   ├── bitmap_reference.h
+│   │   │   ├── common.h
+│   │   │   ├── csr_reference.c
+│   │   │   ├── csr_reference.h
+│   │   │   ├── main.c
+│   │   │   ├── Makefile
+│   │   │   ├── README
+│   │   │   ├── sssp_custom.c
+│   │   │   ├── sssp_reference.c
+│   │   │   ├── utils.c
+│   │   │   └── validate.c
+│   │   ├── testFile.00000000
+│   │   └── testFile.00000001
+│   ├── hpcg
+│   │   ├── AUTHORS
+│   │   ├── bin
+│   │   │   └── hpcg.dat
+│   │   ├── BUGS
+│   │   ├── build
+│   │   │   ├── CMakeCache.txt
+│   │   │   ├── CMakeFiles
+│   │   │   │   ├── 3.28.3
+│   │   │   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   │   │   ├── CMakeSystem.cmake
+│   │   │   │   │   └── CompilerIdCXX
+│   │   │   │   │       ├── a.out
+│   │   │   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │   │   │       └── tmp
+│   │   │   │   ├── cmake.check_cache
+│   │   │   │   ├── CMakeConfigureLog.yaml
+│   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   ├── Makefile2
+│   │   │   │   ├── Makefile.cmake
+│   │   │   │   ├── pkgRedirects
+│   │   │   │   ├── progress.marks
+│   │   │   │   ├── TargetDirectories.txt
+│   │   │   │   └── xhpcg.dir
+│   │   │   │       ├── build.make
+│   │   │   │       ├── cmake_clean.cmake
+│   │   │   │       ├── compiler_depend.internal
+│   │   │   │       ├── compiler_depend.make
+│   │   │   │       ├── compiler_depend.ts
+│   │   │   │       ├── DependInfo.cmake
+│   │   │   │       ├── depend.make
+│   │   │   │       ├── flags.make
+│   │   │   │       ├── link.txt
+│   │   │   │       ├── progress.make
+│   │   │   │       └── src
+│   │   │   │           ├── CG.cpp.o
+│   │   │   │           ├── CG.cpp.o.d
+│   │   │   │           ├── CG_ref.cpp.o
+│   │   │   │           ├── CG_ref.cpp.o.d
+│   │   │   │           ├── CheckAspectRatio.cpp.o
+│   │   │   │           ├── CheckAspectRatio.cpp.o.d
+│   │   │   │           ├── CheckProblem.cpp.o
+│   │   │   │           ├── CheckProblem.cpp.o.d
+│   │   │   │           ├── ComputeDotProduct.cpp.o
+│   │   │   │           ├── ComputeDotProduct.cpp.o.d
+│   │   │   │           ├── ComputeDotProduct_ref.cpp.o
+│   │   │   │           ├── ComputeDotProduct_ref.cpp.o.d
+│   │   │   │           ├── ComputeMG.cpp.o
+│   │   │   │           ├── ComputeMG.cpp.o.d
+│   │   │   │           ├── ComputeMG_ref.cpp.o
+│   │   │   │           ├── ComputeMG_ref.cpp.o.d
+│   │   │   │           ├── ComputeOptimalShapeXYZ.cpp.o
+│   │   │   │           ├── ComputeOptimalShapeXYZ.cpp.o.d
+│   │   │   │           ├── ComputeProlongation_ref.cpp.o
+│   │   │   │           ├── ComputeProlongation_ref.cpp.o.d
+│   │   │   │           ├── ComputeResidual.cpp.o
+│   │   │   │           ├── ComputeResidual.cpp.o.d
+│   │   │   │           ├── ComputeRestriction_ref.cpp.o
+│   │   │   │           ├── ComputeRestriction_ref.cpp.o.d
+│   │   │   │           ├── ComputeSPMV.cpp.o
+│   │   │   │           ├── ComputeSPMV.cpp.o.d
+│   │   │   │           ├── ComputeSPMV_ref.cpp.o
+│   │   │   │           ├── ComputeSPMV_ref.cpp.o.d
+│   │   │   │           ├── ComputeSYMGS.cpp.o
+│   │   │   │           ├── ComputeSYMGS.cpp.o.d
+│   │   │   │           ├── ComputeSYMGS_ref.cpp.o
+│   │   │   │           ├── ComputeSYMGS_ref.cpp.o.d
+│   │   │   │           ├── ComputeWAXPBY.cpp.o
+│   │   │   │           ├── ComputeWAXPBY.cpp.o.d
+│   │   │   │           ├── ComputeWAXPBY_ref.cpp.o
+│   │   │   │           ├── ComputeWAXPBY_ref.cpp.o.d
+│   │   │   │           ├── ExchangeHalo.cpp.o
+│   │   │   │           ├── ExchangeHalo.cpp.o.d
+│   │   │   │           ├── finalize.cpp.o
+│   │   │   │           ├── finalize.cpp.o.d
+│   │   │   │           ├── GenerateCoarseProblem.cpp.o
+│   │   │   │           ├── GenerateCoarseProblem.cpp.o.d
+│   │   │   │           ├── GenerateGeometry.cpp.o
+│   │   │   │           ├── GenerateGeometry.cpp.o.d
+│   │   │   │           ├── GenerateProblem.cpp.o
+│   │   │   │           ├── GenerateProblem.cpp.o.d
+│   │   │   │           ├── GenerateProblem_ref.cpp.o
+│   │   │   │           ├── GenerateProblem_ref.cpp.o.d
+│   │   │   │           ├── init.cpp.o
+│   │   │   │           ├── init.cpp.o.d
+│   │   │   │           ├── main.cpp.o
+│   │   │   │           ├── main.cpp.o.d
+│   │   │   │           ├── MixedBaseCounter.cpp.o
+│   │   │   │           ├── MixedBaseCounter.cpp.o.d
+│   │   │   │           ├── mytimer.cpp.o
+│   │   │   │           ├── mytimer.cpp.o.d
+│   │   │   │           ├── OptimizeProblem.cpp.o
+│   │   │   │           ├── OptimizeProblem.cpp.o.d
+│   │   │   │           ├── OutputFile.cpp.o
+│   │   │   │           ├── OutputFile.cpp.o.d
+│   │   │   │           ├── ReadHpcgDat.cpp.o
+│   │   │   │           ├── ReadHpcgDat.cpp.o.d
+│   │   │   │           ├── ReportResults.cpp.o
+│   │   │   │           ├── ReportResults.cpp.o.d
+│   │   │   │           ├── SetupHalo.cpp.o
+│   │   │   │           ├── SetupHalo.cpp.o.d
+│   │   │   │           ├── SetupHalo_ref.cpp.o
+│   │   │   │           ├── SetupHalo_ref.cpp.o.d
+│   │   │   │           ├── TestCG.cpp.o
+│   │   │   │           ├── TestCG.cpp.o.d
+│   │   │   │           ├── TestNorms.cpp.o
+│   │   │   │           ├── TestNorms.cpp.o.d
+│   │   │   │           ├── TestSymmetry.cpp.o
+│   │   │   │           ├── TestSymmetry.cpp.o.d
+│   │   │   │           ├── WriteProblem.cpp.o
+│   │   │   │           ├── WriteProblem.cpp.o.d
+│   │   │   │           ├── YAML_Doc.cpp.o
+│   │   │   │           ├── YAML_Doc.cpp.o.d
+│   │   │   │           ├── YAML_Element.cpp.o
+│   │   │   │           └── YAML_Element.cpp.o.d
+│   │   │   ├── cmake_install.cmake
+│   │   │   ├── hpl
+│   │   │   │   └── Make.Linux_OpenBLAS
+│   │   │   ├── Makefile
+│   │   │   ├── Make.Linux_OpenBLAS
+│   │   │   └── xhpcg
+│   │   ├── ChangeLog
+│   │   ├── CMakeLists.txt
+│   │   ├── configure
+│   │   ├── configure.ac
+│   │   ├── COPYING
+│   │   ├── COPYRIGHT
+│   │   ├── HISTORY
+│   │   ├── index.doc
+│   │   ├── INSTALL
+│   │   ├── LICENSE
+│   │   ├── m4
+│   │   │   ├── ax_openmp.m4
+│   │   │   └── ax_prog_cxx_mpi.m4
+│   │   ├── Makefile
+│   │   ├── Makefile.am
+│   │   ├── Makefile.ext
+│   │   ├── NEWS
+│   │   ├── QUICKSTART
+│   │   ├── README
+│   │   ├── README.md
+│   │   ├── setup
+│   │   │   ├── Make.GCC_OMP
+│   │   │   ├── Make.ICPC_OMP
+│   │   │   ├── Make.Linux_MPI
+│   │   │   ├── Make.Linux_Serial
+│   │   │   ├── Make.Mac_MPI
+│   │   │   ├── Make.Mac_Serial
+│   │   │   ├── Make.Mac_Serial_debug
+│   │   │   ├── Make.MPI_GCC_OMP
+│   │   │   ├── Make.MPI_ICPC
+│   │   │   ├── Make.MPI_ICPC_OMP
+│   │   │   ├── Make.MPIICPC_OMP
+│   │   │   └── Make.UNKNOWN
+│   │   ├── src
+│   │   │   ├── CG.cpp
+│   │   │   ├── CGData.hpp
+│   │   │   ├── CG.hpp
+│   │   │   ├── CG_ref.cpp
+│   │   │   ├── CG_ref.hpp
+│   │   │   ├── CheckAspectRatio.cpp
+│   │   │   ├── CheckAspectRatio.hpp
+│   │   │   ├── CheckProblem.cpp
+│   │   │   ├── CheckProblem.hpp
+│   │   │   ├── ComputeDotProduct.cpp
+│   │   │   ├── ComputeDotProduct.hpp
+│   │   │   ├── ComputeDotProduct_ref.cpp
+│   │   │   ├── ComputeDotProduct_ref.hpp
+│   │   │   ├── ComputeMG.cpp
+│   │   │   ├── ComputeMG.hpp
+│   │   │   ├── ComputeMG_ref.cpp
+│   │   │   ├── ComputeMG_ref.hpp
+│   │   │   ├── ComputeOptimalShapeXYZ.cpp
+│   │   │   ├── ComputeOptimalShapeXYZ.hpp
+│   │   │   ├── ComputeProlongation_ref.cpp
+│   │   │   ├── ComputeProlongation_ref.hpp
+│   │   │   ├── ComputeResidual.cpp
+│   │   │   ├── ComputeResidual.hpp
+│   │   │   ├── ComputeRestriction_ref.cpp
+│   │   │   ├── ComputeRestriction_ref.hpp
+│   │   │   ├── ComputeSPMV.cpp
+│   │   │   ├── ComputeSPMV.hpp
+│   │   │   ├── ComputeSPMV_ref.cpp
+│   │   │   ├── ComputeSPMV_ref.hpp
+│   │   │   ├── ComputeSYMGS.cpp
+│   │   │   ├── ComputeSYMGS.hpp
+│   │   │   ├── ComputeSYMGS_ref.cpp
+│   │   │   ├── ComputeSYMGS_ref.hpp
+│   │   │   ├── ComputeWAXPBY.cpp
+│   │   │   ├── ComputeWAXPBY.hpp
+│   │   │   ├── ComputeWAXPBY_ref.cpp
+│   │   │   ├── ComputeWAXPBY_ref.hpp
+│   │   │   ├── ExchangeHalo.cpp
+│   │   │   ├── ExchangeHalo.hpp
+│   │   │   ├── finalize.cpp
+│   │   │   ├── GenerateCoarseProblem.cpp
+│   │   │   ├── GenerateCoarseProblem.hpp
+│   │   │   ├── GenerateGeometry.cpp
+│   │   │   ├── GenerateGeometry.hpp
+│   │   │   ├── GenerateProblem.cpp
+│   │   │   ├── GenerateProblem.hpp
+│   │   │   ├── GenerateProblem_ref.cpp
+│   │   │   ├── GenerateProblem_ref.hpp
+│   │   │   ├── Geometry.hpp
+│   │   │   ├── hpcg.hpp
+│   │   │   ├── init.cpp
+│   │   │   ├── main.cpp
+│   │   │   ├── MGData.hpp
+│   │   │   ├── MixedBaseCounter.cpp
+│   │   │   ├── MixedBaseCounter.hpp
+│   │   │   ├── mytimer.cpp
+│   │   │   ├── mytimer.hpp
+│   │   │   ├── OptimizeProblem.cpp
+│   │   │   ├── OptimizeProblem.hpp
+│   │   │   ├── OutputFile.cpp
+│   │   │   ├── OutputFile.hpp
+│   │   │   ├── ReadHpcgDat.cpp
+│   │   │   ├── ReadHpcgDat.hpp
+│   │   │   ├── ReportResults.cpp
+│   │   │   ├── ReportResults.hpp
+│   │   │   ├── SetupHalo.cpp
+│   │   │   ├── SetupHalo.hpp
+│   │   │   ├── SetupHalo_ref.cpp
+│   │   │   ├── SetupHalo_ref.hpp
+│   │   │   ├── SparseMatrix.hpp
+│   │   │   ├── TestCG.cpp
+│   │   │   ├── TestCG.hpp
+│   │   │   ├── TestNorms.cpp
+│   │   │   ├── TestNorms.hpp
+│   │   │   ├── TestSymmetry.cpp
+│   │   │   ├── TestSymmetry.hpp
+│   │   │   ├── Vector.hpp
+│   │   │   ├── WriteProblem.cpp
+│   │   │   ├── WriteProblem.hpp
+│   │   │   ├── YAML_Doc.cpp
+│   │   │   ├── YAML_Doc.hpp
+│   │   │   ├── YAML_Element.cpp
+│   │   │   └── YAML_Element.hpp
+│   │   ├── TODO
+│   │   ├── tools
+│   │   │   ├── hpcg1.css
+│   │   │   ├── hpcg.astyle
+│   │   │   ├── hpcg.dox
+│   │   │   ├── hpcg.m
+│   │   │   ├── main.m
+│   │   │   ├── Makefile.mtxdmp
+│   │   │   ├── makefile.py
+│   │   │   ├── mtxdmp.cc
+│   │   │   ├── replace_header.py
+│   │   │   ├── symgs.m
+│   │   │   ├── tstrout.py
+│   │   │   ├── updateDoxWeb
+│   │   │   └── updateTarfile
+│   │   ├── TUNING
+│   │   ├── unittesting
+│   │   │   ├── Geometry
+│   │   │   │   ├── build
+│   │   │   │   └── main.cpp
+│   │   │   ├── hpcg_dat
+│   │   │   │   ├── main.cpp
+│   │   │   │   └── Makefile
+│   │   │   └── yaml_output
+│   │   │       ├── main.cpp
+│   │   │       ├── Makefile
+│   │   │       └── readhpcgyaml.py
+│   │   └── web
+│   │       ├── 2014-06-hpcg-list.pdf
+│   │       ├── about.php
+│   │       ├── applications.php
+│   │       ├── common
+│   │       │   ├── bg_box.png
+│   │       │   ├── bg_content.png
+│   │       │   ├── bg_footer.png
+│   │       │   ├── bg_logo.png
+│   │       │   ├── bg_nav.png
+│   │       │   ├── bg_subnav.png
+│   │       │   ├── favicon.ico
+│   │       │   ├── footer.html
+│   │       │   ├── header.html
+│   │       │   ├── html.css
+│   │       │   ├── main.css
+│   │       │   ├── nav_about.html
+│   │       │   ├── nav_download.html
+│   │       │   ├── nav_events.html
+│   │       │   ├── nav_home.html
+│   │       │   ├── nav_packages.html
+│   │       │   ├── nav_resources.html
+│   │       │   └── page.php
+│   │       ├── contact.php
+│   │       ├── default.php
+│   │       ├── developer_tools.php
+│   │       ├── doc
+│   │       │   ├── HPCG-Benchmark.docx
+│   │       │   ├── HPCG-Benchmark.pdf
+│   │       │   ├── HPCG-Logo.jpg
+│   │       │   ├── HPCG-Logo.pptx
+│   │       │   ├── HPCG-Logo.tiff
+│   │       │   ├── HPCG-Specification.docx
+│   │       │   ├── HPCG-Specification.pdf
+│   │       │   ├── HPCG-workflow.pptx
+│   │       │   └── HPCG-workflow.tiff
+│   │       ├── documentation.php
+│   │       ├── download.php
+│   │       ├── events.php
+│   │       ├── faq.php
+│   │       ├── HPCG_BOF.php
+│   │       ├── HPCG_Logo.jpg
+│   │       ├── index.html
+│   │       ├── license.php
+│   │       ├── mail_lists.php
+│   │       ├── news.php
+│   │       ├── packages.php
+│   │       ├── publications.php
+│   │       ├── release_notes.php
+│   │       ├── research.php
+│   │       ├── resources.php
+│   │       ├── results.php
+│   │       ├── software_design.php
+│   │       └── team.php
+│   ├── hpl
+│   │   └── hpl-2.3
+│   │       ├── acinclude.m4
+│   │       ├── aclocal.m4
+│   │       ├── AUTHORS
+│   │       ├── bin
+│   │       │   └── Linux
+│   │       │       ├── 1
+│   │       │       ├── 10000
+│   │       │       ├── HPL.dat
+│   │       │       └── xhpl
+│   │       ├── BUGS
+│   │       ├── ChangeLog
+│   │       ├── compile
+│   │       ├── config.guess
+│   │       ├── config.sub
+│   │       ├── configure
+│   │       ├── configure.ac
+│   │       ├── COPYING
+│   │       ├── COPYRIGHT
+│   │       ├── depcomp
+│   │       ├── HISTORY
+│   │       ├── include
+│   │       │   ├── hpl_auxil.h
+│   │       │   ├── hpl_blas.h
+│   │       │   ├── hpl_comm.h
+│   │       │   ├── hplconfig.h.in
+│   │       │   ├── hpl_gesv.h
+│   │       │   ├── hpl_grid.h
+│   │       │   ├── hpl.h
+│   │       │   ├── hpl_matgen.h
+│   │       │   ├── hpl_misc.h
+│   │       │   ├── hpl_panel.h
+│   │       │   ├── hpl_pauxil.h
+│   │       │   ├── hpl_pfact.h
+│   │       │   ├── hpl_pgesv.h
+│   │       │   ├── hpl_pmatgen.h
+│   │       │   ├── hpl_pmisc.h
+│   │       │   ├── hpl_ptest.h
+│   │       │   ├── hpl_ptimer.h
+│   │       │   ├── hpl_test.h
+│   │       │   ├── hpl_timer.h
+│   │       │   ├── hpl_units.h
+│   │       │   └── Linux
+│   │       ├── INSTALL
+│   │       ├── install-sh
+│   │       ├── lib
+│   │       │   └── Linux
+│   │       │       └── libhpl.a
+│   │       ├── Makefile
+│   │       ├── Makefile.am
+│   │       ├── Makefile.in
+│   │       ├── Make.inc -> Make.Linux
+│   │       ├── Make.Linux
+│   │       ├── makes
+│   │       │   ├── Make.auxil
+│   │       │   ├── Make.blas
+│   │       │   ├── Make.comm
+│   │       │   ├── Make.gesv
+│   │       │   ├── Make.grid
+│   │       │   ├── Make.matgen
+│   │       │   ├── Make.panel
+│   │       │   ├── Make.pauxil
+│   │       │   ├── Make.pfact
+│   │       │   ├── Make.pgesv
+│   │       │   ├── Make.pmatgen
+│   │       │   ├── Make.ptest
+│   │       │   ├── Make.ptimer
+│   │       │   ├── Make.test
+│   │       │   ├── Make.timer
+│   │       │   └── Make.units
+│   │       ├── Make.top
+│   │       ├── man
+│   │       │   └── man3
+│   │       │       ├── HPL_abort.3
+│   │       │       ├── HPL_all_reduce.3
+│   │       │       ├── HPL_barrier.3
+│   │       │       ├── HPL_bcast.3
+│   │       │       ├── HPL_binit.3
+│   │       │       ├── HPL_broadcast.3
+│   │       │       ├── HPL_bwait.3
+│   │       │       ├── HPL_copyL.3
+│   │       │       ├── HPL_daxpy.3
+│   │       │       ├── HPL_dcopy.3
+│   │       │       ├── HPL_dgemm.3
+│   │       │       ├── HPL_dgemv.3
+│   │       │       ├── HPL_dger.3
+│   │       │       ├── HPL_dlacpy.3
+│   │       │       ├── HPL_dlamch.3
+│   │       │       ├── HPL_dlange.3
+│   │       │       ├── HPL_dlaprnt.3
+│   │       │       ├── HPL_dlaswp00N.3
+│   │       │       ├── HPL_dlaswp01N.3
+│   │       │       ├── HPL_dlaswp01T.3
+│   │       │       ├── HPL_dlaswp02N.3
+│   │       │       ├── HPL_dlaswp03N.3
+│   │       │       ├── HPL_dlaswp03T.3
+│   │       │       ├── HPL_dlaswp04N.3
+│   │       │       ├── HPL_dlaswp04T.3
+│   │       │       ├── HPL_dlaswp05N.3
+│   │       │       ├── HPL_dlaswp05T.3
+│   │       │       ├── HPL_dlaswp06N.3
+│   │       │       ├── HPL_dlaswp06T.3
+│   │       │       ├── HPL_dlaswp10N.3
+│   │       │       ├── HPL_dlatcpy.3
+│   │       │       ├── HPL_dlocmax.3
+│   │       │       ├── HPL_dlocswpN.3
+│   │       │       ├── HPL_dlocswpT.3
+│   │       │       ├── HPL_dmatgen.3
+│   │       │       ├── HPL_dscal.3
+│   │       │       ├── HPL_dswap.3
+│   │       │       ├── HPL_dtrsm.3
+│   │       │       ├── HPL_dtrsv.3
+│   │       │       ├── HPL_equil.3
+│   │       │       ├── HPL_fprintf.3
+│   │       │       ├── HPL_grid_exit.3
+│   │       │       ├── HPL_grid_info.3
+│   │       │       ├── HPL_grid_init.3
+│   │       │       ├── HPL_idamax.3
+│   │       │       ├── HPL_indxg2l.3
+│   │       │       ├── HPL_indxg2lp.3
+│   │       │       ├── HPL_indxg2p.3
+│   │       │       ├── HPL_indxl2g.3
+│   │       │       ├── HPL_infog2l.3
+│   │       │       ├── HPL_jumpit.3
+│   │       │       ├── HPL_ladd.3
+│   │       │       ├── HPL_lmul.3
+│   │       │       ├── HPL_logsort.3
+│   │       │       ├── HPL_max.3
+│   │       │       ├── HPL_min.3
+│   │       │       ├── HPL_numroc.3
+│   │       │       ├── HPL_numrocI.3
+│   │       │       ├── HPL_pabort.3
+│   │       │       ├── HPL_packL.3
+│   │       │       ├── HPL_pddriver.3
+│   │       │       ├── HPL_pdfact.3
+│   │       │       ├── HPL_pdgesv0.3
+│   │       │       ├── HPL_pdgesv.3
+│   │       │       ├── HPL_pdgesvK1.3
+│   │       │       ├── HPL_pdgesvK2.3
+│   │       │       ├── HPL_pdinfo.3
+│   │       │       ├── HPL_pdlamch.3
+│   │       │       ├── HPL_pdlange.3
+│   │       │       ├── HPL_pdlaprnt.3
+│   │       │       ├── HPL_pdlaswp00N.3
+│   │       │       ├── HPL_pdlaswp00T.3
+│   │       │       ├── HPL_pdlaswp01N.3
+│   │       │       ├── HPL_pdlaswp01T.3
+│   │       │       ├── HPL_pdmatgen.3
+│   │       │       ├── HPL_pdmxswp.3
+│   │       │       ├── HPL_pdpancrN.3
+│   │       │       ├── HPL_pdpancrT.3
+│   │       │       ├── HPL_pdpanel_disp.3
+│   │       │       ├── HPL_pdpanel_free.3
+│   │       │       ├── HPL_pdpanel_init.3
+│   │       │       ├── HPL_pdpanel_new.3
+│   │       │       ├── HPL_pdpanllN.3
+│   │       │       ├── HPL_pdpanllT.3
+│   │       │       ├── HPL_pdpanrlN.3
+│   │       │       ├── HPL_pdpanrlT.3
+│   │       │       ├── HPL_pdrpancrN.3
+│   │       │       ├── HPL_pdrpancrT.3
+│   │       │       ├── HPL_pdrpanllN.3
+│   │       │       ├── HPL_pdrpanllT.3
+│   │       │       ├── HPL_pdrpanrlN.3
+│   │       │       ├── HPL_pdrpanrlT.3
+│   │       │       ├── HPL_pdtest.3
+│   │       │       ├── HPL_pdtrsv.3
+│   │       │       ├── HPL_pdupdateNN.3
+│   │       │       ├── HPL_pdupdateNT.3
+│   │       │       ├── HPL_pdupdateTN.3
+│   │       │       ├── HPL_pdupdateTT.3
+│   │       │       ├── HPL_perm.3
+│   │       │       ├── HPL_pipid.3
+│   │       │       ├── HPL_plindx0.3
+│   │       │       ├── HPL_plindx10.3
+│   │       │       ├── HPL_plindx1.3
+│   │       │       ├── HPL_pnum.3
+│   │       │       ├── HPL_ptimer.3
+│   │       │       ├── HPL_ptimer_cputime.3
+│   │       │       ├── HPL_ptimer_walltime.3
+│   │       │       ├── HPL_pwarn.3
+│   │       │       ├── HPL_rand.3
+│   │       │       ├── HPL_recv.3
+│   │       │       ├── HPL_reduce.3
+│   │       │       ├── HPL_rollN.3
+│   │       │       ├── HPL_rollT.3
+│   │       │       ├── HPL_sdrv.3
+│   │       │       ├── HPL_send.3
+│   │       │       ├── HPL_setran.3
+│   │       │       ├── HPL_spreadN.3
+│   │       │       ├── HPL_spreadT.3
+│   │       │       ├── HPL_sum.3
+│   │       │       ├── HPL_timer.3
+│   │       │       ├── HPL_timer_cputime.3
+│   │       │       ├── HPL_timer_walltime.3
+│   │       │       ├── HPL_warn.3
+│   │       │       └── HPL_xjumpm.3
+│   │       ├── missing
+│   │       ├── NEWS
+│   │       ├── README
+│   │       ├── setup
+│   │       │   ├── Make.FreeBSD_PIV_CBLAS
+│   │       │   ├── make_generic
+│   │       │   ├── Make.HPUX_FBLAS
+│   │       │   ├── Make.I860_FBLAS
+│   │       │   ├── Make.IRIX_FBLAS
+│   │       │   ├── Make.Linux_ATHLON_CBLAS
+│   │       │   ├── Make.Linux_ATHLON_FBLAS
+│   │       │   ├── Make.Linux_ATHLON_VSIPL
+│   │       │   ├── Make.Linux_Intel64
+│   │       │   ├── Make.Linux_PII_CBLAS
+│   │       │   ├── Make.Linux_PII_CBLAS_gm
+│   │       │   ├── Make.Linux_PII_FBLAS
+│   │       │   ├── Make.Linux_PII_FBLAS_gm
+│   │       │   ├── Make.Linux_PII_VSIPL
+│   │       │   ├── Make.Linux_PII_VSIPL_gm
+│   │       │   ├── Make.MacOSX_Accelerate
+│   │       │   ├── Make.PWR2_FBLAS
+│   │       │   ├── Make.PWR3_FBLAS
+│   │       │   ├── Make.PWRPC_FBLAS
+│   │       │   ├── Make.SUN4SOL2_FBLAS
+│   │       │   ├── Make.SUN4SOL2-g_FBLAS
+│   │       │   ├── Make.SUN4SOL2-g_VSIPL
+│   │       │   ├── Make.T3E_FBLAS
+│   │       │   ├── Make.Tru64_FBLAS
+│   │       │   ├── Make.Tru64_FBLAS_elan
+│   │       │   └── Make.UNKNOWN.in
+│   │       ├── src
+│   │       │   ├── auxil
+│   │       │   │   ├── HPL_abort.c
+│   │       │   │   ├── HPL_dlacpy.c
+│   │       │   │   ├── HPL_dlamch.c
+│   │       │   │   ├── HPL_dlange.c
+│   │       │   │   ├── HPL_dlaprnt.c
+│   │       │   │   ├── HPL_dlatcpy.c
+│   │       │   │   ├── HPL_fprintf.c
+│   │       │   │   ├── HPL_warn.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── HPL_abort.o
+│   │       │   │       ├── HPL_dlacpy.o
+│   │       │   │       ├── HPL_dlamch.o
+│   │       │   │       ├── HPL_dlange.o
+│   │       │   │       ├── HPL_dlaprnt.o
+│   │       │   │       ├── HPL_dlatcpy.o
+│   │       │   │       ├── HPL_fprintf.o
+│   │       │   │       ├── HPL_warn.o
+│   │       │   │       ├── lib.grd
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   ├── blas
+│   │       │   │   ├── HPL_daxpy.c
+│   │       │   │   ├── HPL_dcopy.c
+│   │       │   │   ├── HPL_dgemm.c
+│   │       │   │   ├── HPL_dgemv.c
+│   │       │   │   ├── HPL_dger.c
+│   │       │   │   ├── HPL_dscal.c
+│   │       │   │   ├── HPL_dswap.c
+│   │       │   │   ├── HPL_dtrsm.c
+│   │       │   │   ├── HPL_dtrsv.c
+│   │       │   │   ├── HPL_idamax.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── HPL_daxpy.o
+│   │       │   │       ├── HPL_dcopy.o
+│   │       │   │       ├── HPL_dgemm.o
+│   │       │   │       ├── HPL_dgemv.o
+│   │       │   │       ├── HPL_dger.o
+│   │       │   │       ├── HPL_dscal.o
+│   │       │   │       ├── HPL_dtrsm.o
+│   │       │   │       ├── HPL_dtrsv.o
+│   │       │   │       ├── HPL_idamax.o
+│   │       │   │       ├── lib.grd
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   ├── comm
+│   │       │   │   ├── HPL_1ring.c
+│   │       │   │   ├── HPL_1rinM.c
+│   │       │   │   ├── HPL_2ring.c
+│   │       │   │   ├── HPL_2rinM.c
+│   │       │   │   ├── HPL_bcast.c
+│   │       │   │   ├── HPL_binit.c
+│   │       │   │   ├── HPL_blong.c
+│   │       │   │   ├── HPL_blonM.c
+│   │       │   │   ├── HPL_bwait.c
+│   │       │   │   ├── HPL_copyL.c
+│   │       │   │   ├── HPL_packL.c
+│   │       │   │   ├── HPL_recv.c
+│   │       │   │   ├── HPL_sdrv.c
+│   │       │   │   ├── HPL_send.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── HPL_1ring.o
+│   │       │   │       ├── HPL_1rinM.o
+│   │       │   │       ├── HPL_2ring.o
+│   │       │   │       ├── HPL_2rinM.o
+│   │       │   │       ├── HPL_bcast.o
+│   │       │   │       ├── HPL_binit.o
+│   │       │   │       ├── HPL_blong.o
+│   │       │   │       ├── HPL_blonM.o
+│   │       │   │       ├── HPL_bwait.o
+│   │       │   │       ├── HPL_copyL.o
+│   │       │   │       ├── HPL_packL.o
+│   │       │   │       ├── HPL_recv.o
+│   │       │   │       ├── HPL_sdrv.o
+│   │       │   │       ├── HPL_send.o
+│   │       │   │       ├── lib.grd
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   ├── grid
+│   │       │   │   ├── HPL_all_reduce.c
+│   │       │   │   ├── HPL_barrier.c
+│   │       │   │   ├── HPL_broadcast.c
+│   │       │   │   ├── HPL_grid_exit.c
+│   │       │   │   ├── HPL_grid_info.c
+│   │       │   │   ├── HPL_grid_init.c
+│   │       │   │   ├── HPL_max.c
+│   │       │   │   ├── HPL_min.c
+│   │       │   │   ├── HPL_pnum.c
+│   │       │   │   ├── HPL_reduce.c
+│   │       │   │   ├── HPL_sum.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── HPL_all_reduce.o
+│   │       │   │       ├── HPL_barrier.o
+│   │       │   │       ├── HPL_broadcast.o
+│   │       │   │       ├── HPL_grid_exit.o
+│   │       │   │       ├── HPL_grid_info.o
+│   │       │   │       ├── HPL_grid_init.o
+│   │       │   │       ├── HPL_max.o
+│   │       │   │       ├── HPL_min.o
+│   │       │   │       ├── HPL_pnum.o
+│   │       │   │       ├── HPL_reduce.o
+│   │       │   │       ├── HPL_sum.o
+│   │       │   │       ├── lib.grd
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   ├── Makefile.am
+│   │       │   ├── Makefile.in
+│   │       │   ├── panel
+│   │       │   │   ├── HPL_pdpanel_disp.c
+│   │       │   │   ├── HPL_pdpanel_free.c
+│   │       │   │   ├── HPL_pdpanel_init.c
+│   │       │   │   ├── HPL_pdpanel_new.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── HPL_pdpanel_disp.o
+│   │       │   │       ├── HPL_pdpanel_free.o
+│   │       │   │       ├── HPL_pdpanel_init.o
+│   │       │   │       ├── HPL_pdpanel_new.o
+│   │       │   │       ├── lib.grd
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   ├── pauxil
+│   │       │   │   ├── HPL_dlaswp00N.c
+│   │       │   │   ├── HPL_dlaswp01N.c
+│   │       │   │   ├── HPL_dlaswp01T.c
+│   │       │   │   ├── HPL_dlaswp02N.c
+│   │       │   │   ├── HPL_dlaswp03N.c
+│   │       │   │   ├── HPL_dlaswp03T.c
+│   │       │   │   ├── HPL_dlaswp04N.c
+│   │       │   │   ├── HPL_dlaswp04T.c
+│   │       │   │   ├── HPL_dlaswp05N.c
+│   │       │   │   ├── HPL_dlaswp05T.c
+│   │       │   │   ├── HPL_dlaswp06N.c
+│   │       │   │   ├── HPL_dlaswp06T.c
+│   │       │   │   ├── HPL_dlaswp10N.c
+│   │       │   │   ├── HPL_indxg2l.c
+│   │       │   │   ├── HPL_indxg2lp.c
+│   │       │   │   ├── HPL_indxg2p.c
+│   │       │   │   ├── HPL_indxl2g.c
+│   │       │   │   ├── HPL_infog2l.c
+│   │       │   │   ├── HPL_numroc.c
+│   │       │   │   ├── HPL_numrocI.c
+│   │       │   │   ├── HPL_pabort.c
+│   │       │   │   ├── HPL_pdlamch.c
+│   │       │   │   ├── HPL_pdlange.c
+│   │       │   │   ├── HPL_pdlaprnt.c
+│   │       │   │   ├── HPL_pwarn.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── HPL_dlaswp00N.o
+│   │       │   │       ├── HPL_dlaswp01N.o
+│   │       │   │       ├── HPL_dlaswp01T.o
+│   │       │   │       ├── HPL_dlaswp02N.o
+│   │       │   │       ├── HPL_dlaswp03N.o
+│   │       │   │       ├── HPL_dlaswp03T.o
+│   │       │   │       ├── HPL_dlaswp04N.o
+│   │       │   │       ├── HPL_dlaswp04T.o
+│   │       │   │       ├── HPL_dlaswp05N.o
+│   │       │   │       ├── HPL_dlaswp05T.o
+│   │       │   │       ├── HPL_dlaswp06N.o
+│   │       │   │       ├── HPL_dlaswp06T.o
+│   │       │   │       ├── HPL_dlaswp10N.o
+│   │       │   │       ├── HPL_indxg2l.o
+│   │       │   │       ├── HPL_indxg2lp.o
+│   │       │   │       ├── HPL_indxg2p.o
+│   │       │   │       ├── HPL_indxl2g.o
+│   │       │   │       ├── HPL_infog2l.o
+│   │       │   │       ├── HPL_numrocI.o
+│   │       │   │       ├── HPL_numroc.o
+│   │       │   │       ├── HPL_pabort.o
+│   │       │   │       ├── HPL_pdlamch.o
+│   │       │   │       ├── HPL_pdlange.o
+│   │       │   │       ├── HPL_pdlaprnt.o
+│   │       │   │       ├── HPL_pwarn.o
+│   │       │   │       ├── lib.grd
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   ├── pfact
+│   │       │   │   ├── HPL_dlocmax.c
+│   │       │   │   ├── HPL_dlocswpN.c
+│   │       │   │   ├── HPL_dlocswpT.c
+│   │       │   │   ├── HPL_pdfact.c
+│   │       │   │   ├── HPL_pdmxswp.c
+│   │       │   │   ├── HPL_pdpancrN.c
+│   │       │   │   ├── HPL_pdpancrT.c
+│   │       │   │   ├── HPL_pdpanllN.c
+│   │       │   │   ├── HPL_pdpanllT.c
+│   │       │   │   ├── HPL_pdpanrlN.c
+│   │       │   │   ├── HPL_pdpanrlT.c
+│   │       │   │   ├── HPL_pdrpancrN.c
+│   │       │   │   ├── HPL_pdrpancrT.c
+│   │       │   │   ├── HPL_pdrpanllN.c
+│   │       │   │   ├── HPL_pdrpanllT.c
+│   │       │   │   ├── HPL_pdrpanrlN.c
+│   │       │   │   ├── HPL_pdrpanrlT.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── HPL_dlocmax.o
+│   │       │   │       ├── HPL_dlocswpN.o
+│   │       │   │       ├── HPL_dlocswpT.o
+│   │       │   │       ├── HPL_pdfact.o
+│   │       │   │       ├── HPL_pdmxswp.o
+│   │       │   │       ├── HPL_pdpancrN.o
+│   │       │   │       ├── HPL_pdpancrT.o
+│   │       │   │       ├── HPL_pdpanllN.o
+│   │       │   │       ├── HPL_pdpanllT.o
+│   │       │   │       ├── HPL_pdpanrlN.o
+│   │       │   │       ├── HPL_pdpanrlT.o
+│   │       │   │       ├── HPL_pdrpancrN.o
+│   │       │   │       ├── HPL_pdrpancrT.o
+│   │       │   │       ├── HPL_pdrpanllN.o
+│   │       │   │       ├── HPL_pdrpanllT.o
+│   │       │   │       ├── HPL_pdrpanrlN.o
+│   │       │   │       ├── HPL_pdrpanrlT.o
+│   │       │   │       ├── lib.grd
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   └── pgesv
+│   │       │       ├── HPL_equil.c
+│   │       │       ├── HPL_logsort.c
+│   │       │       ├── HPL_pdgesv0.c
+│   │       │       ├── HPL_pdgesv.c
+│   │       │       ├── HPL_pdgesvK1.c
+│   │       │       ├── HPL_pdgesvK2.c
+│   │       │       ├── HPL_pdlaswp00N.c
+│   │       │       ├── HPL_pdlaswp00T.c
+│   │       │       ├── HPL_pdlaswp01N.c
+│   │       │       ├── HPL_pdlaswp01T.c
+│   │       │       ├── HPL_pdtrsv.c
+│   │       │       ├── HPL_pdupdateNN.c
+│   │       │       ├── HPL_pdupdateNT.c
+│   │       │       ├── HPL_pdupdateTN.c
+│   │       │       ├── HPL_pdupdateTT.c
+│   │       │       ├── HPL_perm.c
+│   │       │       ├── HPL_pipid.c
+│   │       │       ├── HPL_plindx0.c
+│   │       │       ├── HPL_plindx10.c
+│   │       │       ├── HPL_plindx1.c
+│   │       │       ├── HPL_rollN.c
+│   │       │       ├── HPL_rollT.c
+│   │       │       ├── HPL_spreadN.c
+│   │       │       ├── HPL_spreadT.c
+│   │       │       └── Linux
+│   │       │           ├── HPL_equil.o
+│   │       │           ├── HPL_logsort.o
+│   │       │           ├── HPL_pdgesv0.o
+│   │       │           ├── HPL_pdgesvK1.o
+│   │       │           ├── HPL_pdgesvK2.o
+│   │       │           ├── HPL_pdgesv.o
+│   │       │           ├── HPL_pdlaswp00N.o
+│   │       │           ├── HPL_pdlaswp00T.o
+│   │       │           ├── HPL_pdlaswp01N.o
+│   │       │           ├── HPL_pdlaswp01T.o
+│   │       │           ├── HPL_pdtrsv.o
+│   │       │           ├── HPL_pdupdateNN.o
+│   │       │           ├── HPL_pdupdateNT.o
+│   │       │           ├── HPL_pdupdateTN.o
+│   │       │           ├── HPL_pdupdateTT.o
+│   │       │           ├── HPL_perm.o
+│   │       │           ├── HPL_pipid.o
+│   │       │           ├── HPL_plindx0.o
+│   │       │           ├── HPL_plindx10.o
+│   │       │           ├── HPL_plindx1.o
+│   │       │           ├── HPL_rollN.o
+│   │       │           ├── HPL_rollT.o
+│   │       │           ├── HPL_spreadN.o
+│   │       │           ├── HPL_spreadT.o
+│   │       │           ├── lib.grd
+│   │       │           ├── Makefile
+│   │       │           └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       ├── testing
+│   │       │   ├── Makefile.am
+│   │       │   ├── Makefile.in
+│   │       │   ├── matgen
+│   │       │   │   ├── HPL_dmatgen.c
+│   │       │   │   ├── HPL_jumpit.c
+│   │       │   │   ├── HPL_ladd.c
+│   │       │   │   ├── HPL_lmul.c
+│   │       │   │   ├── HPL_rand.c
+│   │       │   │   ├── HPL_setran.c
+│   │       │   │   ├── HPL_xjumpm.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── HPL_dmatgen.o
+│   │       │   │       ├── HPL_jumpit.o
+│   │       │   │       ├── HPL_ladd.o
+│   │       │   │       ├── HPL_lmul.o
+│   │       │   │       ├── HPL_rand.o
+│   │       │   │       ├── HPL_setran.o
+│   │       │   │       ├── HPL_xjumpm.o
+│   │       │   │       ├── lib.grd
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   ├── pmatgen
+│   │       │   │   ├── HPL_pdmatgen.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── HPL_pdmatgen.o
+│   │       │   │       ├── lib.grd
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   ├── ptest
+│   │       │   │   ├── HPL.dat
+│   │       │   │   ├── HPL_pddriver.c
+│   │       │   │   ├── HPL_pdinfo.c
+│   │       │   │   ├── HPL_pdtest.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── dexe.grd
+│   │       │   │       ├── HPL_pddriver.o
+│   │       │   │       ├── HPL_pdinfo.o
+│   │       │   │       ├── HPL_pdtest.o
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   ├── ptimer
+│   │       │   │   ├── HPL_ptimer.c
+│   │       │   │   ├── HPL_ptimer_cputime.c
+│   │       │   │   ├── HPL_ptimer_walltime.c
+│   │       │   │   └── Linux
+│   │       │   │       ├── HPL_ptimer_cputime.o
+│   │       │   │       ├── HPL_ptimer.o
+│   │       │   │       ├── HPL_ptimer_walltime.o
+│   │       │   │       ├── lib.grd
+│   │       │   │       ├── Makefile
+│   │       │   │       └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       │   └── timer
+│   │       │       ├── HPL_timer.c
+│   │       │       ├── HPL_timer_cputime.c
+│   │       │       ├── HPL_timer_walltime.c
+│   │       │       └── Linux
+│   │       │           ├── HPL_timer_cputime.o
+│   │       │           ├── HPL_timer.o
+│   │       │           ├── HPL_timer_walltime.o
+│   │       │           ├── lib.grd
+│   │       │           ├── Makefile
+│   │       │           └── Make.inc -> /home/acts/Desktop/Project_final/tools/hpl/hpl-2.3/Make.Linux
+│   │       ├── THANKS
+│   │       ├── TODO
+│   │       ├── TUNING
+│   │       └── www
+│   │           ├── 1ring.jpg
+│   │           ├── 1rinM.jpg
+│   │           ├── 2-273x48.jpg
+│   │           ├── 2ring.jpg
+│   │           ├── 2rinM.jpg
+│   │           ├── algorithm.html
+│   │           ├── aprunner.gif
+│   │           ├── copyright.html
+│   │           ├── documentation.html
+│   │           ├── errata.html
+│   │           ├── faqs.html
+│   │           ├── HPL_abort.html
+│   │           ├── HPL_all_reduce.html
+│   │           ├── HPL_barrier.html
+│   │           ├── HPL_bcast.html
+│   │           ├── HPL_binit.html
+│   │           ├── HPL_broadcast.html
+│   │           ├── HPL_bwait.html
+│   │           ├── HPL_copyL.html
+│   │           ├── HPL_daxpy.html
+│   │           ├── HPL_dcopy.html
+│   │           ├── HPL_dgemm.html
+│   │           ├── HPL_dgemv.html
+│   │           ├── HPL_dger.html
+│   │           ├── HPL_dlacpy.html
+│   │           ├── HPL_dlamch.html
+│   │           ├── HPL_dlange.html
+│   │           ├── HPL_dlaprnt.html
+│   │           ├── HPL_dlaswp00N.html
+│   │           ├── HPL_dlaswp01N.html
+│   │           ├── HPL_dlaswp01T.html
+│   │           ├── HPL_dlaswp02N.html
+│   │           ├── HPL_dlaswp03N.html
+│   │           ├── HPL_dlaswp03T.html
+│   │           ├── HPL_dlaswp04N.html
+│   │           ├── HPL_dlaswp04T.html
+│   │           ├── HPL_dlaswp05N.html
+│   │           ├── HPL_dlaswp05T.html
+│   │           ├── HPL_dlaswp06N.html
+│   │           ├── HPL_dlaswp06T.html
+│   │           ├── HPL_dlaswp10N.html
+│   │           ├── HPL_dlatcpy.html
+│   │           ├── HPL_dlocmax.html
+│   │           ├── HPL_dlocswpN.html
+│   │           ├── HPL_dlocswpT.html
+│   │           ├── HPL_dmatgen.html
+│   │           ├── HPL_dscal.html
+│   │           ├── HPL_dswap.html
+│   │           ├── HPL_dtrsm.html
+│   │           ├── HPL_dtrsv.html
+│   │           ├── HPL_equil.html
+│   │           ├── HPL_fprintf.html
+│   │           ├── HPL_grid_exit.html
+│   │           ├── HPL_grid_info.html
+│   │           ├── HPL_grid_init.html
+│   │           ├── HPL_idamax.html
+│   │           ├── HPL_indxg2l.html
+│   │           ├── HPL_indxg2lp.html
+│   │           ├── HPL_indxg2p.html
+│   │           ├── HPL_indxl2g.html
+│   │           ├── HPL_infog2l.html
+│   │           ├── HPL_jumpit.html
+│   │           ├── HPL_ladd.html
+│   │           ├── HPL_lmul.html
+│   │           ├── HPL_logsort.html
+│   │           ├── HPL_max.html
+│   │           ├── HPL_min.html
+│   │           ├── HPL_numroc.html
+│   │           ├── HPL_numrocI.html
+│   │           ├── HPL_pabort.html
+│   │           ├── HPL_packL.html
+│   │           ├── HPL_pddriver.html
+│   │           ├── HPL_pdfact.html
+│   │           ├── HPL_pdgesv0.html
+│   │           ├── HPL_pdgesv.html
+│   │           ├── HPL_pdgesvK1.html
+│   │           ├── HPL_pdgesvK2.html
+│   │           ├── HPL_pdinfo.html
+│   │           ├── HPL_pdlamch.html
+│   │           ├── HPL_pdlange.html
+│   │           ├── HPL_pdlaprnt.html
+│   │           ├── HPL_pdlaswp00N.html
+│   │           ├── HPL_pdlaswp00T.html
+│   │           ├── HPL_pdlaswp01N.html
+│   │           ├── HPL_pdlaswp01T.html
+│   │           ├── HPL_pdmatgen.html
+│   │           ├── HPL_pdmxswp.html
+│   │           ├── HPL_pdpancrN.html
+│   │           ├── HPL_pdpancrT.html
+│   │           ├── HPL_pdpanel_disp.html
+│   │           ├── HPL_pdpanel_free.html
+│   │           ├── HPL_pdpanel_init.html
+│   │           ├── HPL_pdpanel_new.html
+│   │           ├── HPL_pdpanllN.html
+│   │           ├── HPL_pdpanllT.html
+│   │           ├── HPL_pdpanrlN.html
+│   │           ├── HPL_pdpanrlT.html
+│   │           ├── HPL_pdrpancrN.html
+│   │           ├── HPL_pdrpancrT.html
+│   │           ├── HPL_pdrpanllN.html
+│   │           ├── HPL_pdrpanllT.html
+│   │           ├── HPL_pdrpanrlN.html
+│   │           ├── HPL_pdrpanrlT.html
+│   │           ├── HPL_pdtest.html
+│   │           ├── HPL_pdtrsv.html
+│   │           ├── HPL_pdupdateNN.html
+│   │           ├── HPL_pdupdateNT.html
+│   │           ├── HPL_pdupdateTN.html
+│   │           ├── HPL_pdupdateTT.html
+│   │           ├── HPL_perm.html
+│   │           ├── HPL_pipid.html
+│   │           ├── HPL_plindx0.html
+│   │           ├── HPL_plindx10.html
+│   │           ├── HPL_plindx1.html
+│   │           ├── HPL_pnum.html
+│   │           ├── HPL_ptimer_cputime.html
+│   │           ├── HPL_ptimer.html
+│   │           ├── HPL_ptimer_walltime.html
+│   │           ├── HPL_pwarn.html
+│   │           ├── HPL_rand.html
+│   │           ├── HPL_recv.html
+│   │           ├── HPL_reduce.html
+│   │           ├── HPL_rollN.html
+│   │           ├── HPL_rollT.html
+│   │           ├── HPL_sdrv.html
+│   │           ├── HPL_send.html
+│   │           ├── HPL_setran.html
+│   │           ├── HPL_spreadN.html
+│   │           ├── HPL_spreadT.html
+│   │           ├── HPL_sum.html
+│   │           ├── HPL_timer_cputime.html
+│   │           ├── HPL_timer.html
+│   │           ├── HPL_timer_walltime.html
+│   │           ├── HPL_warn.html
+│   │           ├── HPL_xjumpm.html
+│   │           ├── index.html
+│   │           ├── links.html
+│   │           ├── main.jpg
+│   │           ├── mat2.jpg
+│   │           ├── pfact.jpg
+│   │           ├── references.html
+│   │           ├── results.html
+│   │           ├── roll.jpg
+│   │           ├── rollM.jpg
+│   │           ├── scalability.html
+│   │           ├── software.html
+│   │           ├── spread.jpg
+│   │           ├── spreadM.jpg
+│   │           └── tuning.html
+│   ├── imb
+│   │   ├── IMB-EXT
+│   │   ├── IMB-IO
+│   │   ├── IMB-MPI1
+│   │   ├── IMB-MT
+│   │   ├── IMB-NBC
+│   │   ├── IMB-P2P
+│   │   ├── IMB-RMA
+│   │   ├── license
+│   │   │   ├── license.txt
+│   │   │   ├── third-party-programs.txt
+│   │   │   └── use-of-trademark-license.txt
+│   │   ├── Makefile
+│   │   ├── Makefile_win
+│   │   ├── ReadMe_IMB.txt
+│   │   ├── README.md
+│   │   ├── SECURITY.md
+│   │   ├── src_c
+│   │   │   ├── IMB_2018.c
+│   │   │   ├── IMB_allgather.c
+│   │   │   ├── IMB_allgatherv.c
+│   │   │   ├── IMB_allreduce.c
+│   │   │   ├── IMB_alltoall.c
+│   │   │   ├── IMB_alltoallv.c
+│   │   │   ├── IMB_appl_errors.h
+│   │   │   ├── IMB_bandwidth.c
+│   │   │   ├── IMB_barrier.c
+│   │   │   ├── IMB_bcast.c
+│   │   │   ├── IMB_benchlist.c
+│   │   │   ├── IMB_benchmark.h
+│   │   │   ├── IMB_bnames_ext.h
+│   │   │   ├── IMB_bnames_io.h
+│   │   │   ├── IMB_bnames_mpi1.h
+│   │   │   ├── IMB_bnames_mpi4.h
+│   │   │   ├── IMB_bnames_nbc.h
+│   │   │   ├── IMB_bnames_rma.h
+│   │   │   ├── IMB_cache.h
+│   │   │   ├── IMB_chk_diff.c
+│   │   │   ├── IMB_comments.h
+│   │   │   ├── IMB_comm_info.h
+│   │   │   ├── IMB_cpu_exploit.c
+│   │   │   ├── IMB_cuda_api.c
+│   │   │   ├── IMB_cuda_api.h
+│   │   │   ├── IMB_cuda.c
+│   │   │   ├── IMB_cuda.h
+│   │   │   ├── IMB_declare.c
+│   │   │   ├── IMB_declare.h
+│   │   │   ├── IMB_err_check.h
+│   │   │   ├── IMB_err_handler.c
+│   │   │   ├── IMB_exchange.c
+│   │   │   ├── IMB_gather.c
+│   │   │   ├── IMB_gatherv.c
+│   │   │   ├── IMB_g_info.c
+│   │   │   ├── IMB_gpu_common.c
+│   │   │   ├── IMB_gpu_common.h
+│   │   │   ├── IMB_init.c
+│   │   │   ├── IMB_init_file.c
+│   │   │   ├── IMB_init_transfer.c
+│   │   │   ├── IMB_input.txt
+│   │   │   ├── IMB_mem_info.h
+│   │   │   ├── IMB_mem_manager.c
+│   │   │   ├── IMB_ones_accu.c
+│   │   │   ├── IMB_ones_bidir.c
+│   │   │   ├── IMB_ones_unidir.c
+│   │   │   ├── IMB_open_close.c
+│   │   │   ├── IMB_output.c
+│   │   │   ├── IMB_parse_name_ext.c
+│   │   │   ├── IMB_parse_name_io.c
+│   │   │   ├── IMB_parse_name_mpi1.c
+│   │   │   ├── IMB_parse_name_mpi4.c
+│   │   │   ├── IMB_parse_name_nbc.c
+│   │   │   ├── IMB_parse_name_rma.c
+│   │   │   ├── IMB_pingping.c
+│   │   │   ├── IMB_pingpong.c
+│   │   │   ├── IMB_prototypes.h
+│   │   │   ├── IMB_read.c
+│   │   │   ├── IMB_reduce.c
+│   │   │   ├── IMB_reduce_local.c
+│   │   │   ├── IMB_reduce_scatter_block.c
+│   │   │   ├── IMB_reduce_scatter.c
+│   │   │   ├── IMB_rma_atomic.c
+│   │   │   ├── IMB_rma_get.c
+│   │   │   ├── IMB_rma_put.c
+│   │   │   ├── IMB_scatter.c
+│   │   │   ├── IMB_scatterv.c
+│   │   │   ├── IMB_sendrecv.c
+│   │   │   ├── IMB_settings.h
+│   │   │   ├── IMB_settings_io.h
+│   │   │   ├── IMB_strgs.c
+│   │   │   ├── IMB_user_set_info.c
+│   │   │   ├── IMB_utils.c
+│   │   │   ├── IMB_warm_up.c
+│   │   │   ├── IMB_window.c
+│   │   │   ├── IMB_write.c
+│   │   │   ├── IMB_ze_api.c
+│   │   │   ├── IMB_ze_api.h
+│   │   │   ├── IMB_ze.c
+│   │   │   ├── IMB_ze.h
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile_win
+│   │   │   └── P2P
+│   │   │       ├── IMB-P2P
+│   │   │       ├── imb_p2p_birandom.c
+│   │   │       ├── imb_p2p_birandom.o
+│   │   │       ├── imb_p2p.c
+│   │   │       ├── imb_p2p_corandom.c
+│   │   │       ├── imb_p2p_corandom.o
+│   │   │       ├── imb_p2p.h
+│   │   │       ├── imb_p2p.o
+│   │   │       ├── imb_p2p_pingping.c
+│   │   │       ├── imb_p2p_pingping.o
+│   │   │       ├── imb_p2p_pingpong.c
+│   │   │       ├── imb_p2p_pingpong.o
+│   │   │       ├── imb_p2p_sendrecv_replace.c
+│   │   │       ├── imb_p2p_sendrecv_replace.o
+│   │   │       ├── imb_p2p_stencil2d.c
+│   │   │       ├── imb_p2p_stencil2d.o
+│   │   │       ├── imb_p2p_stencil3d.c
+│   │   │       ├── imb_p2p_stencil3d.o
+│   │   │       ├── imb_p2p_unirandom.c
+│   │   │       ├── imb_p2p_unirandom.o
+│   │   │       └── Makefile
+│   │   ├── src_cpp
+│   │   │   ├── any.h
+│   │   │   ├── args_parser.cpp
+│   │   │   ├── args_parser.h
+│   │   │   ├── args_parser.o
+│   │   │   ├── args_parser_utests.cpp
+│   │   │   ├── args_parser_utests.o
+│   │   │   ├── benchmark.h
+│   │   │   ├── benchmark_suite_base.h
+│   │   │   ├── benchmark_suite.h
+│   │   │   ├── benchmark_suites_collection.cpp
+│   │   │   ├── benchmark_suites_collection.h
+│   │   │   ├── benchmark_suites_collection.o
+│   │   │   ├── example
+│   │   │   │   ├── example_benchmark1.cpp
+│   │   │   │   ├── example_benchmark2.cpp
+│   │   │   │   ├── example_benchmark3.cpp
+│   │   │   │   ├── example_benchmark4.cpp
+│   │   │   │   ├── example_benchmark5.cpp
+│   │   │   │   └── Makefile.example.mk
+│   │   │   ├── EXT
+│   │   │   │   ├── EXT_benchmark.cpp
+│   │   │   │   ├── EXT_benchmark.o
+│   │   │   │   ├── EXT_suite.cpp
+│   │   │   │   ├── EXT_suite.o
+│   │   │   │   ├── IMB_benchlist.o
+│   │   │   │   ├── IMB_chk_diff.o
+│   │   │   │   ├── IMB_declare.o
+│   │   │   │   ├── IMB_err_handler.o
+│   │   │   │   ├── IMB_g_info.o
+│   │   │   │   ├── IMB_init.o
+│   │   │   │   ├── IMB_init_transfer.o
+│   │   │   │   ├── IMB_mem_manager.o
+│   │   │   │   ├── IMB_ones_accu.o
+│   │   │   │   ├── IMB_ones_bidir.o
+│   │   │   │   ├── IMB_ones_unidir.o
+│   │   │   │   ├── IMB_output.o
+│   │   │   │   ├── IMB_parse_name_ext.o
+│   │   │   │   ├── IMB_strgs.o
+│   │   │   │   ├── IMB_user_set_info.o
+│   │   │   │   ├── IMB_utils.o
+│   │   │   │   ├── IMB_warm_up.o
+│   │   │   │   ├── IMB_window.o
+│   │   │   │   ├── Makefile.EXT.mk
+│   │   │   │   └── Makefile_win.EXT.mk
+│   │   │   ├── HALO
+│   │   │   │   ├── halo_benchmark.cpp
+│   │   │   │   ├── halo_benchmark.h
+│   │   │   │   ├── halo_suite.cpp
+│   │   │   │   └── Makefile.HALO.mk
+│   │   │   ├── helpers
+│   │   │   │   ├── helper_IMB_functions.h
+│   │   │   │   ├── Makefile.helpers.mk
+│   │   │   │   ├── Makefile_win.helpers.mk
+│   │   │   │   └── original_benchmark.h
+│   │   │   ├── imb.cpp
+│   │   │   ├── IMB-EXT
+│   │   │   ├── IMB-IO
+│   │   │   ├── IMB-MPI1
+│   │   │   ├── IMB-MT
+│   │   │   ├── IMB-NBC
+│   │   │   ├── imb.o
+│   │   │   ├── IMB-RMA
+│   │   │   ├── IO
+│   │   │   │   ├── IMB_benchlist.o
+│   │   │   │   ├── IMB_chk_diff.o
+│   │   │   │   ├── IMB_cpu_exploit.o
+│   │   │   │   ├── IMB_declare.o
+│   │   │   │   ├── IMB_err_handler.o
+│   │   │   │   ├── IMB_g_info.o
+│   │   │   │   ├── IMB_init_file.o
+│   │   │   │   ├── IMB_init.o
+│   │   │   │   ├── IMB_init_transfer.o
+│   │   │   │   ├── IMB_mem_manager.o
+│   │   │   │   ├── IMB_open_close.o
+│   │   │   │   ├── IMB_output.o
+│   │   │   │   ├── IMB_parse_name_io.o
+│   │   │   │   ├── IMB_read.o
+│   │   │   │   ├── IMB_strgs.o
+│   │   │   │   ├── IMB_user_set_info.o
+│   │   │   │   ├── IMB_utils.o
+│   │   │   │   ├── IMB_warm_up.o
+│   │   │   │   ├── IMB_write.o
+│   │   │   │   ├── IO_benchmark.cpp
+│   │   │   │   ├── IO_benchmark.o
+│   │   │   │   ├── IO_suite.cpp
+│   │   │   │   ├── IO_suite.o
+│   │   │   │   ├── Makefile.IO.mk
+│   │   │   │   └── Makefile_win.IO.mk
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile_win
+│   │   │   ├── MPI1
+│   │   │   │   ├── CPU
+│   │   │   │   │   ├── IMB_allgather.o
+│   │   │   │   │   ├── IMB_allgatherv.o
+│   │   │   │   │   ├── IMB_allreduce.o
+│   │   │   │   │   ├── IMB_alltoall.o
+│   │   │   │   │   ├── IMB_alltoallv.o
+│   │   │   │   │   ├── IMB_bandwidth.o
+│   │   │   │   │   ├── IMB_barrier.o
+│   │   │   │   │   ├── IMB_bcast.o
+│   │   │   │   │   ├── IMB_benchlist.o
+│   │   │   │   │   ├── IMB_chk_diff.o
+│   │   │   │   │   ├── IMB_cpu_exploit.o
+│   │   │   │   │   ├── IMB_declare.o
+│   │   │   │   │   ├── IMB_err_handler.o
+│   │   │   │   │   ├── IMB_exchange.o
+│   │   │   │   │   ├── IMB_gather.o
+│   │   │   │   │   ├── IMB_gatherv.o
+│   │   │   │   │   ├── IMB_g_info.o
+│   │   │   │   │   ├── IMB_init.o
+│   │   │   │   │   ├── IMB_init_transfer.o
+│   │   │   │   │   ├── IMB_mem_manager.o
+│   │   │   │   │   ├── IMB_output.o
+│   │   │   │   │   ├── IMB_parse_name_mpi1.o
+│   │   │   │   │   ├── IMB_pingping.o
+│   │   │   │   │   ├── IMB_pingpong.o
+│   │   │   │   │   ├── IMB_reduce_local.o
+│   │   │   │   │   ├── IMB_reduce.o
+│   │   │   │   │   ├── IMB_reduce_scatter_block.o
+│   │   │   │   │   ├── IMB_reduce_scatter.o
+│   │   │   │   │   ├── IMB_scatter.o
+│   │   │   │   │   ├── IMB_scatterv.o
+│   │   │   │   │   ├── IMB_sendrecv.o
+│   │   │   │   │   ├── IMB_strgs.o
+│   │   │   │   │   ├── IMB_utils.o
+│   │   │   │   │   ├── IMB_warm_up.o
+│   │   │   │   │   ├── MPI1_benchmark.o
+│   │   │   │   │   └── MPI1_suite.o
+│   │   │   │   ├── Makefile.MPI1.mk
+│   │   │   │   ├── Makefile_win.MPI1.mk
+│   │   │   │   ├── MPI1_benchmark.cpp
+│   │   │   │   └── MPI1_suite.cpp
+│   │   │   ├── MPI4
+│   │   │   │   ├── Makefile.MPI4.mk
+│   │   │   │   ├── MPI4_benchmark.cpp
+│   │   │   │   └── MPI4_suite.cpp
+│   │   │   ├── MT
+│   │   │   │   ├── Makefile.MT.mk
+│   │   │   │   ├── Makefile_win.MT.mk
+│   │   │   │   ├── MT_benchmark.cpp
+│   │   │   │   ├── MT_benchmark.h
+│   │   │   │   ├── MT_benchmark.o
+│   │   │   │   ├── MT_suite.cpp
+│   │   │   │   ├── MT_suite.o
+│   │   │   │   └── MT_types.h
+│   │   │   ├── NBC
+│   │   │   │   ├── IMB_allgather.o
+│   │   │   │   ├── IMB_allgatherv.o
+│   │   │   │   ├── IMB_allreduce.o
+│   │   │   │   ├── IMB_alltoall.o
+│   │   │   │   ├── IMB_alltoallv.o
+│   │   │   │   ├── IMB_barrier.o
+│   │   │   │   ├── IMB_bcast.o
+│   │   │   │   ├── IMB_benchlist.o
+│   │   │   │   ├── IMB_chk_diff.o
+│   │   │   │   ├── IMB_cpu_exploit.o
+│   │   │   │   ├── IMB_declare.o
+│   │   │   │   ├── IMB_err_handler.o
+│   │   │   │   ├── IMB_gather.o
+│   │   │   │   ├── IMB_gatherv.o
+│   │   │   │   ├── IMB_g_info.o
+│   │   │   │   ├── IMB_init.o
+│   │   │   │   ├── IMB_init_transfer.o
+│   │   │   │   ├── IMB_mem_manager.o
+│   │   │   │   ├── IMB_output.o
+│   │   │   │   ├── IMB_parse_name_nbc.o
+│   │   │   │   ├── IMB_reduce.o
+│   │   │   │   ├── IMB_reduce_scatter.o
+│   │   │   │   ├── IMB_scatter.o
+│   │   │   │   ├── IMB_scatterv.o
+│   │   │   │   ├── IMB_sendrecv.o
+│   │   │   │   ├── IMB_strgs.o
+│   │   │   │   ├── IMB_utils.o
+│   │   │   │   ├── IMB_warm_up.o
+│   │   │   │   ├── Makefile.NBC.mk
+│   │   │   │   ├── Makefile_win.NBC.mk
+│   │   │   │   ├── NBC_benchmark.cpp
+│   │   │   │   ├── NBC_benchmark.o
+│   │   │   │   ├── NBC_suite.cpp
+│   │   │   │   └── NBC_suite.o
+│   │   │   ├── RMA
+│   │   │   │   ├── CPU
+│   │   │   │   │   ├── IMB_benchlist.o
+│   │   │   │   │   ├── IMB_chk_diff.o
+│   │   │   │   │   ├── IMB_cpu_exploit.o
+│   │   │   │   │   ├── IMB_declare.o
+│   │   │   │   │   ├── IMB_err_handler.o
+│   │   │   │   │   ├── IMB_g_info.o
+│   │   │   │   │   ├── IMB_init.o
+│   │   │   │   │   ├── IMB_init_transfer.o
+│   │   │   │   │   ├── IMB_mem_manager.o
+│   │   │   │   │   ├── IMB_output.o
+│   │   │   │   │   ├── IMB_parse_name_rma.o
+│   │   │   │   │   ├── IMB_rma_atomic.o
+│   │   │   │   │   ├── IMB_rma_get.o
+│   │   │   │   │   ├── IMB_rma_put.o
+│   │   │   │   │   ├── IMB_strgs.o
+│   │   │   │   │   ├── IMB_user_set_info.o
+│   │   │   │   │   ├── IMB_utils.o
+│   │   │   │   │   └── IMB_warm_up.o
+│   │   │   │   ├── Makefile.RMA.mk
+│   │   │   │   ├── Makefile_win.RMA.mk
+│   │   │   │   ├── RMA_benchmark.cpp
+│   │   │   │   ├── RMA_benchmark.o
+│   │   │   │   ├── RMA_suite.cpp
+│   │   │   │   └── RMA_suite.o
+│   │   │   ├── scope.cpp
+│   │   │   ├── scope.h
+│   │   │   ├── scope.o
+│   │   │   ├── smart_ptr.h
+│   │   │   └── utils.h
+│   │   └── WINDOWS
+│   │       ├── IMB-EXT_VS_2017
+│   │       │   ├── IMB-EXT.rc
+│   │       │   ├── IMB-EXT.sln
+│   │       │   ├── IMB-EXT.vcxproj
+│   │       │   └── resource.h
+│   │       ├── IMB-IO_VS_2017
+│   │       │   ├── IMB-IO.rc
+│   │       │   ├── IMB-IO.sln
+│   │       │   ├── IMB-IO.vcxproj
+│   │       │   └── resource.h
+│   │       ├── IMB-MPI1_VS_2017
+│   │       │   ├── IMB-MPI1.rc
+│   │       │   ├── IMB-MPI1.sln
+│   │       │   ├── IMB-MPI1.vcxproj
+│   │       │   └── resource.h
+│   │       ├── IMB-MT_VS_2017
+│   │       │   ├── IMB-MT.rc
+│   │       │   ├── IMB-MT.sln
+│   │       │   ├── IMB-MT.vcxproj
+│   │       │   └── resource.h
+│   │       ├── IMB-NBC_VS_2017
+│   │       │   ├── IMB-NBC.rc
+│   │       │   ├── IMB-NBC.sln
+│   │       │   ├── IMB-NBC.vcxproj
+│   │       │   └── resource.h
+│   │       ├── IMB-P2P_VS_2017
+│   │       │   ├── IMB-P2P.rc
+│   │       │   ├── IMB-P2P.sln
+│   │       │   ├── IMB-P2P.vcxproj
+│   │       │   └── resource.h
+│   │       ├── IMB-RMA_VS_2017
+│   │       │   ├── IMB-RMA.rc
+│   │       │   ├── IMB-RMA.sln
+│   │       │   ├── IMB-RMA.vcxproj
+│   │       │   └── resource.h
+│   │       └── mkvsprojs.sh
+│   ├── ior
+│   │   ├── aclocal.m4
+│   │   ├── AUTHORS
+│   │   ├── autom4te.cache
+│   │   │   ├── output.0
+│   │   │   ├── output.1
+│   │   │   ├── output.2
+│   │   │   ├── requests
+│   │   │   ├── traces.0
+│   │   │   ├── traces.1
+│   │   │   └── traces.2
+│   │   ├── bootstrap
+│   │   ├── config
+│   │   │   ├── ax_prog_cc_mpi.m4
+│   │   │   ├── compile
+│   │   │   ├── config.guess
+│   │   │   ├── config.sub
+│   │   │   ├── depcomp
+│   │   │   ├── install-sh
+│   │   │   ├── missing
+│   │   │   ├── test-driver
+│   │   │   └── x_ac_meta.m4
+│   │   ├── config.log
+│   │   ├── config.status
+│   │   ├── configure
+│   │   ├── configure.ac
+│   │   ├── contrib
+│   │   │   ├── cbif
+│   │   │   ├── cbif.c
+│   │   │   ├── cbif.o
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile.am
+│   │   │   └── Makefile.in
+│   │   ├── COPYRIGHT
+│   │   ├── doc
+│   │   │   ├── doxygen
+│   │   │   │   └── Doxyfile
+│   │   │   ├── image-sources
+│   │   │   │   └── ior-accesses.pptx
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile.am
+│   │   │   ├── Makefile.in
+│   │   │   ├── mdtest.1
+│   │   │   ├── sphinx
+│   │   │   │   ├── changes.rst
+│   │   │   │   ├── conf.py
+│   │   │   │   ├── devDoc
+│   │   │   │   │   ├── CI.rst
+│   │   │   │   │   ├── doxygen.rst
+│   │   │   │   │   └── release.rst
+│   │   │   │   ├── index.rst
+│   │   │   │   ├── intro.rst
+│   │   │   │   ├── README.md
+│   │   │   │   └── userDoc
+│   │   │   │       ├── compatibility.rst
+│   │   │   │       ├── faq.rst
+│   │   │   │       ├── install.rst
+│   │   │   │       ├── options.rst
+│   │   │   │       ├── scripts.rst
+│   │   │   │       ├── tutorial-cache-vs-nocache.png
+│   │   │   │       ├── tutorial-ior-io-pattern.png
+│   │   │   │       ├── tutorial-ior-memPerNode-test.png
+│   │   │   │       ├── tutorial-ior-overflowing-cache.png
+│   │   │   │       ├── tutorial-ior-reorderTasks.png
+│   │   │   │       └── tutorial.rst
+│   │   │   └── USER_GUIDE
+│   │   ├── Makefile
+│   │   ├── Makefile.am
+│   │   ├── Makefile.in
+│   │   ├── META
+│   │   ├── NEWS
+│   │   ├── README_DAOS
+│   │   ├── README_HDF5
+│   │   ├── README_LIBNFS
+│   │   ├── README.md
+│   │   ├── README_S3
+│   │   ├── src
+│   │   │   ├── aiori-aio.c
+│   │   │   ├── aiori.c
+│   │   │   ├── aiori-CEPHFS.c
+│   │   │   ├── aiori-CHFS.c
+│   │   │   ├── aiori-debug.h
+│   │   │   ├── aiori-DFS.c
+│   │   │   ├── aiori-DUMMY.c
+│   │   │   ├── aiori-FINCHFS.c
+│   │   │   ├── aiori-Gfarm.c
+│   │   │   ├── aiori.h
+│   │   │   ├── aiori-HDF5.c
+│   │   │   ├── aiori-HDFS.c
+│   │   │   ├── aiori-IME.c
+│   │   │   ├── aiori-LIBNFS.c
+│   │   │   ├── aiori-LIBNFS.h
+│   │   │   ├── aiori-MMAP.c
+│   │   │   ├── aiori-MPIIO.c
+│   │   │   ├── aiori-NCMPI.c
+│   │   │   ├── aiori-PMDK.c
+│   │   │   ├── aiori-POSIX.c
+│   │   │   ├── aiori-POSIX.h
+│   │   │   ├── aiori-RADOS.c
+│   │   │   ├── aiori-S3-4c.c
+│   │   │   ├── aiori-S3-libs3.c
+│   │   │   ├── build.conf
+│   │   │   ├── config.h
+│   │   │   ├── config.h.in
+│   │   │   ├── ior
+│   │   │   ├── ior-aiori-DUMMY.o
+│   │   │   ├── ior-aiori-MMAP.o
+│   │   │   ├── ior-aiori-MPIIO.o
+│   │   │   ├── ior-aiori.o
+│   │   │   ├── ior-aiori-POSIX.o
+│   │   │   ├── ior.c
+│   │   │   ├── iordef.h
+│   │   │   ├── ior.h
+│   │   │   ├── ior-internal.h
+│   │   │   ├── ior-ior-main.o
+│   │   │   ├── ior-main.c
+│   │   │   ├── ior-output.c
+│   │   │   ├── libaiori.a
+│   │   │   ├── libaiori_a-aiori-DUMMY.o
+│   │   │   ├── libaiori_a-aiori-MMAP.o
+│   │   │   ├── libaiori_a-aiori-MPIIO.o
+│   │   │   ├── libaiori_a-aiori.o
+│   │   │   ├── libaiori_a-aiori-POSIX.o
+│   │   │   ├── libaiori_a-ior.o
+│   │   │   ├── libaiori_a-ior-output.o
+│   │   │   ├── libaiori_a-mdtest.o
+│   │   │   ├── libaiori_a-md-workbench.o
+│   │   │   ├── libaiori_a-option.o
+│   │   │   ├── libaiori_a-parse_options.o
+│   │   │   ├── libaiori_a-utilities.o
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile.am
+│   │   │   ├── Makefile.in
+│   │   │   ├── mdtest
+│   │   │   ├── mdtest-aiori-DUMMY.o
+│   │   │   ├── mdtest-aiori-MMAP.o
+│   │   │   ├── mdtest-aiori-MPIIO.o
+│   │   │   ├── mdtest-aiori.o
+│   │   │   ├── mdtest-aiori-POSIX.o
+│   │   │   ├── mdtest.c
+│   │   │   ├── mdtest.h
+│   │   │   ├── mdtest-main.c
+│   │   │   ├── mdtest-mdtest-main.o
+│   │   │   ├── md-workbench
+│   │   │   ├── md_workbench-aiori-DUMMY.o
+│   │   │   ├── md_workbench-aiori-MMAP.o
+│   │   │   ├── md_workbench-aiori-MPIIO.o
+│   │   │   ├── md_workbench-aiori.o
+│   │   │   ├── md_workbench-aiori-POSIX.o
+│   │   │   ├── md-workbench.c
+│   │   │   ├── md-workbench.h
+│   │   │   ├── md-workbench-main.c
+│   │   │   ├── md_workbench-md-workbench-main.o
+│   │   │   ├── option.c
+│   │   │   ├── option.h
+│   │   │   ├── parse_options.c
+│   │   │   ├── parse_options.h
+│   │   │   ├── stamp-h1
+│   │   │   ├── test
+│   │   │   │   ├── example.c
+│   │   │   │   ├── lib.c
+│   │   │   │   ├── lib.cpp
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── Makefile.am
+│   │   │   │   └── Makefile.in
+│   │   │   ├── utilities.c
+│   │   │   ├── utilities-gpu.cu
+│   │   │   └── utilities.h
+│   │   ├── testing
+│   │   │   ├── basic-tests.sh
+│   │   │   ├── bug-multi-node.conf
+│   │   │   ├── build-hdfs.sh
+│   │   │   ├── build-pnetcdf.sh
+│   │   │   ├── complex-tests.sh
+│   │   │   ├── docker
+│   │   │   │   ├── centos6
+│   │   │   │   │   ├── Dockerfile
+│   │   │   │   │   └── run-test.sh -> ../centos7/run-test.sh
+│   │   │   │   ├── centos7
+│   │   │   │   │   ├── Dockerfile
+│   │   │   │   │   └── run-test.sh
+│   │   │   │   ├── centos8
+│   │   │   │   │   ├── Dockerfile
+│   │   │   │   │   └── run-test.sh
+│   │   │   │   ├── ceph
+│   │   │   │   │   └── NOTES
+│   │   │   │   ├── prepare.sh
+│   │   │   │   ├── README.md
+│   │   │   │   ├── run-all-tests.sh
+│   │   │   │   ├── ubuntu16.04
+│   │   │   │   │   ├── Dockerfile
+│   │   │   │   │   └── run-test.sh
+│   │   │   │   ├── ubuntu22.04
+│   │   │   │   │   ├── Dockerfile
+│   │   │   │   │   └── run-test.sh
+│   │   │   │   └── ubuntu22.04-all-backends
+│   │   │   │       └── Dockerfile
+│   │   │   ├── libnfs
+│   │   │   │   ├── CMakeLists.txt
+│   │   │   │   ├── README.md
+│   │   │   │   └── src
+│   │   │   │       └── aiori-LIBNFS-test.c
+│   │   │   ├── mdtest-patterns
+│   │   │   │   ├── advanced
+│   │   │   │   │   ├── 3.txt
+│   │   │   │   │   ├── 4.txt
+│   │   │   │   │   └── 5.txt
+│   │   │   │   └── basic
+│   │   │   │       ├── 0.txt
+│   │   │   │       ├── 1.txt
+│   │   │   │       ├── 2.txt
+│   │   │   │       └── 3.txt
+│   │   │   ├── s3.sh
+│   │   │   ├── test_comments.ior
+│   │   │   └── test-lib.sh
+│   │   ├── travis-build.sh
+│   │   └── travis-test.sh
+│   ├── netpipe
+│   │   ├── NetPIPE-3.7.2
+│   │   │   ├── bin
+│   │   │   │   ├── feplot
+│   │   │   │   ├── geplot
+│   │   │   │   ├── gnuplot-netpipe.pl
+│   │   │   │   └── nplaunch
+│   │   │   ├── dox
+│   │   │   │   ├── netpipe.1
+│   │   │   │   ├── netpipe_paper.ps
+│   │   │   │   ├── np_cluster2002.pdf
+│   │   │   │   ├── np_euro.pdf
+│   │   │   │   └── README
+│   │   │   ├── hosts
+│   │   │   │   ├── batchLapi
+│   │   │   │   ├── lamhosts
+│   │   │   │   ├── mvich.hosts
+│   │   │   │   ├── mvich.param
+│   │   │   │   ├── NPtcgmsg.p
+│   │   │   │   └── p4hosts
+│   │   │   ├── makefile
+│   │   │   ├── NPmpi
+│   │   │   └── src
+│   │   │       ├── armci.c
+│   │   │       ├── gm.c
+│   │   │       ├── gpshmem.c
+│   │   │       ├── ib.c
+│   │   │       ├── ibv.c
+│   │   │       ├── ipx.c
+│   │   │       ├── knem.c
+│   │   │       ├── lapi.c
+│   │   │       ├── memcpy.c
+│   │   │       ├── mpi2.c
+│   │   │       ├── mpi.c
+│   │   │       ├── MP_memcpy.c
+│   │   │       ├── mx.c
+│   │   │       ├── netpipe.c
+│   │   │       ├── netpipe.h
+│   │   │       ├── pvm.c
+│   │   │       ├── sctp6.c
+│   │   │       ├── sctp.c
+│   │   │       ├── shmem.c
+│   │   │       ├── tcgmsg.c
+│   │   │       ├── tcp6.c
+│   │   │       ├── tcp.c
+│   │   │       ├── udapl.c
+│   │   │       └── vmsplice.c
+│   │   └── netpipe_3.7.2.orig.tar.gz
+│   ├── osu-micro-benchmarks
+│   │   ├── osu-micro-benchmarks-7.3
+│   │   │   ├── aclocal.m4
+│   │   │   ├── autom4te.cache
+│   │   │   │   ├── output.0
+│   │   │   │   ├── output.1
+│   │   │   │   ├── requests
+│   │   │   │   ├── traces.0
+│   │   │   │   └── traces.1
+│   │   │   ├── c
+│   │   │   │   ├── get_local_rank
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── Makefile.am
+│   │   │   │   ├── Makefile.in
+│   │   │   │   ├── mpi
+│   │   │   │   │   ├── collective
+│   │   │   │   │   │   ├── blocking
+│   │   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   │   │   ├── osu_allgather
+│   │   │   │   │   │   │   ├── osu_allgather.c
+│   │   │   │   │   │   │   ├── osu_allgather.o
+│   │   │   │   │   │   │   ├── osu_allgatherv
+│   │   │   │   │   │   │   ├── osu_allgatherv.c
+│   │   │   │   │   │   │   ├── osu_allgatherv.o
+│   │   │   │   │   │   │   ├── osu_allreduce
+│   │   │   │   │   │   │   ├── osu_allreduce.c
+│   │   │   │   │   │   │   ├── osu_allreduce.o
+│   │   │   │   │   │   │   ├── osu_alltoall
+│   │   │   │   │   │   │   ├── osu_alltoall.c
+│   │   │   │   │   │   │   ├── osu_alltoall.o
+│   │   │   │   │   │   │   ├── osu_alltoallv
+│   │   │   │   │   │   │   ├── osu_alltoallv.c
+│   │   │   │   │   │   │   ├── osu_alltoallv.o
+│   │   │   │   │   │   │   ├── osu_alltoallw
+│   │   │   │   │   │   │   ├── osu_alltoallw.c
+│   │   │   │   │   │   │   ├── osu_alltoallw.o
+│   │   │   │   │   │   │   ├── osu_barrier
+│   │   │   │   │   │   │   ├── osu_barrier.c
+│   │   │   │   │   │   │   ├── osu_barrier.o
+│   │   │   │   │   │   │   ├── osu_bcast
+│   │   │   │   │   │   │   ├── osu_bcast.c
+│   │   │   │   │   │   │   ├── osu_bcast.o
+│   │   │   │   │   │   │   ├── osu_gather
+│   │   │   │   │   │   │   ├── osu_gather.c
+│   │   │   │   │   │   │   ├── osu_gather.o
+│   │   │   │   │   │   │   ├── osu_gatherv
+│   │   │   │   │   │   │   ├── osu_gatherv.c
+│   │   │   │   │   │   │   ├── osu_gatherv.o
+│   │   │   │   │   │   │   ├── osu_reduce
+│   │   │   │   │   │   │   ├── osu_reduce.c
+│   │   │   │   │   │   │   ├── osu_reduce.o
+│   │   │   │   │   │   │   ├── osu_reduce_scatter
+│   │   │   │   │   │   │   ├── osu_reduce_scatter.c
+│   │   │   │   │   │   │   ├── osu_reduce_scatter.o
+│   │   │   │   │   │   │   ├── osu_scatter
+│   │   │   │   │   │   │   ├── osu_scatter.c
+│   │   │   │   │   │   │   ├── osu_scatter.o
+│   │   │   │   │   │   │   ├── osu_scatterv
+│   │   │   │   │   │   │   ├── osu_scatterv.c
+│   │   │   │   │   │   │   └── osu_scatterv.o
+│   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   │   ├── neighborhood
+│   │   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   │   │   ├── osu_ineighbor_allgather
+│   │   │   │   │   │   │   ├── osu_ineighbor_allgather.c
+│   │   │   │   │   │   │   ├── osu_ineighbor_allgather.o
+│   │   │   │   │   │   │   ├── osu_ineighbor_allgatherv
+│   │   │   │   │   │   │   ├── osu_ineighbor_allgatherv.c
+│   │   │   │   │   │   │   ├── osu_ineighbor_allgatherv.o
+│   │   │   │   │   │   │   ├── osu_ineighbor_alltoall
+│   │   │   │   │   │   │   ├── osu_ineighbor_alltoall.c
+│   │   │   │   │   │   │   ├── osu_ineighbor_alltoall.o
+│   │   │   │   │   │   │   ├── osu_ineighbor_alltoallv
+│   │   │   │   │   │   │   ├── osu_ineighbor_alltoallv.c
+│   │   │   │   │   │   │   ├── osu_ineighbor_alltoallv.o
+│   │   │   │   │   │   │   ├── osu_ineighbor_alltoallw
+│   │   │   │   │   │   │   ├── osu_ineighbor_alltoallw.c
+│   │   │   │   │   │   │   ├── osu_ineighbor_alltoallw.o
+│   │   │   │   │   │   │   ├── osu_neighbor_allgather
+│   │   │   │   │   │   │   ├── osu_neighbor_allgather.c
+│   │   │   │   │   │   │   ├── osu_neighbor_allgather.o
+│   │   │   │   │   │   │   ├── osu_neighbor_allgatherv
+│   │   │   │   │   │   │   ├── osu_neighbor_allgatherv.c
+│   │   │   │   │   │   │   ├── osu_neighbor_allgatherv.o
+│   │   │   │   │   │   │   ├── osu_neighbor_alltoall
+│   │   │   │   │   │   │   ├── osu_neighbor_alltoall.c
+│   │   │   │   │   │   │   ├── osu_neighbor_alltoall.o
+│   │   │   │   │   │   │   ├── osu_neighbor_alltoallv
+│   │   │   │   │   │   │   ├── osu_neighbor_alltoallv.c
+│   │   │   │   │   │   │   ├── osu_neighbor_alltoallv.o
+│   │   │   │   │   │   │   ├── osu_neighbor_alltoallw
+│   │   │   │   │   │   │   ├── osu_neighbor_alltoallw.c
+│   │   │   │   │   │   │   └── osu_neighbor_alltoallw.o
+│   │   │   │   │   │   ├── non_blocking
+│   │   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   │   │   ├── osu_iallgather
+│   │   │   │   │   │   │   ├── osu_iallgather.c
+│   │   │   │   │   │   │   ├── osu_iallgather.o
+│   │   │   │   │   │   │   ├── osu_iallgatherv
+│   │   │   │   │   │   │   ├── osu_iallgatherv.c
+│   │   │   │   │   │   │   ├── osu_iallgatherv.o
+│   │   │   │   │   │   │   ├── osu_iallreduce
+│   │   │   │   │   │   │   ├── osu_iallreduce.c
+│   │   │   │   │   │   │   ├── osu_iallreduce.o
+│   │   │   │   │   │   │   ├── osu_ialltoall
+│   │   │   │   │   │   │   ├── osu_ialltoall.c
+│   │   │   │   │   │   │   ├── osu_ialltoall.o
+│   │   │   │   │   │   │   ├── osu_ialltoallv
+│   │   │   │   │   │   │   ├── osu_ialltoallv.c
+│   │   │   │   │   │   │   ├── osu_ialltoallv.o
+│   │   │   │   │   │   │   ├── osu_ialltoallw
+│   │   │   │   │   │   │   ├── osu_ialltoallw.c
+│   │   │   │   │   │   │   ├── osu_ialltoallw.o
+│   │   │   │   │   │   │   ├── osu_ibarrier
+│   │   │   │   │   │   │   ├── osu_ibarrier.c
+│   │   │   │   │   │   │   ├── osu_ibarrier.o
+│   │   │   │   │   │   │   ├── osu_ibcast
+│   │   │   │   │   │   │   ├── osu_ibcast.c
+│   │   │   │   │   │   │   ├── osu_ibcast.o
+│   │   │   │   │   │   │   ├── osu_igather
+│   │   │   │   │   │   │   ├── osu_igather.c
+│   │   │   │   │   │   │   ├── osu_igather.o
+│   │   │   │   │   │   │   ├── osu_igatherv
+│   │   │   │   │   │   │   ├── osu_igatherv.c
+│   │   │   │   │   │   │   ├── osu_igatherv.o
+│   │   │   │   │   │   │   ├── osu_ireduce
+│   │   │   │   │   │   │   ├── osu_ireduce.c
+│   │   │   │   │   │   │   ├── osu_ireduce.o
+│   │   │   │   │   │   │   ├── osu_ireduce_scatter
+│   │   │   │   │   │   │   ├── osu_ireduce_scatter.c
+│   │   │   │   │   │   │   ├── osu_ireduce_scatter.o
+│   │   │   │   │   │   │   ├── osu_iscatter
+│   │   │   │   │   │   │   ├── osu_iscatter.c
+│   │   │   │   │   │   │   ├── osu_iscatter.o
+│   │   │   │   │   │   │   ├── osu_iscatterv
+│   │   │   │   │   │   │   ├── osu_iscatterv.c
+│   │   │   │   │   │   │   └── osu_iscatterv.o
+│   │   │   │   │   │   └── persistent
+│   │   │   │   │   │       ├── Makefile
+│   │   │   │   │   │       ├── Makefile.am
+│   │   │   │   │   │       ├── Makefile.in
+│   │   │   │   │   │       ├── osu_allgather_persistent.c
+│   │   │   │   │   │       ├── osu_allgatherv_persistent.c
+│   │   │   │   │   │       ├── osu_allreduce_persistent.c
+│   │   │   │   │   │       ├── osu_alltoall_persistent.c
+│   │   │   │   │   │       ├── osu_alltoallv_persistent.c
+│   │   │   │   │   │       ├── osu_alltoallw_persistent.c
+│   │   │   │   │   │       ├── osu_barrier_persistent.c
+│   │   │   │   │   │       ├── osu_bcast_persistent.c
+│   │   │   │   │   │       ├── osu_gather_persistent.c
+│   │   │   │   │   │       ├── osu_gatherv_persistent.c
+│   │   │   │   │   │       ├── osu_reduce_persistent.c
+│   │   │   │   │   │       ├── osu_reduce_scatter_persistent.c
+│   │   │   │   │   │       ├── osu_scatter_persistent.c
+│   │   │   │   │   │       └── osu_scatterv_persistent.c
+│   │   │   │   │   ├── Makefile
+│   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   ├── one-sided
+│   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   │   ├── osu_acc_latency
+│   │   │   │   │   │   ├── osu_acc_latency.c
+│   │   │   │   │   │   ├── osu_acc_latency.o
+│   │   │   │   │   │   ├── osu_cas_latency
+│   │   │   │   │   │   ├── osu_cas_latency.c
+│   │   │   │   │   │   ├── osu_cas_latency.o
+│   │   │   │   │   │   ├── osu_fop_latency
+│   │   │   │   │   │   ├── osu_fop_latency.c
+│   │   │   │   │   │   ├── osu_fop_latency.o
+│   │   │   │   │   │   ├── osu_get_acc_latency
+│   │   │   │   │   │   ├── osu_get_acc_latency.c
+│   │   │   │   │   │   ├── osu_get_acc_latency.o
+│   │   │   │   │   │   ├── osu_get_bw
+│   │   │   │   │   │   ├── osu_get_bw.c
+│   │   │   │   │   │   ├── osu_get_bw.o
+│   │   │   │   │   │   ├── osu_get_latency
+│   │   │   │   │   │   ├── osu_get_latency.c
+│   │   │   │   │   │   ├── osu_get_latency.o
+│   │   │   │   │   │   ├── osu_put_bibw
+│   │   │   │   │   │   ├── osu_put_bibw.c
+│   │   │   │   │   │   ├── osu_put_bibw.o
+│   │   │   │   │   │   ├── osu_put_bw
+│   │   │   │   │   │   ├── osu_put_bw.c
+│   │   │   │   │   │   ├── osu_put_bw.o
+│   │   │   │   │   │   ├── osu_put_latency
+│   │   │   │   │   │   ├── osu_put_latency.c
+│   │   │   │   │   │   └── osu_put_latency.o
+│   │   │   │   │   ├── pt2pt
+│   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   │   ├── persistent
+│   │   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   │   │   ├── osu_bibw_persistent
+│   │   │   │   │   │   │   ├── osu_bibw_persistent.c
+│   │   │   │   │   │   │   ├── osu_bibw_persistent.o
+│   │   │   │   │   │   │   ├── osu_bw_persistent
+│   │   │   │   │   │   │   ├── osu_bw_persistent.c
+│   │   │   │   │   │   │   ├── osu_bw_persistent.o
+│   │   │   │   │   │   │   ├── osu_latency_persistent
+│   │   │   │   │   │   │   ├── osu_latency_persistent.c
+│   │   │   │   │   │   │   └── osu_latency_persistent.o
+│   │   │   │   │   │   └── standard
+│   │   │   │   │   │       ├── Makefile
+│   │   │   │   │   │       ├── Makefile.am
+│   │   │   │   │   │       ├── Makefile.in
+│   │   │   │   │   │       ├── osu_bibw
+│   │   │   │   │   │       ├── osu_bibw.c
+│   │   │   │   │   │       ├── osu_bibw.o
+│   │   │   │   │   │       ├── osu_bw
+│   │   │   │   │   │       ├── osu_bw.c
+│   │   │   │   │   │       ├── osu_bw.o
+│   │   │   │   │   │       ├── osu_latency
+│   │   │   │   │   │       ├── osu_latency.c
+│   │   │   │   │   │       ├── osu_latency_mp
+│   │   │   │   │   │       ├── osu_latency_mp.c
+│   │   │   │   │   │       ├── osu_latency_mp.o
+│   │   │   │   │   │       ├── osu_latency_mt
+│   │   │   │   │   │       ├── osu_latency_mt.c
+│   │   │   │   │   │       ├── osu_latency_mt.o
+│   │   │   │   │   │       ├── osu_latency.o
+│   │   │   │   │   │       ├── osu_mbw_mr
+│   │   │   │   │   │       ├── osu_mbw_mr.c
+│   │   │   │   │   │       ├── osu_mbw_mr.o
+│   │   │   │   │   │       ├── osu_multi_lat
+│   │   │   │   │   │       ├── osu_multi_lat.c
+│   │   │   │   │   │       └── osu_multi_lat.o
+│   │   │   │   │   └── startup
+│   │   │   │   │       ├── Makefile
+│   │   │   │   │       ├── Makefile.am
+│   │   │   │   │       ├── Makefile.in
+│   │   │   │   │       ├── osu_hello
+│   │   │   │   │       ├── osu_hello.c
+│   │   │   │   │       ├── osu_hello.o
+│   │   │   │   │       ├── osu_init
+│   │   │   │   │       ├── osu_init.c
+│   │   │   │   │       └── osu_init.o
+│   │   │   │   ├── openshmem
+│   │   │   │   │   ├── Makefile
+│   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   ├── osu_oshm_atomics.c
+│   │   │   │   │   ├── osu_oshm_barrier.c
+│   │   │   │   │   ├── osu_oshm_broadcast.c
+│   │   │   │   │   ├── osu_oshm_collect.c
+│   │   │   │   │   ├── osu_oshm_fcollect.c
+│   │   │   │   │   ├── osu_oshm_get.c
+│   │   │   │   │   ├── osu_oshm_get_mr_nb.c
+│   │   │   │   │   ├── osu_oshm_get_nb.c
+│   │   │   │   │   ├── osu_oshm_put.c
+│   │   │   │   │   ├── osu_oshm_put_mr.c
+│   │   │   │   │   ├── osu_oshm_put_mr_nb.c
+│   │   │   │   │   ├── osu_oshm_put_nb.c
+│   │   │   │   │   ├── osu_oshm_put_overlap.c
+│   │   │   │   │   └── osu_oshm_reduce.c
+│   │   │   │   ├── upc
+│   │   │   │   │   ├── Makefile
+│   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   ├── osu_upc_all_barrier.c
+│   │   │   │   │   ├── osu_upc_all_broadcast.c
+│   │   │   │   │   ├── osu_upc_all_exchange.c
+│   │   │   │   │   ├── osu_upc_all_gather_all.c
+│   │   │   │   │   ├── osu_upc_all_gather.c
+│   │   │   │   │   ├── osu_upc_all_reduce.c
+│   │   │   │   │   ├── osu_upc_all_scatter.c
+│   │   │   │   │   ├── osu_upc_memget.c
+│   │   │   │   │   └── osu_upc_memput.c
+│   │   │   │   ├── upcxx
+│   │   │   │   │   ├── Makefile
+│   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   ├── Makefile.in
+│   │   │   │   │   ├── osu_upcxx_allgather.cpp
+│   │   │   │   │   ├── osu_upcxx_alltoall.cpp
+│   │   │   │   │   ├── osu_upcxx_async_copy_get.cpp
+│   │   │   │   │   ├── osu_upcxx_async_copy_put.cpp
+│   │   │   │   │   ├── osu_upcxx_bcast.cpp
+│   │   │   │   │   ├── osu_upcxx_gather.cpp
+│   │   │   │   │   ├── osu_upcxx_reduce.cpp
+│   │   │   │   │   └── osu_upcxx_scatter.cpp
+│   │   │   │   ├── util
+│   │   │   │   │   ├── ddt_sample.txt
+│   │   │   │   │   ├── kernel.cu
+│   │   │   │   │   ├── nhbrhd_graph.adj
+│   │   │   │   │   ├── osu_util.c
+│   │   │   │   │   ├── osu_util_graph.c
+│   │   │   │   │   ├── osu_util_graph.h
+│   │   │   │   │   ├── osu_util_graph.o
+│   │   │   │   │   ├── osu_util.h
+│   │   │   │   │   ├── osu_util_mpi.c
+│   │   │   │   │   ├── osu_util_mpi.h
+│   │   │   │   │   ├── osu_util_mpi.o
+│   │   │   │   │   ├── osu_util.o
+│   │   │   │   │   ├── osu_util_options.h
+│   │   │   │   │   ├── osu_util_papi.c
+│   │   │   │   │   ├── osu_util_papi.h
+│   │   │   │   │   ├── osu_util_papi.o
+│   │   │   │   │   ├── osu_util_pgas.c
+│   │   │   │   │   ├── osu_util_pgas.h
+│   │   │   │   │   ├── osu_util_validation.c
+│   │   │   │   │   └── osu_util_validation.o
+│   │   │   │   └── xccl
+│   │   │   │       ├── collective
+│   │   │   │       │   ├── Makefile
+│   │   │   │       │   ├── Makefile.am
+│   │   │   │       │   ├── Makefile.in
+│   │   │   │       │   ├── osu_xccl_allgather.c
+│   │   │   │       │   ├── osu_xccl_allreduce.c
+│   │   │   │       │   ├── osu_xccl_alltoall.c
+│   │   │   │       │   ├── osu_xccl_bcast.c
+│   │   │   │       │   ├── osu_xccl_reduce.c
+│   │   │   │       │   └── osu_xccl_reduce_scatter.c
+│   │   │   │       ├── Makefile
+│   │   │   │       ├── Makefile.am
+│   │   │   │       ├── Makefile.in
+│   │   │   │       ├── pt2pt
+│   │   │   │       │   ├── Makefile
+│   │   │   │       │   ├── Makefile.am
+│   │   │   │       │   ├── Makefile.in
+│   │   │   │       │   ├── osu_xccl_bibw.c
+│   │   │   │       │   ├── osu_xccl_bw.c
+│   │   │   │       │   └── osu_xccl_latency.c
+│   │   │   │       └── util
+│   │   │   │           ├── nccl
+│   │   │   │           │   ├── osu_util_nccl_impl.c
+│   │   │   │           │   └── osu_util_nccl_impl.h
+│   │   │   │           ├── osu_util_xccl_interface.c
+│   │   │   │           ├── osu_util_xccl_interface.h
+│   │   │   │           └── rccl
+│   │   │   │               ├── osu_util_rccl_impl.c
+│   │   │   │               └── osu_util_rccl_impl.h
+│   │   │   ├── CHANGES
+│   │   │   ├── compile
+│   │   │   ├── config.guess
+│   │   │   ├── config.log
+│   │   │   ├── config.status
+│   │   │   ├── config.sub
+│   │   │   ├── configure
+│   │   │   ├── configure.ac
+│   │   │   ├── COPYRIGHT
+│   │   │   ├── depcomp
+│   │   │   ├── install-sh
+│   │   │   ├── java
+│   │   │   │   ├── mpi
+│   │   │   │   │   ├── collective
+│   │   │   │   │   │   ├── OSUAllgather.java
+│   │   │   │   │   │   ├── OSUAllgatherv.java
+│   │   │   │   │   │   ├── OSUAllReduce.java
+│   │   │   │   │   │   ├── OSUAlltoall.java
+│   │   │   │   │   │   ├── OSUAlltoallv.java
+│   │   │   │   │   │   ├── OSUBarrier.java
+│   │   │   │   │   │   ├── OSUBcast.java
+│   │   │   │   │   │   ├── OSUGather.java
+│   │   │   │   │   │   ├── OSUGatherv.java
+│   │   │   │   │   │   ├── OSUReduce.java
+│   │   │   │   │   │   ├── OSUReduceScatter.java
+│   │   │   │   │   │   ├── OSUScatter.java
+│   │   │   │   │   │   └── OSUScatterv.java
+│   │   │   │   │   ├── common
+│   │   │   │   │   │   └── BenchmarkUtils.java
+│   │   │   │   │   ├── pt2pt
+│   │   │   │   │   │   ├── OSUBandwidth.java
+│   │   │   │   │   │   ├── OSUBandwidthOMPI.java
+│   │   │   │   │   │   ├── OSUBiBandwidth.java
+│   │   │   │   │   │   ├── OSUBiBandwidthOMPI.java
+│   │   │   │   │   │   └── OSULatency.java
+│   │   │   │   │   └── startup
+│   │   │   │   │       ├── HelloWorld.java
+│   │   │   │   │       └── OMPIHelloWorld.java
+│   │   │   │   └── README
+│   │   │   ├── libtool
+│   │   │   ├── ltmain.sh
+│   │   │   ├── maint
+│   │   │   │   └── omb-format.pl
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile.am
+│   │   │   ├── Makefile.in
+│   │   │   ├── map_rank_to_gpu
+│   │   │   ├── missing
+│   │   │   ├── python
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── Makefile.am
+│   │   │   │   ├── mpi
+│   │   │   │   │   ├── collective
+│   │   │   │   │   │   ├── __init__.py
+│   │   │   │   │   │   ├── Makefile.am
+│   │   │   │   │   │   ├── osu_allgather.py
+│   │   │   │   │   │   ├── osu_allgatherv.py
+│   │   │   │   │   │   ├── osu_allreduce.py
+│   │   │   │   │   │   ├── osu_alltoall.py
+│   │   │   │   │   │   ├── osu_alltoallv.py
+│   │   │   │   │   │   ├── osu_barrier.py
+│   │   │   │   │   │   ├── osu_bcast.py
+│   │   │   │   │   │   ├── osu_gather.py
+│   │   │   │   │   │   ├── osu_gatherv.py
+│   │   │   │   │   │   ├── osu_reduce.py
+│   │   │   │   │   │   ├── osu_reduce_scatter.py
+│   │   │   │   │   │   ├── osu_scatter.py
+│   │   │   │   │   │   └── osu_scatterv.py
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── pt2pt
+│   │   │   │   │       ├── __init__.py
+│   │   │   │   │       ├── Makefile.am
+│   │   │   │   │       ├── osu_bibw.py
+│   │   │   │   │       ├── osu_bw.py
+│   │   │   │   │       ├── osu_latency.py
+│   │   │   │   │       └── osu_multi_lat.py
+│   │   │   │   ├── README
+│   │   │   │   ├── run.py
+│   │   │   │   └── util
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── Makefile.am
+│   │   │   │       ├── options.py
+│   │   │   │       ├── osu_util_mpi.py
+│   │   │   │       └── parser.py
+│   │   │   └── README
+│   │   └── osu-micro-benchmarks-7.3.tar.gz
+│   └── stream
+│       ├── stream
+│       └── stream.c
+└── utils
+    ├── auto_params
+    │   ├── base.py
+    │   ├── engine.py
+    │   ├── fio.py
+    │   ├── graph500.py
+    │   ├── hpcc.py
+    │   ├── hpcg.py
+    │   ├── hpl.py
+    │   ├── imb.py
+    │   ├── __init__.py
+    │   ├── ior.py
+    │   ├── iperf3.py
+    │   ├── netpipe.py
+    │   ├── osu.py
+    │   └── stream.py
+    ├── __init__.py
+    ├── logger.py
+    ├── parsers.py
+    ├── results.py
+    ├── shell.py
+    ├── system_info_hpl.py
+    └── system_info_osu.py
+
+535 directories, 3919 files
