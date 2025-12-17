@@ -1,0 +1,66 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "hpc-bench",
+    "title": "HPC Benchmark Dashboard",
+    "timezone": "browser",
+    "schemaVersion": 38,
+    "version": 2,
+    "refresh": "10s",
+    "panels": [
+      {
+        "type": "timeseries",
+        "title": "CPU Sysbench Events/sec",
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "last_over_time(hpc_benchmark_sysbench_events{job=\"hpc_benchmarks\"}[24h])",
+            "legendFormat": "Sysbench CPU",
+            "refId": "A"
+          }
+        ],
+        "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 }
+      },
+      {
+        "type": "timeseries",
+        "title": "STREAM Memory Bandwidth (MB/s)",
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "last_over_time(hpc_benchmark_stream_triad_bw_mbps{job=\"hpc_benchmarks\"}[24h])",
+            "legendFormat": "STREAM Triad",
+            "refId": "A"
+          }
+        ],
+        "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 }
+      },
+      {
+        "type": "timeseries",
+        "title": "FIO Read IOPS",
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "last_over_time(hpc_benchmark_fio_read_iops{job=\"hpc_benchmarks\"}[24h])",
+            "legendFormat": "FIO IOPS",
+            "refId": "A"
+          }
+        ],
+        "gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 }
+      },
+      {
+        "type": "timeseries",
+        "title": "HPL Linpack GFLOPS",
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "last_over_time(hpc_benchmark_hpl_gflops{job=\"hpc_benchmarks\"}[24h])",
+            "legendFormat": "HPL GFLOPS",
+            "refId": "A"
+          }
+        ],
+        "gridPos": { "x": 12, "y": 8, "w": 12, "h": 8 }
+      }
+    ]
+  },
+  "overwrite": true
+}

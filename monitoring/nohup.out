@@ -1,0 +1,16 @@
+ts=2025-12-17T02:44:07.226Z caller=main.go:473 level=error msg="Error loading config (--config.file=monitoring/prometheus.yml)" file=/home/acts/Desktop/Project_final/monitoring/monitoring/prometheus.yml err="open monitoring/prometheus.yml: no such file or directory"
+ts=2025-12-17T02:45:52.773Z caller=main.go:473 level=error msg="Error loading config (--config.file=monitoring/prometheus.yml)" file=/home/acts/Desktop/Project_final/monitoring/monitoring/prometheus.yml err="open monitoring/prometheus.yml: no such file or directory"
+ts=2025-12-17T02:46:16.104Z caller=main.go:525 level=info msg="No time or size retention was set so using the default time retention" duration=15d
+ts=2025-12-17T02:46:16.104Z caller=main.go:563 level=info msg="Starting Prometheus Server" mode=server version="(version=2.45.3+ds, branch=debian/sid, revision=2.45.3+ds-2ubuntu0.3)"
+ts=2025-12-17T02:46:16.104Z caller=main.go:568 level=info build_context="(go=go1.22.2, platform=linux/amd64, user=team+pkg-go@tracker.debian.org, date=20250721-00:51:10, tags=unknown)"
+ts=2025-12-17T02:46:16.104Z caller=main.go:569 level=info host_details="(Linux 6.14.0-37-generic #37~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 20 10:25:38 UTC 2 x86_64 rahul (none))"
+ts=2025-12-17T02:46:16.104Z caller=main.go:570 level=info fd_limits="(soft=1048576, hard=1048576)"
+ts=2025-12-17T02:46:16.104Z caller=main.go:571 level=info vm_limits="(soft=unlimited, hard=unlimited)"
+ts=2025-12-17T02:46:16.104Z caller=query_logger.go:91 level=error component=activeQueryTracker msg="Error opening query log file" file=/var/lib/prometheus/metrics2/queries.active err="open /var/lib/prometheus/metrics2/queries.active: permission denied"
+panic: Unable to create mmap-ed active query log
+
+goroutine 1 [running]:
+github.com/prometheus/prometheus/promql.NewActiveQueryTracker({0x2267419, 0x1d}, 0x14, {0x288aa20, 0xc00001f360})
+	github.com/prometheus/prometheus/promql/query_logger.go:121 +0x3c6
+main.main()
+	github.com/prometheus/prometheus/cmd/prometheus/main.go:625 +0x7185
