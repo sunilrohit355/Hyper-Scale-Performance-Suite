@@ -1,0 +1,39 @@
+# --- Core Python Utilities ---
+pyyaml==6.0.1
+requests==2.31.0
+psutil==5.9.8
+numpy==1.26.4
+pandas==2.2.0
+
+# --- Logging & Formatting ---
+rich==13.7.0
+colorlog==6.8.2
+
+# --- Async & Process Management ---
+aiofiles==23.2.1
+tqdm==4.66.2
+
+# --- Prometheus Exporter ---
+prometheus_client==0.19.0
+
+# --- GPU / CUDA Support ---
+cupy-cuda12x==12.3.0
+numba==0.59.0
+pycuda==2024.1
+
+# --- MPI Support ---
+mpi4py==3.1.5
+
+# --- Benchmark Output Parsing ---
+regex==2023.12.25
+matplotlib==3.8.2
+
+# --- System Interaction ---
+paramiko==3.4.0
+fabric==3.2.2
+
+# --- Config Validation ---
+jsonschema==4.21.1
+
+# --- Dashboard Template Generation ---
+jinja2==3.1.3
